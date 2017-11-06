@@ -197,7 +197,7 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="introduce" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUz-xD-Usv">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="introduce" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUz-xD-Usv">
                                             <rect key="frame" x="10" y="109.66666666666669" width="365" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="ut2-lY-SVR"/>
@@ -219,6 +219,7 @@
                                         <constraint firstAttribute="trailing" secondItem="mkX-4a-KQb" secondAttribute="trailing" id="QWj-Sy-rZh"/>
                                         <constraint firstItem="a0L-QL-Cpu" firstAttribute="top" secondItem="acB-q5-fPU" secondAttribute="top" constant="10" id="RVe-xg-rom"/>
                                         <constraint firstAttribute="bottom" secondItem="MUz-xD-Usv" secondAttribute="bottom" constant="10" id="xZu-ru-8bs"/>
+                                        <constraint firstItem="MUz-xD-Usv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="a0L-QL-Cpu" secondAttribute="bottom" constant="50" id="zVh-sB-zxK"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

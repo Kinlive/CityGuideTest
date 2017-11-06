@@ -12,6 +12,12 @@ import UIKit
 var cityListModel = CityListModel.standard()
 var typeListModel = TypeListModel.standard()
 var brandListModel = BrandListModel.standard()
+var cityDetailListModel = CityDetailListModel.standard()
+
+var saveInfoStruct = SaveInfoStruct.standard()
+
+
+
 
 let standardImageModel = ImageDataModel.standard()
 
@@ -136,17 +142,24 @@ class SecondViewController: UIViewController {
      */
     @objc func onSegementedControlSelect(sender: UISegmentedControl){
         
+   
+        
         print("Now is \(sender.selectedSegmentIndex) be selected ")
         
         print(sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "No selected")
         
         switch sender.selectedSegmentIndex{
             case 0:
-                typeListCoordinator.segmentTitle = .cities
+                
+                saveInfoStruct.setWhich(segmentTitle: .cities)
+                
             case 1:
-                typeListCoordinator.segmentTitle = .types
+//                typeListCoordinator.segmentTitle = .types
+                saveInfoStruct.setWhich(segmentTitle: .types)
+            
             case 2:
-                typeListCoordinator.segmentTitle = .brands
+//                typeListCoordinator.segmentTitle = .brands
+                saveInfoStruct.setWhich(segmentTitle: .brands)
             
             default:
                 break

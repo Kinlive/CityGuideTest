@@ -10,9 +10,39 @@ import UIKit
 
 class SubSortTableViewController: UITableViewController {
 
+    let communicator = Communicator()
+    
+//    var segmentTitle: WhichAPIGet = .brandDetail
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        guard
+            let urlStr = saveInfoStruct.whichUrlStr,
+            let whichApiGet = saveInfoStruct.getWhichSelectedAPI()
+        else { return }
+        
+        communicator.connectToService(urlStr: urlStr , whichApiGet: whichApiGet, completion: { (success) in
+            if success {
+                print("Connect  ok!")
+                
+                //put segue on here , let it be request end to go next view
+                
+                DispatchQueue.main.async {
+                    
+                    self.tableView.reloadData()
+                    
+                }
+                
+                
+                
+            }else {
+                print("Connect Fail...")
+            }
+        })
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,20 +59,37 @@ class SubSortTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return cityDetailListModel.cityDetailList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: subSortTableViewCellId, for: indexPath)
 
-        
-        
+        if let cell = cell as? SubSortTableViewCell,
+            let segmentTitle = saveInfoStruct.getWhichSegmentedTitle(){
+            
+            
+            switch segmentTitle{
+            
+                case .cities:
+                    cell.subSortTitle.text = cityDetailListModel.cityDetailList[indexPath.row].name
+                    cell.subSortSummery.text = cityDetailListModel.cityDetailList[indexPath.row].summary
+                case .brands:
+                    print("nothing")
+                
+                case .types:
+                    print("nothing")
+            }
+            
+        }
         // Configure the cell...
 
         return cell

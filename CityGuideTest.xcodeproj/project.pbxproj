@@ -32,6 +32,7 @@
 		1179AF771FA6BDB500985C5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1179AF751FA6BDB500985C5F /* LaunchScreen.storyboard */; };
 		1179AF821FA6BDB600985C5F /* CityGuideTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1179AF811FA6BDB600985C5F /* CityGuideTestTests.swift */; };
 		1179AF8D1FA6BDB600985C5F /* CityGuideTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1179AF8C1FA6BDB600985C5F /* CityGuideTestUITests.swift */; };
+		11AFAEAC1FB0157700960D2C /* SaveInfoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AFAEAB1FB0157700960D2C /* SaveInfoStruct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		1179AF881FA6BDB600985C5F /* CityGuideTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityGuideTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1179AF8C1FA6BDB600985C5F /* CityGuideTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityGuideTestUITests.swift; sourceTree = "<group>"; };
 		1179AF8E1FA6BDB600985C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11AFAEAB1FB0157700960D2C /* SaveInfoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveInfoStruct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				112D12A01FA972D6003B7905 /* ImageDataModel.swift */,
+				11AFAEAB1FB0157700960D2C /* SaveInfoStruct.swift */,
 				112EEA721FAC5D48009D7E40 /* DetailList */,
 				112EEA711FAC5D28009D7E40 /* List */,
 			);
@@ -366,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				112EEA701FAC5CC8009D7E40 /* Extension.swift in Sources */,
+				11AFAEAC1FB0157700960D2C /* SaveInfoStruct.swift in Sources */,
 				1157A6981FAB0F2E00D22039 /* Communicator.swift in Sources */,
 				113505B51FA84804001EB496 /* SecondViewController.swift in Sources */,
 				1179AF6F1FA6BDB500985C5F /* ViewController.swift in Sources */,

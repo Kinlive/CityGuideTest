@@ -47,7 +47,7 @@ struct CityDetailListModel{
 }
 
 ///City struct
-
+//Test for git
 struct CityDetailObject{
     let number: String
     let name: String

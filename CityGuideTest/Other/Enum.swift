@@ -37,3 +37,8 @@ enum WhichAPIGet{
     
     
 }
+
+//struct SaveWhichAPIGet {
+//     var whichSelect: WhichAPIGet
+//}
+

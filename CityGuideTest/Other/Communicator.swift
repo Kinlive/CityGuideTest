@@ -85,6 +85,8 @@ class Communicator: NSObject{
             
             case .cityDetail:
                 print("CityDetail")
+                guard let finalJson = json as? [[String : Any ]] else { return }
+                handleCityDetailList(json: finalJson, completion: completion)
             
             case .typeDetail:
                 print("TypeDetail")
@@ -163,6 +165,22 @@ class Communicator: NSObject{
         
     }
     
+    //MARK: - handelCityDetailList func
+    fileprivate func handleCityDetailList(json: [[String: Any]], completion: HandleCompletion){
+        
+        cityDetailListModel.cityDetailList.removeAll()
+        
+        for cityDetailOne in json {
+            
+            let cityDetail = CityDetailObject.init(json: cityDetailOne)
+            
+            cityDetailListModel.cityDetailList.append(cityDetail)
+            
+        }
+        
+        completion(true)
+        
+    }
     
     
     

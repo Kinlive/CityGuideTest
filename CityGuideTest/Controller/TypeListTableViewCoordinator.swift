@@ -14,7 +14,7 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
     private let brands = ["Meet Taiwna","4G專案","高雄捷運","西門商圈","親子館"]
     
     
-    var segmentTitle: SegmentedTitle = .cities
+//    var segmentTitle: SegmentedTitle = saveInfoStruct.getSegmentedTitle()
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -22,6 +22,8 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
+        guard let segmentTitle = saveInfoStruct.getWhichSegmentedTitle() else {return 0}
+        
         switch segmentTitle{
             
         case .cities:
@@ -40,7 +42,8 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: typeListTableViewCellId, for: indexPath)
         
         
-        if let cell = cell as? TypeListTableViewCell{
+        if let cell = cell as? TypeListTableViewCell,
+            let segmentTitle = saveInfoStruct.getWhichSegmentedTitle(){
         
             
             switch segmentTitle{
@@ -76,16 +79,18 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 200
+        return 100
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let commucator = Communicator()
+        
         var urlStr : String = ""
         
-        var selectSegment : WhichAPIGet?
+        var selectAPI : WhichAPIGet?
+        
+        guard let segmentTitle = saveInfoStruct.getWhichSegmentedTitle() else {return }
         
         switch segmentTitle{
             
@@ -93,39 +98,32 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
             
             let parameter = cityListModel.cityList[indexPath.row].number
             urlStr = "\(iclickURL)\(getPanoValueCityURL)\(parameter)"
-            selectSegment = .cityDetail
+            selectAPI = .cityDetail
             
         case .types:
             
             let parameter = typeListModel.typeList[indexPath.row].name
             urlStr = "\(iclickURL)\(getPanoValueTagURL)\(parameter)"
-            selectSegment = .typeDetail
+            selectAPI = .typeDetail
             print("testfor url ********** \(urlStr)")
         
         case .brands:
             
             let parameter = brandListModel.brandList[indexPath.row].number
             urlStr = "\(iclickURL)\(getPanoValueBrandURL)\(parameter)"
-            selectSegment = .brandDetail
+            selectAPI = .brandDetail
             
         }
         
         
-        guard let finalSelectSegment = selectSegment else { return }
+        guard let selectedAPI = selectAPI else { return }
         
-        commucator.connectToService(urlStr: urlStr, whichApiGet: finalSelectSegment, completion: { (success) in
-            if success {
-                print("Connect  ok!")
-                
-            //put segue on here , let it be request end to go next view 
-                
-                
-                
-                
-            }else {
-                print("Connect Fail...")
-            }
-        })
+        //When cell be clicked , save under parameter on SaveInfoStruct,let can be use on next SubSortTableViewController.
+        saveInfoStruct.setWhich(selectedAPI: selectedAPI)
+        saveInfoStruct.whichUrlStr = urlStr
+        
+        
+        
     }
     
 }
