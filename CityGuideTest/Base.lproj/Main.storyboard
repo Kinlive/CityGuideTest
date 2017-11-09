@@ -28,6 +28,7 @@
                     <connections>
                         <segue destination="ua2-EK-o3V" kind="relationship" relationship="viewControllers" id="Mog-RC-udT"/>
                         <segue destination="u5v-f4-ueX" kind="relationship" relationship="viewControllers" id="YIx-M6-ZXh"/>
+                        <segue destination="Q43-xr-pb9" kind="relationship" relationship="viewControllers" id="E1M-GB-PGT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hrj-8W-KIq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -169,6 +170,46 @@
             </objects>
             <point key="canvasLocation" x="1232.8" y="928.81773399014787"/>
         </scene>
+        <!--User-->
+        <scene sceneID="q5e-Bl-MYO">
+            <objects>
+                <viewController id="Q43-xr-pb9" customClass="UserInfoViewController" customModule="CityGuideTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bj2-To-AvO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3P0-I9-akx">
+                                <rect key="frame" x="164" y="476.33333333333331" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="clearTheStorage:" destination="Q43-xr-pb9" eventType="touchUpInside" id="Gb2-j7-T4j"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHn-We-dkQ">
+                                <rect key="frame" x="148.33333333333334" y="386.66666666666669" width="80" height="39.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3P0-I9-akx" firstAttribute="centerX" secondItem="bj2-To-AvO" secondAttribute="centerX" id="AKg-CQ-MWK"/>
+                            <constraint firstItem="FHn-We-dkQ" firstAttribute="centerX" secondItem="bj2-To-AvO" secondAttribute="centerX" id="PoH-DF-kQX"/>
+                            <constraint firstItem="FHn-We-dkQ" firstAttribute="centerY" secondItem="bj2-To-AvO" secondAttribute="centerY" id="Rvn-kB-ku3"/>
+                            <constraint firstItem="3P0-I9-akx" firstAttribute="top" secondItem="FHn-We-dkQ" secondAttribute="bottom" constant="50" id="sCA-xw-mDM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vfa-sI-LYa"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="User" id="wm3-GR-XZs"/>
+                    <connections>
+                        <outlet property="showTheStorageSize" destination="FHn-We-dkQ" id="Hk0-M2-o9o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WJl-lo-rMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="423" y="1821"/>
+        </scene>
         <!--Sub Sort Table View Controller-->
         <scene sceneID="QOb-FB-CBa">
             <objects>
@@ -219,7 +260,6 @@
                                         <constraint firstAttribute="trailing" secondItem="mkX-4a-KQb" secondAttribute="trailing" id="QWj-Sy-rZh"/>
                                         <constraint firstItem="a0L-QL-Cpu" firstAttribute="top" secondItem="acB-q5-fPU" secondAttribute="top" constant="10" id="RVe-xg-rom"/>
                                         <constraint firstAttribute="bottom" secondItem="MUz-xD-Usv" secondAttribute="bottom" constant="10" id="xZu-ru-8bs"/>
-                                        <constraint firstItem="MUz-xD-Usv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="a0L-QL-Cpu" secondAttribute="bottom" constant="50" id="zVh-sB-zxK"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

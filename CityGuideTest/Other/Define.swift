@@ -24,6 +24,9 @@ let getPanoValueBrandURL = "getPanoValueBrand.php?brand="
 let getPanoValueCityURL = "getPanoValueCity.php?city="
 ///API: Request for Tag of type
 let getPanoValueTagURL = "getPanoValueTag.php?tag="
+///API: Request for download the image
+let getImageURL = "upload/place/"
+
 
 ///Identify here
 let typeListTableViewCellId = "typeListCell"

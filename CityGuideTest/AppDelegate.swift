@@ -18,32 +18,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-        let communicator = Communicator()
-        
-        communicator.connectToService(urlStr: "\(iclickURL)\(getCityListURL)", whichApiGet: .cityList) { (success) in
-            if success {
-                
-                print("CityList Connect success!")
-                
-            }else{
-               print("CityList Connect fail....")
-            }
-        }
-        
-        communicator.connectToService(urlStr: "\(iclickURL)\(getTypeListURL)", whichApiGet: .typeList) { (success) in
-            if success{
-                print("TypeList Connect success!")
-            }else{
-                print("TypeList Connect fail....")
-            }
-        }
-        communicator.connectToService(urlStr: "\(iclickURL)\(getBrandListURL)", whichApiGet: .brandList) { (success) in
-            if success {
-                print("BrandList Connect success!")
-            }else {
-                print("BrandList Connect fail....")
-            }
-        }
+//        let communicator = Communicator()
+//
+//        communicator.connectToService(urlStr: "\(iclickURL)\(getCityListURL)", whichApiGet: .cityList) { (success) in
+//            if success {
+//
+//                print("CityList Connect success!")
+//
+//            }else{
+//               print("CityList Connect fail....")
+//            }
+//        }
+//
+//        communicator.connectToService(urlStr: "\(iclickURL)\(getTypeListURL)", whichApiGet: .typeList) { (success) in
+//            if success{
+//                print("TypeList Connect success!")
+//            }else{
+//                print("TypeList Connect fail....")
+//            }
+//        }
+//        communicator.connectToService(urlStr: "\(iclickURL)\(getBrandListURL)", whichApiGet: .brandList) { (success) in
+//            if success {
+//                print("BrandList Connect success!")
+//            }else {
+//                print("BrandList Connect fail....")
+//            }
+//        }
         
         
         

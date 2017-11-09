@@ -9,12 +9,7 @@
 import UIKit
 class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDataSource{
     
-    private let cities = ["台北","新北","桃園","新竹","苗栗"]
-    private let types = ["下午茶","小確幸","墓園","夜市","觀光"]
-    private let brands = ["Meet Taiwna","4G專案","高雄捷運","西門商圈","親子館"]
     
-    
-//    var segmentTitle: SegmentedTitle = saveInfoStruct.getSegmentedTitle()
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -22,7 +17,10 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
-        guard let segmentTitle = saveInfoStruct.getWhichSegmentedTitle() else {return 0}
+        guard let segmentTitle = saveInfoStruct.getWhichSegmentedTitle() else {
+            print("第一次圖取時")
+            
+            return 0}
         
         switch segmentTitle{
             
@@ -43,7 +41,9 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
         
         
         if let cell = cell as? TypeListTableViewCell,
-            let segmentTitle = saveInfoStruct.getWhichSegmentedTitle(){
+            let segmentTitle = saveInfoStruct.getWhichSegmentedTitle(),
+            let images = standardImageModel.getAllImages()
+            {
         
             
             switch segmentTitle{
@@ -51,24 +51,23 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
                 
             case .cities:
                 cell.listTitle.text = cityListModel.cityList[indexPath.row].name
-//                cell.listImageView.image = images[0]
+                cell.listImageView.image = images[0]
                 cell.listDetail.text = cityListModel.cityList[indexPath.row].number
                 
                 
             case .types:
                 cell.listTitle.text = typeListModel.typeList[indexPath.row].name
                 cell.listDetail.text = typeListModel.typeList[indexPath.row].number
-//                cell.listImageView.image = images[1]
+                cell.listImageView.image = images[1]
                 
             case .brands:
                 cell.listTitle.text = brandListModel.brandList[indexPath.row].name
                 cell.listDetail.text = brandListModel.brandList[indexPath.row].number
-//                cell.listImageView.image = images[2]
+                cell.listImageView.image = images[2]
                 
                 
             }
             
-//            cell.listDetail.text = "abcdefgh"
             
             return cell
         }
@@ -82,6 +81,9 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
         return 100
         
     }
+    
+   
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -105,7 +107,6 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
             let parameter = typeListModel.typeList[indexPath.row].name
             urlStr = "\(iclickURL)\(getPanoValueTagURL)\(parameter)"
             selectAPI = .typeDetail
-            print("testfor url ********** \(urlStr)")
         
         case .brands:
             
@@ -113,6 +114,7 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
             urlStr = "\(iclickURL)\(getPanoValueBrandURL)\(parameter)"
             selectAPI = .brandDetail
             
+            print("URL\(urlStr)")
         }
         
         

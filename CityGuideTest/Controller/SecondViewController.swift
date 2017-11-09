@@ -12,14 +12,21 @@ import UIKit
 var cityListModel = CityListModel.standard()
 var typeListModel = TypeListModel.standard()
 var brandListModel = BrandListModel.standard()
+
 var cityDetailListModel = CityDetailListModel.standard()
+var typeDetailListModel = TypeDetailListModel.standard()
+var brandDetailListModel = BrandDetailListModel.standard()
 
 var saveInfoStruct = SaveInfoStruct.standard()
 
 
 
 
+
+//Image constant
+let standardiClickImage = IClickImageModel.standard()
 let standardImageModel = ImageDataModel.standard()
+
 
 class SecondViewController: UIViewController {
     
@@ -27,6 +34,11 @@ class SecondViewController: UIViewController {
     let typeListCoordinator = TypeListTableViewCoordinator()
     
     var searchControll : UISearchController!
+    
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    
+    var refreshCtrl: UIRefreshControl!
+    
     
 //    let communicator = Communicator()
     
@@ -45,7 +57,17 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("viewDidLoad先")
+        
+        //Default value
+        saveInfoStruct.setWhich(segmentTitle: .cities)
+        
+        //Add loading activityIndicator on tableView 
+        
+        addIndicatorView(activityIndicator: activityIndicator)
+        
+        connectToServer()
+        
+        
         standardImageModel.handleAllImage(names: ["0.jpg","1.jpg","2.jpg","3.jpg"])
 
 
@@ -88,6 +110,90 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    //MARK: - ConnectToServer func.
+    func connectToServer(){
+        
+        
+        let communicator = Communicator()
+        activityIndicator.startAnimating()
+        
+        communicator.connectToService(urlStr: "\(iclickURL)\(getCityListURL)", whichApiGet: .cityList) { (success) in
+            if success {
+                DispatchQueue.main.async {
+//                    print("有叫你暫停嗎")
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.removeFromSuperview()
+                    
+                    self.typeListTableView.reloadData()
+                    
+                }
+                
+                
+                print("CityList Connect success!")
+                
+            }else{
+                print("CityList Connect fail....")
+            }
+        }
+        
+        communicator.connectToService(urlStr: "\(iclickURL)\(getTypeListURL)", whichApiGet: .typeList) { (success) in
+            if success{
+                
+                DispatchQueue.main.async {
+                    
+                    self.typeListTableView.reloadData()
+                }
+                print("TypeList Connect success!")
+            }else{
+                print("TypeList Connect fail....")
+            }
+        }
+        communicator.connectToService(urlStr: "\(iclickURL)\(getBrandListURL)", whichApiGet: .brandList) { (success) in
+            if success {
+                
+                DispatchQueue.main.async {
+                    
+                    self.typeListTableView.reloadData()
+                }
+                print("BrandList Connect success!")
+            }else {
+                print("BrandList Connect fail....")
+            }
+        }
+    }
+    
+    
+    
+    func addIndicatorView(activityIndicator: UIActivityIndicatorView){
+        
+        self.typeListTableView.addSubview(activityIndicator)
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.color = UIColor.black
+        let horizontalConstraint = NSLayoutConstraint(item: activityIndicator,
+                                                      attribute: NSLayoutAttribute.centerX,
+                                                      relatedBy: NSLayoutRelation.equal,
+                                                      toItem: view,
+                                                      attribute: NSLayoutAttribute.centerX,
+                                                      multiplier: 1,
+                                                      constant: 0)
+        
+        view.addConstraint(horizontalConstraint)
+        
+        let verticalConstraint = NSLayoutConstraint(item: activityIndicator,
+                                                    attribute: NSLayoutAttribute.centerY,
+                                                    relatedBy: NSLayoutRelation.equal,
+                                                    toItem: view,
+                                                    attribute: NSLayoutAttribute.centerY,
+                                                    multiplier: 1,
+                                                    constant: 0)
+        view.addConstraint(verticalConstraint)
+        
+        
+    }
     
     
 
@@ -154,11 +260,10 @@ class SecondViewController: UIViewController {
                 saveInfoStruct.setWhich(segmentTitle: .cities)
                 
             case 1:
-//                typeListCoordinator.segmentTitle = .types
+
                 saveInfoStruct.setWhich(segmentTitle: .types)
             
             case 2:
-//                typeListCoordinator.segmentTitle = .brands
                 saveInfoStruct.setWhich(segmentTitle: .brands)
             
             default:
@@ -166,10 +271,6 @@ class SecondViewController: UIViewController {
         }
         
         typeListTableView.reloadData()
-        
-//        typeListModel.toString()
-        
-        
         
     }
     

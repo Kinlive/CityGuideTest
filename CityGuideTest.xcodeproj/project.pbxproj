@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1104E76B1FA9CA95003E19CC /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1104E76A1FA9CA95003E19CC /* Define.swift */; };
 		1104E76D1FAAC60F003E19CC /* CityListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1104E76C1FAAC60F003E19CC /* CityListModel.swift */; };
+		111F611B1FB2A9EF00B31ADF /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 111F611A1FB2A9EE00B31ADF /* placeholder.png */; };
+		111F611D1FB2CEEE00B31ADF /* IClickImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111F611C1FB2CEEE00B31ADF /* IClickImageModel.swift */; };
 		112D129F1FA96444003B7905 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D129E1FA96444003B7905 /* Enum.swift */; };
 		112D12A11FA972D6003B7905 /* ImageDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D12A01FA972D6003B7905 /* ImageDataModel.swift */; };
 		112EEA6C1FAC4D03009D7E40 /* SubSortTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EEA6B1FAC4D03009D7E40 /* SubSortTableViewController.swift */; };
@@ -33,6 +35,9 @@
 		1179AF821FA6BDB600985C5F /* CityGuideTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1179AF811FA6BDB600985C5F /* CityGuideTestTests.swift */; };
 		1179AF8D1FA6BDB600985C5F /* CityGuideTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1179AF8C1FA6BDB600985C5F /* CityGuideTestUITests.swift */; };
 		11AFAEAC1FB0157700960D2C /* SaveInfoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AFAEAB1FB0157700960D2C /* SaveInfoStruct.swift */; };
+		11AFAEAE1FB0599700960D2C /* TypeDetailListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AFAEAD1FB0599700960D2C /* TypeDetailListModel.swift */; };
+		11AFAEB01FB05A3300960D2C /* BrandDetailListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AFAEAF1FB05A3300960D2C /* BrandDetailListModel.swift */; };
+		11C6948A1FB42F890067D328 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C694891FB42F890067D328 /* UserInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,8 @@
 /* Begin PBXFileReference section */
 		1104E76A1FA9CA95003E19CC /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		1104E76C1FAAC60F003E19CC /* CityListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListModel.swift; sourceTree = "<group>"; };
+		111F611A1FB2A9EE00B31ADF /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		111F611C1FB2CEEE00B31ADF /* IClickImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IClickImageModel.swift; sourceTree = "<group>"; };
 		112D129E1FA96444003B7905 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		112D12A01FA972D6003B7905 /* ImageDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataModel.swift; sourceTree = "<group>"; };
 		112EEA6B1FAC4D03009D7E40 /* SubSortTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSortTableViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +92,9 @@
 		1179AF8C1FA6BDB600985C5F /* CityGuideTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityGuideTestUITests.swift; sourceTree = "<group>"; };
 		1179AF8E1FA6BDB600985C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11AFAEAB1FB0157700960D2C /* SaveInfoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveInfoStruct.swift; sourceTree = "<group>"; };
+		11AFAEAD1FB0599700960D2C /* TypeDetailListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDetailListModel.swift; sourceTree = "<group>"; };
+		11AFAEAF1FB05A3300960D2C /* BrandDetailListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandDetailListModel.swift; sourceTree = "<group>"; };
+		11C694891FB42F890067D328 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +122,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		111F611E1FB2CEF700B31ADF /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				111F611C1FB2CEEE00B31ADF /* IClickImageModel.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		112EEA711FAC5D28009D7E40 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				112EEA731FAC620D009D7E40 /* CityDetailListModel.swift */,
+				11AFAEAD1FB0599700960D2C /* TypeDetailListModel.swift */,
+				11AFAEAF1FB05A3300960D2C /* BrandDetailListModel.swift */,
 			);
 			path = DetailList;
 			sourceTree = "<group>";
@@ -146,6 +166,7 @@
 				113505B41FA84804001EB496 /* SecondViewController.swift */,
 				113505BA1FA86281001EB496 /* TypeListTableViewCoordinator.swift */,
 				112EEA6B1FAC4D03009D7E40 /* SubSortTableViewController.swift */,
+				11C694891FB42F890067D328 /* UserInfoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -157,6 +178,7 @@
 				11AFAEAB1FB0157700960D2C /* SaveInfoStruct.swift */,
 				112EEA721FAC5D48009D7E40 /* DetailList */,
 				112EEA711FAC5D28009D7E40 /* List */,
+				111F611E1FB2CEF700B31ADF /* Image */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,6 +224,7 @@
 				1179AF6C1FA6BDB500985C5F /* AppDelegate.swift */,
 				1179AF701FA6BDB500985C5F /* Main.storyboard */,
 				1179AF731FA6BDB500985C5F /* Assets.xcassets */,
+				111F611A1FB2A9EE00B31ADF /* placeholder.png */,
 				113505AC1FA80FF4001EB496 /* 1.jpg */,
 				113505AE1FA80FF5001EB496 /* 2.jpg */,
 				113505AF1FA80FF5001EB496 /* 3.jpg */,
@@ -342,6 +365,7 @@
 				113505B21FA80FF5001EB496 /* 2.jpg in Resources */,
 				113505B01FA80FF5001EB496 /* 1.jpg in Resources */,
 				113505B31FA80FF5001EB496 /* 3.jpg in Resources */,
+				111F611B1FB2A9EF00B31ADF /* placeholder.png in Resources */,
 				1179AF741FA6BDB500985C5F /* Assets.xcassets in Resources */,
 				1179AF721FA6BDB500985C5F /* Main.storyboard in Resources */,
 			);
@@ -369,21 +393,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				112EEA701FAC5CC8009D7E40 /* Extension.swift in Sources */,
+				11C6948A1FB42F890067D328 /* UserInfoViewController.swift in Sources */,
 				11AFAEAC1FB0157700960D2C /* SaveInfoStruct.swift in Sources */,
 				1157A6981FAB0F2E00D22039 /* Communicator.swift in Sources */,
 				113505B51FA84804001EB496 /* SecondViewController.swift in Sources */,
 				1179AF6F1FA6BDB500985C5F /* ViewController.swift in Sources */,
 				1104E76B1FA9CA95003E19CC /* Define.swift in Sources */,
+				11AFAEAE1FB0599700960D2C /* TypeDetailListModel.swift in Sources */,
 				112EEA6E1FAC4D84009D7E40 /* SubSortTableViewCell.swift in Sources */,
 				1104E76D1FAAC60F003E19CC /* CityListModel.swift in Sources */,
 				112D12A11FA972D6003B7905 /* ImageDataModel.swift in Sources */,
 				112D129F1FA96444003B7905 /* Enum.swift in Sources */,
 				1157A69A1FAC119600D22039 /* BrandListModel.swift in Sources */,
+				111F611D1FB2CEEE00B31ADF /* IClickImageModel.swift in Sources */,
 				1179AF6D1FA6BDB500985C5F /* AppDelegate.swift in Sources */,
 				113505BB1FA86281001EB496 /* TypeListTableViewCoordinator.swift in Sources */,
 				113505B81FA861D5001EB496 /* TypeListTableViewCell.swift in Sources */,
 				112EEA741FAC620D009D7E40 /* CityDetailListModel.swift in Sources */,
 				112EEA6C1FAC4D03009D7E40 /* SubSortTableViewController.swift in Sources */,
+				11AFAEB01FB05A3300960D2C /* BrandDetailListModel.swift in Sources */,
 				1157A6961FAB0E5900D22039 /* TypeListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

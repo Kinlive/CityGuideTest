@@ -1,24 +1,25 @@
 //
-//  cityDetailListModel.swift
+//  BrandDetailListModel.swift
 //  CityGuideTest
 //
-//  Created by Kinlive on 2017/11/3.
+//  Created by Kinlive on 2017/11/6.
 //  Copyright © 2017年 Kinlive Wei. All rights reserved.
 //
 
 import Foundation
 
-struct CityDetailListModel{
+
+struct BrandDetailListModel{
     
-    private static var shared: CityDetailListModel = {
+    private static var shared: BrandDetailListModel = {
         
-        let standard = CityDetailListModel(cityDetailList: [])
+        let standard = BrandDetailListModel(brandDetailList: [])
         
         //        print("初始化 cityList singleton")
         return standard
     }()
     
-    static func standard() -> CityDetailListModel{
+    static func standard() -> BrandDetailListModel{
         
         //        print("拿到singleton")
         
@@ -28,17 +29,17 @@ struct CityDetailListModel{
     
     
     
-    var cityDetailList: [CityDetailObject]
+    var brandDetailList: [BrandDetailObject]
     
     
     func toString(){
         
-        print("總數：\(cityDetailList.count)")
+        print("總數：\(brandDetailList.count)")
         
-//        for cityDetail in cityDetailList{
-//            print(cityDetail.name)
-//            print(cityDetail.id)
-//            print(cityDetail.number)
+//        for brandDetail in brandDetailList{
+//            print(brandDetail.name)
+//            print(brandDetail.id)
+//            print(brandDetail.number)
 //        }
         
         
@@ -48,12 +49,12 @@ struct CityDetailListModel{
 
 ///City struct
 //Test for git
-struct CityDetailObject{
+struct BrandDetailObject{
     let number: String
     let name: String
     let id: String
     let city: String
-    let img: [String]
+    let img: String
     let imgTitle: String
     let content: String
     let summary: String
@@ -73,22 +74,17 @@ struct CityDetailObject{
     let guideMap: String
     let storyImg: String
     
-    
     init(json: [String: Any]){
         self.number = json["no"] as? String ?? ""
         self.id = json["id"] as? String ?? ""
         self.name = json["name"] as? String ?? ""
         self.city = json["city"] as? String ?? ""
-        
-        self.img = CityDetailObject.handleImgStringToArray(jsonStr: json["img"] as? String ?? "")
-        
+        self.img = json["img"] as? String ?? ""
         self.imgTitle = json["imgtitle"] as? String ?? ""
         self.content = json["content"] as? String ?? ""
         self.summary = json["summary"] as? String ?? ""
-        
-        let poiArray = CityDetailObject.handleStringToArray(jsonStr: json["poi"] as? String ?? "")
+        let poiArray = BrandDetailObject.handleStringToArray(jsonStr: json["poi"] as? String ?? "")
         self.poi = poiArray
-        
         
         self.zip = json["zip"] as? String ?? ""
         self.address = json["address"] as? String ?? ""
@@ -105,35 +101,7 @@ struct CityDetailObject{
         self.guideMap = json["guidemap"] as? String ?? ""
         self.storyImg = json["storyimg"] as? String ?? ""
         
-        
     }
-    
-    
-    private static func handleImgStringToArray(jsonStr: String) -> [String] {
-        
-        guard let jsonData = jsonStr.data(using: .utf8) else {return [] }
-        var strArray: [String]?
-        
-        do{
-            strArray = [String]()
-            
-            strArray = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [String]
-            
-            
-        }catch let jsonError{
-            
-            print("img is nil :\(jsonError.localizedDescription)")
-            
-        }
-        
-        guard let finalStrArray = strArray else {
-            print("Array is nil")
-            return [] }
-        
-        return finalStrArray
-        
-    }
-    
     
     private static func handleStringToArray(jsonStr: String) -> [String] {
         
@@ -159,6 +127,5 @@ struct CityDetailObject{
         return finalStrArray
         
     }
-
     
 }

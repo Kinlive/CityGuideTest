@@ -17,7 +17,7 @@ class Communicator: NSObject{
     
     
     typealias HandleCompletion = ( _ success: Bool) -> Void
-    func connectToService(urlStr: String, whichApiGet: WhichAPIGet , completion:  @escaping HandleCompletion){
+    func connectToService(urlStr: String, whichApiGet: WhichAPIGet? , completion:  @escaping HandleCompletion){
         
         
         
@@ -25,24 +25,65 @@ class Communicator: NSObject{
             print("NO url")
             return}
         
-        let task = sessionShared.dataTask(with: url) { (data, response, error) in
+        if let whichApiGet = whichApiGet { //Get json api
             
-            if let error = error {
-                print("-------------------------------------------")
-                print(error.localizedDescription)
+            let task = sessionShared.dataTask(with: url) { (data, response, error) in
+            
+                if let error = error {
                 
-                return
+                    print(error.localizedDescription)
+                
+                    return
+                }
+            
+                guard let data = data else {
+                
+                    print("No data")
+                
+                    return }
+            
+                self.saveDataOnModel(data: data,
+                                     whichAPI: whichApiGet,
+                                     completion: completion)
+                
             }
-            guard let data = data else {
-                print("No data")
-                return }
             
-            self.saveDataOnModel(data: data,
-                                 whichAPI: whichApiGet,
-                                 completion: completion)
+                task.resume()
+                
+           
+        }else{ // Into the download images api
+                
+            let downloadTask = sessionShared.downloadTask(with: url, completionHandler: { (url, response, error) in
+              
+                if let error = error {
+                    
+                    print("\(error.localizedDescription)")
+                
+                }else{
+                    
+//                    if let data = try? Data(contentsOf:url!){
+//
+//                        standardiClickImage.handleImageWith(data: data,
+//                                                            completion: { (success) in
+//                            if success{
+                        
+                                //download success
+                                completion(true)
+                            
+//                            }
+//                        })
+//                    }
+                }
+            })
             
+            downloadTask.resume()
         }
-        task.resume()
+    }
+    
+    fileprivate func downloadImageWith(data: Data,completion: HandleCompletion){
+        
+        
+        
         
     }
     
@@ -90,9 +131,16 @@ class Communicator: NSObject{
             
             case .typeDetail:
                 print("TypeDetail")
+                
+                guard let finalJson = json as? [[String: Any]] else {return }
+                
+                handleTypeDetailList(json: finalJson, completion: completion)
             
             case .brandDetail:
                 print("BrandDetail")
+                
+                guard let finalJson = json as? [[String: Any]] else {return }
+                handleBrandDetailList(json: finalJson, completion: completion)
             
             }
         
@@ -170,8 +218,9 @@ class Communicator: NSObject{
         
         cityDetailListModel.cityDetailList.removeAll()
         
-        for cityDetailOne in json {
+        for (_,cityDetailOne) in json.enumerated() {
             
+
             let cityDetail = CityDetailObject.init(json: cityDetailOne)
             
             cityDetailListModel.cityDetailList.append(cityDetail)
@@ -182,6 +231,39 @@ class Communicator: NSObject{
         
     }
     
+    //MARK: - HandleTypeDetailList func
+    fileprivate func handleTypeDetailList(json: [[String: Any]], completion: HandleCompletion){
+        
+        typeDetailListModel.typeDetailList.removeAll()
+        
+        for typeDetailOne in json {
+            
+            let typeDetail = TypeDetailObject.init(json: typeDetailOne)
+            
+            typeDetailListModel.typeDetailList.append(typeDetail)
+        }
+        
+        
+        completion(true)
+    }
+    
+    //MARK: - HandleBrandDetailList func
+    fileprivate func handleBrandDetailList(json: [[String: Any]], completion: HandleCompletion){
+        
+        brandDetailListModel.brandDetailList.removeAll()
+        
+        for brandDetailOne in json {
+            
+            let brandDetail = BrandDetailObject.init(json: brandDetailOne)
+            
+            brandDetailListModel.brandDetailList.append(brandDetail)
+        }
+        
+        completion(true)
+    }
+    
+    
+   
     
     
 }

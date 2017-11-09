@@ -25,7 +25,7 @@ class ImageDataModel: NSObject{
         return standardImageModel
     }
     
-    private var images: [UIImage]?
+    private var images: [UIImage] = [UIImage]()
     
     private var imagesName: [String]?
     
@@ -36,27 +36,28 @@ class ImageDataModel: NSObject{
      */
     open func handleAllImage(names: [String]){
         
+
+        
         self.imagesName = names
         
         guard let imagesName = imagesName else {
             print("沒有拿到圖片名稱")
             return }
+
         
         for name in imagesName{
             
             guard let image = UIImage(named:"\(name)") else { return }
             
-            images?.append(image)
-            print("圖片順利加入陣列")
+                images.append(image)
             
         }
+        
+        
+
     }
     
-//    open func setImagesName(names: [String]){
-//        self.imagesName = names
-//
-//
-//    }
+
     
     
     /**
@@ -65,11 +66,8 @@ class ImageDataModel: NSObject{
      */
     open func getAllImages() -> [UIImage]?{
         
-        guard let images = images else {
-            print("沒有拿到圖片")
-            return nil}
         
-        print("順利拿到圖片")
+        
         return images
         
     }

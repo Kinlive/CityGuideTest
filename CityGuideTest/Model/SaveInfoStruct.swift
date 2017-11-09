@@ -52,12 +52,14 @@ struct SaveInfoStruct{
     mutating func setWhich(segmentTitle: SegmentedTitle){
         
         self.whichSegmentedTitle = segmentTitle
-        
+     
     }
     
     
     func getWhichSegmentedTitle() -> SegmentedTitle?{
-        guard let segmentedTitle = whichSegmentedTitle else { return nil }
+        guard let segmentedTitle = whichSegmentedTitle else {
+            print("Segment 切換時 都給nil")
+            return nil }
         
         return segmentedTitle
         
