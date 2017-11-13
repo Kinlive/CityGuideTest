@@ -8,26 +8,26 @@
 
 import Foundation
 
+///Save CityDetailList struct.
 struct CityDetailListModel{
     
+    ///CityDetailListModel's singleton.
     private static var shared: CityDetailListModel = {
         
         let standard = CityDetailListModel(cityDetailList: [])
-        
-        //        print("初始化 cityList singleton")
+   
         return standard
     }()
     
+    ///Get CityDetailListModel standard singleton.
     static func standard() -> CityDetailListModel{
-        
-        //        print("拿到singleton")
         
         return shared
     }
     
     
     
-    
+    ///Save every struct of CityDetail.
     var cityDetailList: [CityDetailObject]
     
     
@@ -46,8 +46,7 @@ struct CityDetailListModel{
     
 }
 
-///City struct
-//Test for git
+///Save every detail infomation,it most detail to look on  http://bit.ly/2hX6sI7
 struct CityDetailObject{
     let number: String
     let name: String
@@ -80,7 +79,7 @@ struct CityDetailObject{
         self.name = json["name"] as? String ?? ""
         self.city = json["city"] as? String ?? ""
         
-        self.img = CityDetailObject.handleImgStringToArray(jsonStr: json["img"] as? String ?? "")
+        self.img = CityDetailObject.handleStringToArray(jsonStr: json["img"] as? String ?? "")
         
         self.imgTitle = json["imgtitle"] as? String ?? ""
         self.content = json["content"] as? String ?? ""
@@ -108,33 +107,11 @@ struct CityDetailObject{
         
     }
     
-    
-    private static func handleImgStringToArray(jsonStr: String) -> [String] {
-        
-        guard let jsonData = jsonStr.data(using: .utf8) else {return [] }
-        var strArray: [String]?
-        
-        do{
-            strArray = [String]()
-            
-            strArray = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [String]
-            
-            
-        }catch let jsonError{
-            
-            print("img is nil :\(jsonError.localizedDescription)")
-            
-        }
-        
-        guard let finalStrArray = strArray else {
-            print("Array is nil")
-            return [] }
-        
-        return finalStrArray
-        
-    }
-    
-    
+    /**
+     It's to transfer the json's back data like string but we want it to array.
+     - Parameter jsonStr: Json back data.
+     - Returns: Transfer to array
+     */
     private static func handleStringToArray(jsonStr: String) -> [String] {
         
         guard let jsonData = jsonStr.data(using: .utf8) else {return [] }

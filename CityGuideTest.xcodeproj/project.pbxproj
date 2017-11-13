@@ -18,12 +18,14 @@
 		112EEA701FAC5CC8009D7E40 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EEA6F1FAC5CC8009D7E40 /* Extension.swift */; };
 		112EEA741FAC620D009D7E40 /* CityDetailListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EEA731FAC620D009D7E40 /* CityDetailListModel.swift */; };
 		113505B01FA80FF5001EB496 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 113505AC1FA80FF4001EB496 /* 1.jpg */; };
-		113505B11FA80FF5001EB496 /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 113505AD1FA80FF4001EB496 /* 0.jpg */; };
 		113505B21FA80FF5001EB496 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 113505AE1FA80FF5001EB496 /* 2.jpg */; };
 		113505B31FA80FF5001EB496 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 113505AF1FA80FF5001EB496 /* 3.jpg */; };
 		113505B51FA84804001EB496 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113505B41FA84804001EB496 /* SecondViewController.swift */; };
 		113505B81FA861D5001EB496 /* TypeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113505B71FA861D5001EB496 /* TypeListTableViewCell.swift */; };
 		113505BB1FA86281001EB496 /* TypeListTableViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113505BA1FA86281001EB496 /* TypeListTableViewCoordinator.swift */; };
+		1140821C1FB971D80033ECFB /* DetailsInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140821B1FB971D80033ECFB /* DetailsInfoTableViewCell.swift */; };
+		1140821E1FB9729D0033ECFB /* DetailsInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140821D1FB9729D0033ECFB /* DetailsInfoViewController.swift */; };
+		1145FD3E1FB939F200FBCEFC /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1145FD3D1FB939F200FBCEFC /* 0.jpg */; };
 		1157A6961FAB0E5900D22039 /* TypeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157A6951FAB0E5900D22039 /* TypeListModel.swift */; };
 		1157A6981FAB0F2E00D22039 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157A6971FAB0F2E00D22039 /* Communicator.swift */; };
 		1157A69A1FAC119600D22039 /* BrandListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157A6991FAC119600D22039 /* BrandListModel.swift */; };
@@ -69,12 +71,14 @@
 		112EEA6F1FAC5CC8009D7E40 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		112EEA731FAC620D009D7E40 /* CityDetailListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailListModel.swift; sourceTree = "<group>"; };
 		113505AC1FA80FF4001EB496 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		113505AD1FA80FF4001EB496 /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
 		113505AE1FA80FF5001EB496 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		113505AF1FA80FF5001EB496 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		113505B41FA84804001EB496 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		113505B71FA861D5001EB496 /* TypeListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeListTableViewCell.swift; sourceTree = "<group>"; };
 		113505BA1FA86281001EB496 /* TypeListTableViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeListTableViewCoordinator.swift; sourceTree = "<group>"; };
+		1140821B1FB971D80033ECFB /* DetailsInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInfoTableViewCell.swift; sourceTree = "<group>"; };
+		1140821D1FB9729D0033ECFB /* DetailsInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInfoViewController.swift; sourceTree = "<group>"; };
+		1145FD3D1FB939F200FBCEFC /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
 		1157A6951FAB0E5900D22039 /* TypeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeListModel.swift; sourceTree = "<group>"; };
 		1157A6971FAB0F2E00D22039 /* Communicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
 		1157A6991FAC119600D22039 /* BrandListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandListModel.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 			children = (
 				113505B71FA861D5001EB496 /* TypeListTableViewCell.swift */,
 				112EEA6D1FAC4D84009D7E40 /* SubSortTableViewCell.swift */,
+				1140821B1FB971D80033ECFB /* DetailsInfoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 				113505B41FA84804001EB496 /* SecondViewController.swift */,
 				113505BA1FA86281001EB496 /* TypeListTableViewCoordinator.swift */,
 				112EEA6B1FAC4D03009D7E40 /* SubSortTableViewController.swift */,
+				1140821D1FB9729D0033ECFB /* DetailsInfoViewController.swift */,
 				11C694891FB42F890067D328 /* UserInfoViewController.swift */,
 			);
 			path = Controller;
@@ -226,9 +232,9 @@
 				1179AF731FA6BDB500985C5F /* Assets.xcassets */,
 				111F611A1FB2A9EE00B31ADF /* placeholder.png */,
 				113505AC1FA80FF4001EB496 /* 1.jpg */,
+				1145FD3D1FB939F200FBCEFC /* 0.jpg */,
 				113505AE1FA80FF5001EB496 /* 2.jpg */,
 				113505AF1FA80FF5001EB496 /* 3.jpg */,
-				113505AD1FA80FF4001EB496 /* 0.jpg */,
 				1179AF751FA6BDB500985C5F /* LaunchScreen.storyboard */,
 				1179AF781FA6BDB500985C5F /* Info.plist */,
 			);
@@ -360,7 +366,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				113505B11FA80FF5001EB496 /* 0.jpg in Resources */,
+				1145FD3E1FB939F200FBCEFC /* 0.jpg in Resources */,
 				1179AF771FA6BDB500985C5F /* LaunchScreen.storyboard in Resources */,
 				113505B21FA80FF5001EB496 /* 2.jpg in Resources */,
 				113505B01FA80FF5001EB496 /* 1.jpg in Resources */,
@@ -396,6 +402,7 @@
 				11C6948A1FB42F890067D328 /* UserInfoViewController.swift in Sources */,
 				11AFAEAC1FB0157700960D2C /* SaveInfoStruct.swift in Sources */,
 				1157A6981FAB0F2E00D22039 /* Communicator.swift in Sources */,
+				1140821C1FB971D80033ECFB /* DetailsInfoTableViewCell.swift in Sources */,
 				113505B51FA84804001EB496 /* SecondViewController.swift in Sources */,
 				1179AF6F1FA6BDB500985C5F /* ViewController.swift in Sources */,
 				1104E76B1FA9CA95003E19CC /* Define.swift in Sources */,
@@ -408,6 +415,7 @@
 				111F611D1FB2CEEE00B31ADF /* IClickImageModel.swift in Sources */,
 				1179AF6D1FA6BDB500985C5F /* AppDelegate.swift in Sources */,
 				113505BB1FA86281001EB496 /* TypeListTableViewCoordinator.swift in Sources */,
+				1140821E1FB9729D0033ECFB /* DetailsInfoViewController.swift in Sources */,
 				113505B81FA861D5001EB496 /* TypeListTableViewCell.swift in Sources */,
 				112EEA741FAC620D009D7E40 /* CityDetailListModel.swift in Sources */,
 				112EEA6C1FAC4D03009D7E40 /* SubSortTableViewController.swift in Sources */,
@@ -578,12 +586,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4HY645WQ48;
 				INFOPLIST_FILE = CityGuideTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kinlive.CityGuideTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -593,12 +603,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4HY645WQ48;
 				INFOPLIST_FILE = CityGuideTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kinlive.CityGuideTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

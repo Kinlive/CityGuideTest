@@ -7,32 +7,31 @@
 //
 
 import Foundation
+
+///Save Brand's name、id、number struct.
 struct BrandListModel{
     
+    ///BrandListModel's singleton.
     private static var shared: BrandListModel = {
         
         let standard = BrandListModel(brandList: [])
         
-        //        print("初始化 cityList singleton")
         return standard
     }()
     
+    ///Get BrandListModel standard singleton.
     static func standard() -> BrandListModel{
-        
-        //        print("拿到singleton")
         
         return shared
     }
     
     
     
-    
+    ///Save every struct of City.
     var brandList: [Brand]
     
-    
+    ///Print all Brand's properties.
     func toString(){
-        
-        print("總數：\(brandList.count)")
         
         for brand in brandList{
             print(brand.name)
@@ -45,13 +44,19 @@ struct BrandListModel{
     
 }
 
-///City struct
-
+///To save number & name & id.
 struct Brand{
+    ///Brand no.
     let number: String
+    ///Brand name.
     let name: String
+    ///Brand id.
     let id: String
     
+    /**
+     Initialize the Brand of Struct when json parse.
+     - Parameter json: From the server back data.
+     */
     init(json: [String: Any]){
         self.number = json["no"] as? String ?? ""
         self.id = json["id"] as? String ?? ""

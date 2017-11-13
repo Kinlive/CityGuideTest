@@ -8,27 +8,26 @@
 
 import Foundation
 
-
+///Save BrandDetailList struct.
 struct BrandDetailListModel{
     
+    ///BrandDetailListModel's singleton.
     private static var shared: BrandDetailListModel = {
         
         let standard = BrandDetailListModel(brandDetailList: [])
-        
-        //        print("初始化 cityList singleton")
+
         return standard
     }()
     
+    ///Get CityDetailListModel standard singleton.
     static func standard() -> BrandDetailListModel{
-        
-        //        print("拿到singleton")
         
         return shared
     }
     
     
     
-    
+    ///Save every struct of BrandDetail.
     var brandDetailList: [BrandDetailObject]
     
     
@@ -47,14 +46,13 @@ struct BrandDetailListModel{
     
 }
 
-///City struct
-//Test for git
+///Save every detail infomation,it most detail to look on  http://bit.ly/2hX6sI7
 struct BrandDetailObject{
     let number: String
     let name: String
     let id: String
     let city: String
-    let img: String
+    let img: [String]
     let imgTitle: String
     let content: String
     let summary: String
@@ -79,7 +77,7 @@ struct BrandDetailObject{
         self.id = json["id"] as? String ?? ""
         self.name = json["name"] as? String ?? ""
         self.city = json["city"] as? String ?? ""
-        self.img = json["img"] as? String ?? ""
+        self.img = BrandDetailObject.handleStringToArray(jsonStr: json["img"] as? String ?? "")
         self.imgTitle = json["imgtitle"] as? String ?? ""
         self.content = json["content"] as? String ?? ""
         self.summary = json["summary"] as? String ?? ""
@@ -103,6 +101,11 @@ struct BrandDetailObject{
         
     }
     
+    /**
+     It's to transfer the json's back data like string but we want it to array.
+     - Parameter jsonStr: Json back data.
+     - Returns: Transfer to array
+     */
     private static func handleStringToArray(jsonStr: String) -> [String] {
         
         guard let jsonData = jsonStr.data(using: .utf8) else {return [] }

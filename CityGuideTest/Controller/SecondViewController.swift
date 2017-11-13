@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+//Define constant here.
 var cityListModel = CityListModel.standard()
 var typeListModel = TypeListModel.standard()
 var brandListModel = BrandListModel.standard()
@@ -19,15 +19,16 @@ var brandDetailListModel = BrandDetailListModel.standard()
 
 var saveInfoStruct = SaveInfoStruct.standard()
 
-
-
-
+//ObjectCache
+let cacheObjectData = NSCache<AnyObject, AnyObject>()
 
 //Image constant
 let standardiClickImage = IClickImageModel.standard()
 let standardImageModel = ImageDataModel.standard()
 
-
+/**
+ The entry view , it show the popular information and type list with segment.
+ */
 class SecondViewController: UIViewController {
     
     
@@ -37,10 +38,8 @@ class SecondViewController: UIViewController {
     
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
-    var refreshCtrl: UIRefreshControl!
+//    var refreshCtrl: UIRefreshControl!
     
-    
-//    let communicator = Communicator()
     
     @IBOutlet weak var popScrollView: UIScrollView!
     
@@ -58,7 +57,7 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         
         
-        //Default value
+        //Default value set.
         saveInfoStruct.setWhich(segmentTitle: .cities)
         
         //Add loading activityIndicator on tableView 
@@ -119,17 +118,15 @@ class SecondViewController: UIViewController {
         let communicator = Communicator()
         activityIndicator.startAnimating()
         
-        communicator.connectToService(urlStr: "\(iclickURL)\(getCityListURL)", whichApiGet: .cityList) { (success) in
+        communicator.connectToServer(urlStr: "\(ICLICK_URL)\(GET_CITYLIST_URL)", whichApiGet: .cityList) { (success) in
             if success {
                 DispatchQueue.main.async {
-//                    print("有叫你暫停嗎")
+                    
                     self.activityIndicator.stopAnimating()
                     self.activityIndicator.removeFromSuperview()
-                    
                     self.typeListTableView.reloadData()
                     
                 }
-                
                 
                 print("CityList Connect success!")
                 
@@ -138,7 +135,7 @@ class SecondViewController: UIViewController {
             }
         }
         
-        communicator.connectToService(urlStr: "\(iclickURL)\(getTypeListURL)", whichApiGet: .typeList) { (success) in
+        communicator.connectToServer(urlStr: "\(ICLICK_URL)\(GET_TYPELIST_URL)", whichApiGet: .typeList) { (success) in
             if success{
                 
                 DispatchQueue.main.async {
@@ -150,7 +147,7 @@ class SecondViewController: UIViewController {
                 print("TypeList Connect fail....")
             }
         }
-        communicator.connectToService(urlStr: "\(iclickURL)\(getBrandListURL)", whichApiGet: .brandList) { (success) in
+        communicator.connectToServer(urlStr: "\(ICLICK_URL)\(GET_BRANDLIST_URL)", whichApiGet: .brandList) { (success) in
             if success {
                 
                 DispatchQueue.main.async {
@@ -199,7 +196,7 @@ class SecondViewController: UIViewController {
 
     
     /**
-     To set Image and show imageLabel method
+     To set the popular Image and show imageLabel method
      
      */
     func setImageViewOnScrollView(){
@@ -242,16 +239,16 @@ class SecondViewController: UIViewController {
     
     
     /**
-     When segmentedControl be selected one, it will call this method
+     When segmentedControl be selected one, it will call this method.
      
-     - Parameter sender: Get which title be selected
+     - Parameter sender: Get which title be selected.
      */
     @objc func onSegementedControlSelect(sender: UISegmentedControl){
         
    
         
         print("Now is \(sender.selectedSegmentIndex) be selected ")
-        
+
         print(sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "No selected")
         
         switch sender.selectedSegmentIndex{

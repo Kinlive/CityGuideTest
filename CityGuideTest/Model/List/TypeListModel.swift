@@ -7,33 +7,31 @@
 //
 
 import Foundation
-
+///Save Type's name、id、number struct.
 struct TypeListModel{
     
+    ///TypeListModel's singleton.
     private static var shared: TypeListModel = {
         
         let standard = TypeListModel(typeList: [])
         
-//        print("初始化 cityList singleton")
         return standard
     }()
     
+    ///Get TypeListModel standard singleton.
     static func standard() -> TypeListModel{
-        
-//        print("拿到singleton")
         
         return shared
     }
     
     
     
-    
+    ///Save every object of Type.
     var typeList: [Type]
     
-    
+    ///Print all Type's properties.
     func toString(){
         
-        print("總數：\(typeList.count)")
         
         for type in typeList{
             print(type.name)
@@ -46,13 +44,19 @@ struct TypeListModel{
     
 }
 
-///City struct
 
+///To save number & name & id.
 struct Type{
+    ///Type no.
     let number: String
+    ///Type name.
     let name: String
 //    var id: String
     
+    /**
+     Initialize the Type of Struct when json parse.
+     - Parameter json: From the server back data.
+     */
     init(json: [String: Any]){
         self.number = json["no"] as? String ?? ""
 //        self.id = json["id"] as? String ?? ""

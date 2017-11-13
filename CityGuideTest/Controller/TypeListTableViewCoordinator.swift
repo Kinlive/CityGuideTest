@@ -7,6 +7,9 @@
 //
 
 import UIKit
+/**
+ The coordinator is bridge between SecondViewController and typeListTableView.
+ */
 class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDataSource{
     
     
@@ -99,19 +102,19 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
         case .cities:
             
             let parameter = cityListModel.cityList[indexPath.row].number
-            urlStr = "\(iclickURL)\(getPanoValueCityURL)\(parameter)"
+            urlStr = "\(ICLICK_URL)\(getPanoValueCityURL)\(parameter)"
             selectAPI = .cityDetail
             
         case .types:
             
             let parameter = typeListModel.typeList[indexPath.row].name
-            urlStr = "\(iclickURL)\(getPanoValueTagURL)\(parameter)"
+            urlStr = "\(ICLICK_URL)\(getPanoValueTagURL)\(parameter)"
             selectAPI = .typeDetail
         
         case .brands:
             
             let parameter = brandListModel.brandList[indexPath.row].number
-            urlStr = "\(iclickURL)\(getPanoValueBrandURL)\(parameter)"
+            urlStr = "\(ICLICK_URL)\(GET_PANOBRAND_URL)\(parameter)"
             selectAPI = .brandDetail
             
             print("URL\(urlStr)")

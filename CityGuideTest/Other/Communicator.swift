@@ -8,23 +8,26 @@
 
 import Foundation
 
+///To communicate between app to server that get data from database.
 class Communicator: NSObject{
     
     let sessionShared = URLSession.shared
-    
-    
-    
-    
-    
+
     typealias HandleCompletion = ( _ success: Bool) -> Void
-    func connectToService(urlStr: String, whichApiGet: WhichAPIGet? , completion:  @escaping HandleCompletion){
+    /**
+     Request to server.
+     - Parameter urlStr: Connect url.
+     - Parameter whichApiGet: For switch request with which api.
+     - Parameter completion: When request did end.
+     */
+    func connectToServer(urlStr: String, whichApiGet: WhichAPIGet? , completion:  @escaping HandleCompletion){
         
-        
-        
+        //Check for url string.
         guard let url = URL(string: urlStr.urlEncoded()) else {
             print("NO url")
             return}
         
+        //Check for which api get .
         if let whichApiGet = whichApiGet { //Get json api
             
             let task = sessionShared.dataTask(with: url) { (data, response, error) in
@@ -45,7 +48,6 @@ class Communicator: NSObject{
                 self.saveDataOnModel(data: data,
                                      whichAPI: whichApiGet,
                                      completion: completion)
-                
             }
             
                 task.resume()
@@ -60,19 +62,9 @@ class Communicator: NSObject{
                     print("\(error.localizedDescription)")
                 
                 }else{
-                    
-//                    if let data = try? Data(contentsOf:url!){
-//
-//                        standardiClickImage.handleImageWith(data: data,
-//                                                            completion: { (success) in
-//                            if success{
-                        
-                                //download success
-                                completion(true)
-                            
-//                            }
-//                        })
-//                    }
+ 
+                    completion(true)
+
                 }
             })
             
@@ -80,14 +72,7 @@ class Communicator: NSObject{
         }
     }
     
-    fileprivate func downloadImageWith(data: Data,completion: HandleCompletion){
-        
-        
-        
-        
-    }
-    
-    
+
     
     //MARK: - saveDataOnModel func
     /**
@@ -99,53 +84,41 @@ class Communicator: NSObject{
      */
     fileprivate func saveDataOnModel(data: Data ,whichAPI: WhichAPIGet , completion: HandleCompletion ){
         
-        do{
+        do{//JSON parse.
             
             let json = try JSONSerialization.jsonObject(with: data,
                                                         options: .mutableContainers)
-  
+            guard let finalJson = json as? [[String: Any]] else { return }
+            
+            //Put on which model
             switch  whichAPI {
                 
             case .cityList:
               
-                guard let finalJson = json as? [[String: Any]] else { return }
-                
                 handleCityList(json: finalJson, completion: completion)
             
             case .typeList:
-                
-                guard let finalJson = json as? [[String: Any]] else {return}
-                
+            
                 handleTypeList(json: finalJson, completion: completion)
                 
-            
             case .brandList:
                 
-                guard let finalJson = json as? [[String: Any]] else {return }
-                handleBrandList(json: finalJson, completion: completion)
+                 handleBrandList(json: finalJson, completion: completion)
             
             case .cityDetail:
-                print("CityDetail")
-                guard let finalJson = json as? [[String : Any ]] else { return }
+              
                 handleCityDetailList(json: finalJson, completion: completion)
             
             case .typeDetail:
-                print("TypeDetail")
-                
-                guard let finalJson = json as? [[String: Any]] else {return }
                 
                 handleTypeDetailList(json: finalJson, completion: completion)
             
             case .brandDetail:
-                print("BrandDetail")
-                
-                guard let finalJson = json as? [[String: Any]] else {return }
+             
                 handleBrandDetailList(json: finalJson, completion: completion)
             
             }
         
-            
-            
         }catch let jsonErr{
             print("error parser:\(jsonErr.localizedDescription)")
         }
@@ -154,6 +127,11 @@ class Communicator: NSObject{
     
     
     //MARK: - handleCityList func
+    /**
+     Handle the cityList data on struct.
+     - Parameter json: Array of parse end.
+     - Parameter completion: Handle completion.
+     */
     fileprivate func handleCityList(json: [[String: Any]] , completion: HandleCompletion){
         
         for cityOne in json{
@@ -170,6 +148,11 @@ class Communicator: NSObject{
     
     
     //MARK: - handleTypeList func
+    /**
+     Handle the typeList data on struct.
+     - Parameter json: Array of parse end.
+     - Parameter completion: Handle completion.
+     */
     fileprivate func handleTypeList(json: [[String: Any]], completion: HandleCompletion){
         
         for typeOne in json{
@@ -179,7 +162,6 @@ class Communicator: NSObject{
             //Avoid database give empty value
             if type.name == "" || type.number == ""{
                 
-//                print("name:\(type.name), number:\(type.number)")
             }else{
                 
                 typeListModel.typeList.append(type)
@@ -192,6 +174,11 @@ class Communicator: NSObject{
     
     
     //MARK: - handleBrandList func
+    /**
+     Handle the brandList data on struct.
+     - Parameter json: Array of parse end.
+     - Parameter completion: Handle completion.
+     */
     fileprivate func handleBrandList(json: [[String:Any]], completion: HandleCompletion){
         
         for brandOne in json{
@@ -201,7 +188,6 @@ class Communicator: NSObject{
             //Avoid database give empty value
             if brand.name == "" || brand.number == "" || brand.id == "" {
                 
-//                print("name:\(brand.name), number:\(brand.number)")
             }else{
                 
                 brandListModel.brandList.append(brand)
@@ -214,6 +200,11 @@ class Communicator: NSObject{
     }
     
     //MARK: - handelCityDetailList func
+    /**
+     Handle the cityDetail data on struct.
+     - Parameter json: Array of parse end.
+     - Parameter completion: Handle completion.
+     */
     fileprivate func handleCityDetailList(json: [[String: Any]], completion: HandleCompletion){
         
         cityDetailListModel.cityDetailList.removeAll()
@@ -227,11 +218,23 @@ class Communicator: NSObject{
             
         }
         
+        //For cache data
+        let forCacheObject = cityDetailListModel.cityDetailList
+        
+        cacheObjectData.setObject(forCacheObject as AnyObject,
+                                  forKey: saveInfoStruct.whichUrlStr as AnyObject )
+        
+        
         completion(true)
         
     }
     
     //MARK: - HandleTypeDetailList func
+    /**
+     Handle the typeDetail data on struct.
+     - Parameter json: Array of parse end.
+     - Parameter completion: Handle completion.
+     */
     fileprivate func handleTypeDetailList(json: [[String: Any]], completion: HandleCompletion){
         
         typeDetailListModel.typeDetailList.removeAll()
@@ -243,11 +246,22 @@ class Communicator: NSObject{
             typeDetailListModel.typeDetailList.append(typeDetail)
         }
         
+        //For cache data
+        let forCacheObject = typeDetailListModel.typeDetailList
+        
+        cacheObjectData.setObject(forCacheObject as AnyObject,
+                                  forKey: saveInfoStruct.whichUrlStr as AnyObject )
+        
         
         completion(true)
     }
     
     //MARK: - HandleBrandDetailList func
+    /**
+     Handle the brandDetail data on struct.
+     - Parameter json: Array of parse end.
+     - Parameter completion: Handle completion.
+     */
     fileprivate func handleBrandDetailList(json: [[String: Any]], completion: HandleCompletion){
         
         brandDetailListModel.brandDetailList.removeAll()
@@ -258,6 +272,11 @@ class Communicator: NSObject{
             
             brandDetailListModel.brandDetailList.append(brandDetail)
         }
+        //For cache data
+        let forCacheObject = brandDetailListModel.brandDetailList
+        
+        cacheObjectData.setObject(forCacheObject as AnyObject,
+                                  forKey: saveInfoStruct.whichUrlStr as AnyObject )
         
         completion(true)
     }
