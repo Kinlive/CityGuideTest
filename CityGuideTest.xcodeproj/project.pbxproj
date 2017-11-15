@@ -25,6 +25,9 @@
 		113505BB1FA86281001EB496 /* TypeListTableViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113505BA1FA86281001EB496 /* TypeListTableViewCoordinator.swift */; };
 		1140821C1FB971D80033ECFB /* DetailsInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140821B1FB971D80033ECFB /* DetailsInfoTableViewCell.swift */; };
 		1140821E1FB9729D0033ECFB /* DetailsInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140821D1FB9729D0033ECFB /* DetailsInfoViewController.swift */; };
+		114082201FBC0FB80033ECFB /* ARButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140821F1FBC0FB80033ECFB /* ARButtonTableViewCell.swift */; };
+		114082221FBC15930033ECFB /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114082211FBC15930033ECFB /* MapTableViewCell.swift */; };
+		114082241FBC15AF0033ECFB /* VideoGuideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114082231FBC15AF0033ECFB /* VideoGuideTableViewCell.swift */; };
 		1145FD3E1FB939F200FBCEFC /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1145FD3D1FB939F200FBCEFC /* 0.jpg */; };
 		1157A6961FAB0E5900D22039 /* TypeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157A6951FAB0E5900D22039 /* TypeListModel.swift */; };
 		1157A6981FAB0F2E00D22039 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157A6971FAB0F2E00D22039 /* Communicator.swift */; };
@@ -78,6 +81,9 @@
 		113505BA1FA86281001EB496 /* TypeListTableViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeListTableViewCoordinator.swift; sourceTree = "<group>"; };
 		1140821B1FB971D80033ECFB /* DetailsInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInfoTableViewCell.swift; sourceTree = "<group>"; };
 		1140821D1FB9729D0033ECFB /* DetailsInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInfoViewController.swift; sourceTree = "<group>"; };
+		1140821F1FBC0FB80033ECFB /* ARButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARButtonTableViewCell.swift; sourceTree = "<group>"; };
+		114082211FBC15930033ECFB /* MapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
+		114082231FBC15AF0033ECFB /* VideoGuideTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGuideTableViewCell.swift; sourceTree = "<group>"; };
 		1145FD3D1FB939F200FBCEFC /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
 		1157A6951FAB0E5900D22039 /* TypeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeListModel.swift; sourceTree = "<group>"; };
 		1157A6971FAB0F2E00D22039 /* Communicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
@@ -160,6 +166,9 @@
 				113505B71FA861D5001EB496 /* TypeListTableViewCell.swift */,
 				112EEA6D1FAC4D84009D7E40 /* SubSortTableViewCell.swift */,
 				1140821B1FB971D80033ECFB /* DetailsInfoTableViewCell.swift */,
+				1140821F1FBC0FB80033ECFB /* ARButtonTableViewCell.swift */,
+				114082211FBC15930033ECFB /* MapTableViewCell.swift */,
+				114082231FBC15AF0033ECFB /* VideoGuideTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -404,10 +413,13 @@
 				1157A6981FAB0F2E00D22039 /* Communicator.swift in Sources */,
 				1140821C1FB971D80033ECFB /* DetailsInfoTableViewCell.swift in Sources */,
 				113505B51FA84804001EB496 /* SecondViewController.swift in Sources */,
+				114082221FBC15930033ECFB /* MapTableViewCell.swift in Sources */,
 				1179AF6F1FA6BDB500985C5F /* ViewController.swift in Sources */,
 				1104E76B1FA9CA95003E19CC /* Define.swift in Sources */,
+				114082201FBC0FB80033ECFB /* ARButtonTableViewCell.swift in Sources */,
 				11AFAEAE1FB0599700960D2C /* TypeDetailListModel.swift in Sources */,
 				112EEA6E1FAC4D84009D7E40 /* SubSortTableViewCell.swift in Sources */,
+				114082241FBC15AF0033ECFB /* VideoGuideTableViewCell.swift in Sources */,
 				1104E76D1FAAC60F003E19CC /* CityListModel.swift in Sources */,
 				112D12A11FA972D6003B7905 /* ImageDataModel.swift in Sources */,
 				112D129F1FA96444003B7905 /* Enum.swift in Sources */,

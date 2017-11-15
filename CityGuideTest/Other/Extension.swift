@@ -53,3 +53,36 @@ extension UIImage {
     }
     
 }
+
+//No use now .
+//extension DetailsInfoViewController {
+//    func sizeHeaderToFit() {
+//        if let headerView = detailsInfoTableView.tableHeaderView {
+//
+//            headerView.setNeedsLayout()
+//            headerView.layoutIfNeeded()
+//
+//            let height = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+//            var frame = headerView.frame
+//            frame.size.height = height
+//            headerView.frame = frame
+//
+//            detailsInfoTableView.tableHeaderView = headerView
+//        }
+//    }
+//
+//    func sizeFooterToFit() {
+//        if let footerView = detailsInfoTableView.tableFooterView {
+//            footerView.setNeedsLayout()
+//            footerView.layoutIfNeeded()
+//
+//            let height = footerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+//            var frame = footerView.frame
+//            frame.size.height = height
+//            footerView.frame = frame
+//
+//            detailsInfoTableView.tableFooterView = footerView
+//        }
+//    }
+//}
+
