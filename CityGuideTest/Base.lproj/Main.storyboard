@@ -316,6 +316,9 @@
                                                     <state key="normal" title="360°">
                                                         <color key="titleColor" red="1" green="0.2979461551" blue="0.39977732300000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <segue destination="22h-4Y-OWL" kind="show" id="gLe-s2-03v"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -384,11 +387,17 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="66" height="30"/>
                                                             <color key="backgroundColor" red="0.6929465132" green="1" blue="0.64010953110000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <state key="normal" title="AR互動點"/>
+                                                            <connections>
+                                                                <segue destination="fqR-75-s4E" kind="show" id="EFx-f0-OBv"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14H-7i-TZV">
                                                             <rect key="frame" x="74.000000000000014" y="0.0" width="65.999999999999986" height="30"/>
                                                             <color key="backgroundColor" red="1" green="0.60238224730000001" blue="0.58632336220000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <state key="normal" title="AR導引"/>
+                                                            <connections>
+                                                                <segue destination="DOP-oh-b17" kind="show" id="io1-bP-Ita"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -415,6 +424,7 @@
                                             <subviews>
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LGr-0k-A0A">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="183.66666666666666"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </mapView>
                                             </subviews>
                                             <constraints>
@@ -480,22 +490,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Da-s9-PJO">
-                                <rect key="frame" x="67" y="199" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="360" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdZ-rJ-bgZ">
+                                <rect key="frame" x="141.66666666666666" y="376.66666666666669" width="91" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VdZ-rJ-bgZ" firstAttribute="centerY" secondItem="ZXd-Rn-a6w" secondAttribute="centerY" id="Fkg-gX-cep"/>
+                            <constraint firstItem="VdZ-rJ-bgZ" firstAttribute="centerX" secondItem="ZXd-Rn-a6w" secondAttribute="centerX" id="G0q-WG-YDB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="T6q-lW-3NU"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXo-vN-kup" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4122" y="929"/>
+            <point key="canvasLocation" x="4006" y="214"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="esP-um-9XK">
+            <objects>
+                <viewController id="fqR-75-s4E" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bfm-w9-xZc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR互動點" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewT-uV-4Vu">
+                                <rect key="frame" x="80.666666666666686" y="376.66666666666669" width="213" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ewT-uV-4Vu" firstAttribute="centerY" secondItem="Bfm-w9-xZc" secondAttribute="centerY" id="jwn-H4-dzB"/>
+                            <constraint firstItem="ewT-uV-4Vu" firstAttribute="centerX" secondItem="Bfm-w9-xZc" secondAttribute="centerX" id="xnI-yl-GEV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2Vd-dU-W0Y"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qIy-RP-j7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4006" y="929"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="rcA-Bc-que">
+            <objects>
+                <viewController id="DOP-oh-b17" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6QH-hS-kC1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR導引" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMV-rw-iUw">
+                                <rect key="frame" x="105.66666666666667" y="376.66666666666669" width="162.66666666666663" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nMV-rw-iUw" firstAttribute="centerY" secondItem="6QH-hS-kC1" secondAttribute="centerY" id="QHK-mF-kcc"/>
+                            <constraint firstItem="nMV-rw-iUw" firstAttribute="centerX" secondItem="6QH-hS-kC1" secondAttribute="centerX" id="cxx-Sd-KTG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YMR-xS-vFl"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wAG-Sr-US8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4006" y="1658"/>
         </scene>
         <!--地點-->
         <scene sceneID="U5v-nJ-rKN">

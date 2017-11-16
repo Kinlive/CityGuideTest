@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 
-class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MKMapViewDelegate {
 
     let sectionTitle = ["AR體驗","Detail","Map","Video Guide"]
     
@@ -20,7 +20,14 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
     var imageName: String?
     var titleName: String?
     var itemSummary: String?
+    var itemCoordinateStr: String?
+    var itemAddress: String?
     
+    
+    //For map use
+    var coordin = [Double]()
+    var region = MKCoordinateRegion()
+    var annotation = MKPointAnnotation()
 //    var indexPaths = [IndexPath]()
 //    @IBOutlet weak var heightConstraint: NSLayoutConstraint!{
 //        didSet{
@@ -56,8 +63,11 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         
         prepareForHeaderTitle()
         
+        
         detailsInfoTableView.estimatedRowHeight = 300
         detailsInfoTableView.rowHeight = UITableViewAutomaticDimension
+        
+        
         
         // Do any additional setup after loading the view.
     }
@@ -85,17 +95,23 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
             imageName = cityDetailListModel.cityDetailList[selectedIndexPath.row].img[0]
             titleName = cityDetailListModel.cityDetailList[selectedIndexPath.row].name
             itemSummary = cityDetailListModel.cityDetailList[selectedIndexPath.row].content
+            itemCoordinateStr = cityDetailListModel.cityDetailList[selectedIndexPath.row].map
+            itemAddress = cityDetailListModel.cityDetailList[selectedIndexPath.row].address
+            
             
         case .types:
             imageName = typeDetailListModel.typeDetailList[selectedIndexPath.row].img[0]
             titleName = typeDetailListModel.typeDetailList[selectedIndexPath.row].name
             itemSummary = typeDetailListModel.typeDetailList[selectedIndexPath.row].content
-            
+            itemCoordinateStr = typeDetailListModel.typeDetailList[selectedIndexPath.row].map
+            itemAddress = typeDetailListModel.typeDetailList[selectedIndexPath.row].address
         case .brands:
 
             imageName = brandDetailListModel.brandDetailList[selectedIndexPath.row].img[0]
             titleName = brandDetailListModel.brandDetailList[selectedIndexPath.row].name
             itemSummary = brandDetailListModel.brandDetailList[selectedIndexPath.row].content
+            itemCoordinateStr = brandDetailListModel.brandDetailList[selectedIndexPath.row].map
+            itemAddress = brandDetailListModel.brandDetailList[selectedIndexPath.row].address
         }
         
         guard
@@ -112,7 +128,8 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         self.titleImg.image = img
 //        setTableHeaderView(image: img, titleStr: title)
 
-        
+        prepareRegion()
+        prepareMapAnnotation()
         
         
     }
@@ -255,35 +272,48 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailHeaderCell")
-        
-        //AR
-        if indexPath.section == 0, let cell = tableView.dequeueReusableCell(withIdentifier: "arButtonCell") as? ARButtonTableViewCell {
+        //AR cell
+        if indexPath.section == 0,
+            let cell = tableView.dequeueReusableCell(withIdentifier: "arButtonCell") as? ARButtonTableViewCell {
             tableView.rowHeight = UITableViewAutomaticDimension
             
            return cell
         }
         
-        //Detail content
-        if indexPath.section == 1, let cell = tableView.dequeueReusableCell(withIdentifier: "DetailHeaderCell") as? DetailsInfoTableViewCell, let summary = itemSummary {
-                cell.detailTitleLabel.text = ""
-                cell.textLabel?.text = summary
+        //Detail content cell
+        if indexPath.section == 1,
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DetailHeaderCell") as? DetailsInfoTableViewCell,
+            let summary = itemSummary {
+            
+            cell.detailTitleLabel.text = ""
+            cell.textLabel?.text = summary
             cell.textLabel?.numberOfLines = 0
             tableView.rowHeight = UITableViewAutomaticDimension
             
             return cell
         }
       
-        //Map
-        if indexPath.section == 2, let cell = tableView.dequeueReusableCell(withIdentifier: "mapCell") as? MapTableViewCell{
+        //Map cell
+        if indexPath.section == 2,
+            let cell = tableView.dequeueReusableCell(withIdentifier: "mapCell") as? MapTableViewCell{
+            
             tableView.rowHeight = 400
+            cell.mapView.delegate = self
+            cell.mapView.region = region
+            cell.mapView.addAnnotation(annotation)
           
+            let customView = UIView()
+            
+            customView.backgroundColor = .white
+            cell.selectedBackgroundView = customView
             
             return cell
         }
         
-        //Video guide
-        if indexPath.section == 3, let cell = tableView.dequeueReusableCell(withIdentifier: "videoGuideCell") as? VideoGuideTableViewCell{
+        //Video guide cell
+        if indexPath.section == 3,
+            let cell = tableView.dequeueReusableCell(withIdentifier: "videoGuideCell") as? VideoGuideTableViewCell{
+            
             cell.textLabel?.text = "I am a Video Guide"
             tableView.rowHeight = UITableViewAutomaticDimension
             return cell
@@ -317,54 +347,67 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
     }
 
 
-    //MARK: - Create AR button
-    func createARButton(frame: CGRect) -> [UIButton]{
-        
-        let arInteractionBtn = UIButton()
-        arInteractionBtn.setTitle("AR互動點", for: .normal)
-        arInteractionBtn.frame = CGRect(x: frame.width/2 - frame.width/3, y: 0, width: frame.width/3, height: 50)
-        arInteractionBtn.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-        
-        let arRouteGuideBtn = UIButton()
-        arRouteGuideBtn.setTitle("AR導引", for: .normal)
-        arRouteGuideBtn.frame = CGRect(x: frame.width/2, y: 0, width: frame.width/3, height: 50)
-        arRouteGuideBtn.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
-        
-        let buttons = [arInteractionBtn,arRouteGuideBtn]
-        return buttons
-    }
     
-    func createDetailContentTextView(frame: CGRect) -> UILabel{
-        
-        var textView = UILabel()
-        if let summary = itemSummary {
+    
+    //MARK: - Prepare for map use
+    func prepareRegion() {
+//        var coordin = [Double]()
+//        var region = MKCoordinateRegion()
+        if let coorStr = itemCoordinateStr {
+         
             
-            let textViewFrame = CGRect(x: 8, y: 8, width: frame.size.width - 30, height: 100)
-                
-            textView = UILabel(frame: textViewFrame)
-            textView.text = summary
-            textView.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
-            textView.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-            textView.numberOfLines = 0
-//            textView.isEditable = false
-            textView.font = UIFont(name: "Helvetica", size: 20)
-//            textView.isScrollEnabled = true
-//            textView.isPagingEnabled = true
+            let coorArray = coorStr.split(separator: ",")
+            for (_,coor) in coorArray.enumerated(){
+             
+                if let coorDouble = Double(coor){
+                    coordin.append(coorDouble)
+                }
+//                print("Test for coordinate: \(index) : \(coor)")
+            }
             
-            
-            return textView
         }
-        return textView
+        region.center = CLLocationCoordinate2D(latitude: coordin[0], longitude: coordin[1])
+        region.span = MKCoordinateSpanMake(0.005, 0.005)
+        
+        
+        
+//        return region
+    }
+
+    
+    func prepareMapAnnotation(){
+        
+        if let title = titleName,
+            let address = itemAddress {
+            
+            annotation.coordinate = CLLocationCoordinate2D(latitude: coordin[0], longitude: coordin[1])
+            annotation.title = title
+            annotation.subtitle = address
+            
+            
+        }
     }
     
-    func createMapView(){
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
+        let annoId = "CityGuideAnno"
+        
+        let result = mapView.dequeueReusableAnnotationView(withIdentifier: annoId) as? MKPinAnnotationView ?? MKPinAnnotationView(annotation: annotation, reuseIdentifier: annoId)
+        
+        result.annotation = annotation
+        result.canShowCallout = true
+        let btn = UIButton()
+        btn.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
+        btn.setTitle("GO!!", for: .normal)
+        btn.setTitleColor(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), for: .normal)
+      
+        result.leftCalloutAccessoryView = btn
+        
+        
+        return result
     }
     
-    func createVideoGuideView(){
-        
-        
-    }
+   
     //MARK: - Resize the contentEntryView when scrolling
 //    func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //
