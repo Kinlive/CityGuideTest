@@ -33,6 +33,9 @@ let typeListTableViewCellId = "typeListCell"
 
 let subSortTableViewCellId = "SubSortTableViewCell"
 
+///GoogleMap API key
+let GMSAPI_Key = "AIzaSyCaBlL_1-qcmOtcKUMTmjRRPJ2jFqdxA9c"
+let GMSAPI_Key2 = "AIzaSyCsBLVDhdaSm_bzE8U1vSYiRhG2sW9m7U4"
 
 
 

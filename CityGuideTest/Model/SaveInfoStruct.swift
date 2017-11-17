@@ -48,8 +48,32 @@ struct SaveInfoStruct{
 //        }
 //        
 //    }
+    private var mapTitle: String?
+    private var mapAddress: String?
+    private var mapCoordinate = [Double]()
     
+    var mapPanoUrl: String?
     
+    mutating func saveInfoOfMap(title: String, address: String, coordinate:[Double]){
+        self.mapTitle = title
+        self.mapAddress = address
+        self.mapCoordinate = coordinate
+        
+    }
+    
+    func getMapNeedsData() -> (String?, String?,[Double]) {
+        
+        let mapData = (mapTitle, mapAddress, mapCoordinate)
+        
+        return mapData
+    }
+    
+    mutating func resetMapData(){
+        
+        self.mapTitle = nil
+        self.mapAddress = nil
+        self.mapCoordinate = [Double]()
+    }
     
     
     //MARK: - Property *whichSegmentedTitle* API get&set func
@@ -75,8 +99,6 @@ struct SaveInfoStruct{
         return segmentedTitle
         
     }
-    
-    
     
     
     //MARK: - Property *whichSelected* API get&set func

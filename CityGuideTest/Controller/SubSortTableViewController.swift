@@ -251,7 +251,8 @@ class SubSortTableViewController: UITableViewController {
             
                 case .cities:
                     cell.subSortTitle.text = cityDetailListModel.cityDetailList[indexPath.row].name
-                    cell.subSortSummery.text = ""
+                    let noAndId = "no:\(cityDetailListModel.cityDetailList[indexPath.row].number) id:\(cityDetailListModel.cityDetailList[indexPath.row].id)"
+                    cell.subSortSummery.text = noAndId
                     
                     //Prepare for image load and save
                     let imageName = "\(cityDetailListModel.cityDetailList[indexPath.row].img[0])"
@@ -303,8 +304,8 @@ class SubSortTableViewController: UITableViewController {
                 case .types:
                     
                     cell.subSortTitle.text = typeDetailListModel.typeDetailList[indexPath.row].name
-                    cell.subSortSummery.text = ""
-                    
+                    let noAndId = "no:\(typeDetailListModel.typeDetailList[indexPath.row].number) id:\(typeDetailListModel.typeDetailList[indexPath.row].id)"
+                    cell.subSortSummery.text = noAndId
                     let imageName = "\(typeDetailListModel.typeDetailList[indexPath.row].img[0])"
                     
                     let cacheKey = "\(segmentTitle)\(imageName)"
@@ -352,8 +353,8 @@ class SubSortTableViewController: UITableViewController {
                 case .brands:
                 
                     cell.subSortTitle.text = brandDetailListModel.brandDetailList[indexPath.row].name
-                    cell.subSortSummery.text = ""
-                    
+                    let noAndId = "no:\(brandDetailListModel.brandDetailList[indexPath.row].number) id:\(brandDetailListModel.brandDetailList[indexPath.row].id)"
+                    cell.subSortSummery.text = noAndId
                     let imageName = "\(brandDetailListModel.brandDetailList[indexPath.row].img[0])"
                     
                     let cacheKey = "\(segmentTitle)\(imageName)"

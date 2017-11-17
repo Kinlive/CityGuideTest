@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-
+import GoogleMaps
 
 class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MKMapViewDelegate {
 
@@ -22,13 +22,17 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
     var itemSummary: String?
     var itemCoordinateStr: String?
     var itemAddress: String?
-    
+
     
     //For map use
     var coordin = [Double]()
     var region = MKCoordinateRegion()
     var annotation = MKPointAnnotation()
-//    var indexPaths = [IndexPath]()
+    
+    var gmsMapView = GMSMapView()
+    
+    @IBOutlet weak var cellsMapView: UIView!
+    //    var indexPaths = [IndexPath]()
 //    @IBOutlet weak var heightConstraint: NSLayoutConstraint!{
 //        didSet{
 //            heightConstraint.constant = maxHeight
@@ -77,7 +81,17 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+//        saveInfoStruct.resetMapData()
+        
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        prepareForHeaderTitle()
+        print("ViewWillAppear")
+
+    }
     
     
     //MARK: - Prepare for header title data.
@@ -92,26 +106,33 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         switch  segmentTitle {
         case .cities:
             //Prepare for cacheKey get.
-            imageName = cityDetailListModel.cityDetailList[selectedIndexPath.row].img[0]
-            titleName = cityDetailListModel.cityDetailList[selectedIndexPath.row].name
-            itemSummary = cityDetailListModel.cityDetailList[selectedIndexPath.row].content
-            itemCoordinateStr = cityDetailListModel.cityDetailList[selectedIndexPath.row].map
-            itemAddress = cityDetailListModel.cityDetailList[selectedIndexPath.row].address
+            let cityObject = cityDetailListModel.cityDetailList[selectedIndexPath.row]
+            
+            imageName = cityObject.img[0]
+            titleName = cityObject.name
+            itemSummary = cityObject.content == "" ?cityObject.summary:cityObject.content
+            itemCoordinateStr = cityObject.map
+            itemAddress = cityObject.address
+            saveInfoStruct.mapPanoUrl = cityObject.panorama
             
             
         case .types:
-            imageName = typeDetailListModel.typeDetailList[selectedIndexPath.row].img[0]
-            titleName = typeDetailListModel.typeDetailList[selectedIndexPath.row].name
-            itemSummary = typeDetailListModel.typeDetailList[selectedIndexPath.row].content
-            itemCoordinateStr = typeDetailListModel.typeDetailList[selectedIndexPath.row].map
-            itemAddress = typeDetailListModel.typeDetailList[selectedIndexPath.row].address
+            let typeObject = typeDetailListModel.typeDetailList[selectedIndexPath.row]
+            imageName = typeObject.img[0]
+            titleName = typeObject.name
+            itemSummary = typeObject.content == "" ?typeObject.summary:typeObject.content
+            itemCoordinateStr = typeObject.map
+            itemAddress = typeObject.address
+            saveInfoStruct.mapPanoUrl = typeObject.panorama
         case .brands:
 
-            imageName = brandDetailListModel.brandDetailList[selectedIndexPath.row].img[0]
-            titleName = brandDetailListModel.brandDetailList[selectedIndexPath.row].name
-            itemSummary = brandDetailListModel.brandDetailList[selectedIndexPath.row].content
-            itemCoordinateStr = brandDetailListModel.brandDetailList[selectedIndexPath.row].map
-            itemAddress = brandDetailListModel.brandDetailList[selectedIndexPath.row].address
+            let brandObject = brandDetailListModel.brandDetailList[selectedIndexPath.row]
+            imageName = brandObject.img[0]
+            titleName = brandObject.name
+            itemSummary = brandObject.content == "" ?brandObject.summary:brandObject.content
+            itemCoordinateStr = brandObject.map
+            itemAddress = brandObject.address
+            saveInfoStruct.mapPanoUrl = brandObject.panorama
         }
         
         guard
@@ -127,12 +148,34 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         self.titelLabel.text = title
         self.titleImg.image = img
 //        setTableHeaderView(image: img, titleStr: title)
-
+        
+        
         prepareRegion()
-        prepareMapAnnotation()
+        
+//        prepareMapAnnotation()
+//        prepareGMS()
         
         
     }
+    
+    //MARK: - Prepare for google maps. no use
+    func prepareGMS(){
+        // Create a GMSCameraPosition that tells the map to display the
+        // coordinate -33.86,151.20 at zoom level 6.
+        let camera = GMSCameraPosition.camera(withLatitude: region.center.latitude,
+                                              longitude: region.center.longitude, zoom: 15.0)
+        gmsMapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        gmsMapView.isMyLocationEnabled = true
+//        gmsMapView = mapView
+        
+        // Creates a marker in the center of the map.
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: region.center.latitude, longitude: region.center.longitude)
+        marker.title = titleName
+        marker.snippet = itemAddress
+        marker.map = gmsMapView
+    }
+    
     
     //MARK: - Setup the Table HeaderView , no use now.
     /**
@@ -251,6 +294,8 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         case 1:
             return 1
         case 2:
+            
+            print("To get section ")
             return 1
         case 3:
             return 1
@@ -296,16 +341,20 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         //Map cell
         if indexPath.section == 2,
             let cell = tableView.dequeueReusableCell(withIdentifier: "mapCell") as? MapTableViewCell{
-            
+            print("It on cell init")
             tableView.rowHeight = 400
-            cell.mapView.delegate = self
-            cell.mapView.region = region
-            cell.mapView.addAnnotation(annotation)
-          
-            let customView = UIView()
             
-            customView.backgroundColor = .white
-            cell.selectedBackgroundView = customView
+            
+//            cell.mapView.addSubview(gmsMapView)
+            
+//            cell.mapView.delegate = self
+//            cell.mapView.region = region
+//            cell.mapView.addAnnotation(annotation)
+          
+//            let customView = UIView()
+//
+//            customView.backgroundColor = .white
+//            cell.selectedBackgroundView = customView
             
             return cell
         }
@@ -351,11 +400,8 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
     
     //MARK: - Prepare for map use
     func prepareRegion() {
-//        var coordin = [Double]()
-//        var region = MKCoordinateRegion()
+        
         if let coorStr = itemCoordinateStr {
-         
-            
             let coorArray = coorStr.split(separator: ",")
             for (_,coor) in coorArray.enumerated(){
              
@@ -366,28 +412,27 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
             }
             
         }
-        region.center = CLLocationCoordinate2D(latitude: coordin[0], longitude: coordin[1])
-        region.span = MKCoordinateSpanMake(0.005, 0.005)
         
+        //prepare for map data save.
+        guard
+            let titleName = self.titleName,
+            let itemAddress = self.itemAddress
+            else{
+            return
+        }
         
+        saveInfoStruct.saveInfoOfMap(title: titleName, address: itemAddress, coordinate: coordin)
         
-//        return region
+//        region.center = CLLocationCoordinate2D(latitude: coordin[0], longitude: coordin[1])
+//        region.span = MKCoordinateSpanMake(0.005, 0.005)
+        
+
     }
 
     
-    func prepareMapAnnotation(){
-        
-        if let title = titleName,
-            let address = itemAddress {
-            
-            annotation.coordinate = CLLocationCoordinate2D(latitude: coordin[0], longitude: coordin[1])
-            annotation.title = title
-            annotation.subtitle = address
-            
-            
-        }
-    }
     
+    
+    //MARK: - The func no use now.
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let annoId = "CityGuideAnno"
@@ -403,10 +448,22 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
       
         result.leftCalloutAccessoryView = btn
         
-        
+        print("是否有自動進入annotation the delegate 方法")
         return result
     }
     
+    func prepareMapAnnotation(){
+        
+        if let title = titleName,
+            let address = itemAddress {
+            
+            annotation.coordinate = CLLocationCoordinate2D(latitude: coordin[0], longitude: coordin[1])
+            annotation.title = title
+            annotation.subtitle = address
+            
+            
+        }
+    }
    
     //MARK: - Resize the contentEntryView when scrolling
 //    func scrollViewDidScroll(_ scrollView: UIScrollView) {
