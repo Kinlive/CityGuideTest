@@ -8,7 +8,7 @@
 
 import UIKit
 /**
- When on the SecondVierController selected any one cell, jump to this page and show all list.
+  When on the SecondVierController selected any one cell, jump to this page and show all list.
  */
 class SubSortTableViewController: UITableViewController {
 
@@ -85,6 +85,7 @@ class SubSortTableViewController: UITableViewController {
         coverView.addSubview(activityIndicator)
 //        self.tableView.addSubview(activityIndicator)
         self.view.addSubview(activityIndicator)
+        
         //Configurate the activityIndicator
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.hidesWhenStopped = true
@@ -209,7 +210,7 @@ class SubSortTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         
         guard let segmentTitle = saveInfoStruct.getWhichSegmentedTitle() else {
           

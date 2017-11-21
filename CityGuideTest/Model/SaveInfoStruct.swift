@@ -50,18 +50,18 @@ struct SaveInfoStruct{
 //    }
     private var mapTitle: String?
     private var mapAddress: String?
-    private var mapCoordinate = [Double]()
+    private var mapCoordinate = [Float]()
     
     var mapPanoUrl: String?
     
-    mutating func saveInfoOfMap(title: String, address: String, coordinate:[Double]){
+    mutating func saveInfoOfMap(title: String, address: String, coordinate:[Float]){
         self.mapTitle = title
         self.mapAddress = address
         self.mapCoordinate = coordinate
         
     }
     
-    func getMapNeedsData() -> (String?, String?,[Double]) {
+    func getMapNeedsData() -> (String?, String?,[Float]) {
         
         let mapData = (mapTitle, mapAddress, mapCoordinate)
         
@@ -72,7 +72,8 @@ struct SaveInfoStruct{
         
         self.mapTitle = nil
         self.mapAddress = nil
-        self.mapCoordinate = [Double]()
+        self.mapCoordinate.removeAll()
+        self.mapCoordinate = [Float]()
     }
     
     

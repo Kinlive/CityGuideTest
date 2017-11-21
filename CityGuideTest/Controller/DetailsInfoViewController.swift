@@ -25,7 +25,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
 
     
     //For map use
-    var coordin = [Double]()
+    var coordin = [Float]()
     var region = MKCoordinateRegion()
     var annotation = MKPointAnnotation()
     
@@ -65,7 +65,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         detailsInfoTableView.delegate = self
         detailsInfoTableView.dataSource = self
         
-        prepareForHeaderTitle()
+//        prepareForHeaderTitle()
         
         
         detailsInfoTableView.estimatedRowHeight = 300
@@ -149,7 +149,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         self.titleImg.image = img
 //        setTableHeaderView(image: img, titleStr: title)
         
-        
+        print("This is cache key\(cacheKey)")
         prepareRegion()
         
 //        prepareMapAnnotation()
@@ -157,6 +157,45 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         
         
     }
+    
+    
+    
+    //MARK: - Prepare for map use
+    func prepareRegion() {
+        //Reset some data
+        saveInfoStruct.resetMapData()
+        coordin.removeAll()
+        
+        if let coorStr = itemCoordinateStr {
+            let coorArray = coorStr.split(separator: ",")
+            for (_,coor) in coorArray.enumerated(){
+                
+                print("This is ======coor:\(coor)")
+                if let coorDouble = Float(coor){
+                    coordin.append(coorDouble)
+                }
+                //                print("Test for coordinate: \(index) : \(coor)")
+            }
+            
+        }
+        
+        //prepare for map data save.
+        guard
+            let titleName = self.titleName,
+            let itemAddress = self.itemAddress
+            else{
+                return
+        }
+        print("This MapDataForSave: \(titleName),\(coordin)")
+        saveInfoStruct.saveInfoOfMap(title: titleName, address: itemAddress, coordinate: coordin)
+        
+        //        region.center = CLLocationCoordinate2D(latitude: coordin[0], longitude: coordin[1])
+        //        region.span = MKCoordinateSpanMake(0.005, 0.005)
+        
+        
+    }
+    
+    
     
     //MARK: - Prepare for google maps. no use
     func prepareGMS(){
@@ -396,40 +435,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
     }
 
 
-    
-    
-    //MARK: - Prepare for map use
-    func prepareRegion() {
-        
-        if let coorStr = itemCoordinateStr {
-            let coorArray = coorStr.split(separator: ",")
-            for (_,coor) in coorArray.enumerated(){
-             
-                if let coorDouble = Double(coor){
-                    coordin.append(coorDouble)
-                }
-//                print("Test for coordinate: \(index) : \(coor)")
-            }
-            
-        }
-        
-        //prepare for map data save.
-        guard
-            let titleName = self.titleName,
-            let itemAddress = self.itemAddress
-            else{
-            return
-        }
-        
-        saveInfoStruct.saveInfoOfMap(title: titleName, address: itemAddress, coordinate: coordin)
-        
-//        region.center = CLLocationCoordinate2D(latitude: coordin[0], longitude: coordin[1])
-//        region.span = MKCoordinateSpanMake(0.005, 0.005)
-        
-
-    }
-
-    
+  
     
     
     //MARK: - The func no use now.
@@ -457,7 +463,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         if let title = titleName,
             let address = itemAddress {
             
-            annotation.coordinate = CLLocationCoordinate2D(latitude: coordin[0], longitude: coordin[1])
+            annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(coordin[0]), longitude: CLLocationDegrees(coordin[1]))
             annotation.title = title
             annotation.subtitle = address
             

@@ -516,13 +516,53 @@
                     <view key="view" contentMode="scaleToFill" id="ZXd-Rn-a6w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzl-0g-OMc">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ggg-PP-k6Q">
+                                <rect key="frame" x="20" y="526" width="335" height="203"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bg-pQ-enx">
+                                        <rect key="frame" x="243.33333333333329" y="8" width="83.666666666666657" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Tap"/>
+                                        <connections>
+                                            <action selector="tapButton:" destination="22h-4Y-OWL" eventType="touchUpInside" id="1uc-jR-zye"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.6994826972" green="0.83032605329999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4Bg-pQ-enx" secondAttribute="trailing" constant="8" id="9Ri-7E-JaB"/>
+                                    <constraint firstItem="4Bg-pQ-enx" firstAttribute="top" secondItem="Ggg-PP-k6Q" secondAttribute="top" constant="8" id="cvZ-6e-fZ5"/>
+                                    <constraint firstItem="4Bg-pQ-enx" firstAttribute="width" secondItem="Ggg-PP-k6Q" secondAttribute="width" multiplier="1/4" id="qOB-Rh-d14"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="T6q-lW-3NU" firstAttribute="bottom" secondItem="lzl-0g-OMc" secondAttribute="bottom" id="4fN-Pt-FCN"/>
+                            <constraint firstItem="Ggg-PP-k6Q" firstAttribute="trailing" secondItem="T6q-lW-3NU" secondAttribute="trailing" constant="-20" id="KOh-62-VPS"/>
+                            <constraint firstItem="Ggg-PP-k6Q" firstAttribute="height" secondItem="ZXd-Rn-a6w" secondAttribute="height" multiplier="1/4" id="Pr9-UV-TKC"/>
+                            <constraint firstItem="lzl-0g-OMc" firstAttribute="leading" secondItem="T6q-lW-3NU" secondAttribute="leading" id="RUi-89-MIv"/>
+                            <constraint firstItem="Ggg-PP-k6Q" firstAttribute="leading" secondItem="T6q-lW-3NU" secondAttribute="leading" constant="20" id="VXr-he-0h1"/>
+                            <constraint firstItem="Ggg-PP-k6Q" firstAttribute="bottom" secondItem="T6q-lW-3NU" secondAttribute="bottom" id="bzg-vT-BnI"/>
+                            <constraint firstItem="lzl-0g-OMc" firstAttribute="top" secondItem="T6q-lW-3NU" secondAttribute="top" id="eZW-T2-eVo"/>
+                            <constraint firstItem="T6q-lW-3NU" firstAttribute="trailing" secondItem="lzl-0g-OMc" secondAttribute="trailing" id="jzv-Cq-kzE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="T6q-lW-3NU"/>
                     </view>
+                    <connections>
+                        <outlet property="guideMapView" destination="Ggg-PP-k6Q" id="7hm-TD-eWw"/>
+                        <outlet property="panoramaView" destination="lzl-0g-OMc" id="hAq-iY-vo8"/>
+                        <outlet property="tapBtnOut" destination="4Bg-pQ-enx" id="CL8-ny-6Zg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXo-vN-kup" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4006" y="214"/>
+            <point key="canvasLocation" x="4005.5999999999999" y="213.54679802955667"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="esP-um-9XK">
