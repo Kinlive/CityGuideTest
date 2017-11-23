@@ -35,11 +35,16 @@ class SecondViewController: UIViewController {
     let typeListCoordinator = TypeListTableViewCoordinator()
     
     var searchControll : UISearchController!
+    var searchBar: UISearchBar!
     
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
 //    var refreshCtrl: UIRefreshControl!
-    var scrollSize: CGSize?
+    var scrollSize: CGSize!
+    
+    var fullSize: CGSize!
+    var fullWidth: CGFloat = 0
+    var fullHeight: CGFloat = 0
     
     
     @IBOutlet weak var popScrollView: UIScrollView!
@@ -57,6 +62,12 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Prepare for scrollView
+        fullSize = UIScreen.main.bounds.size
+        fullWidth = fullSize.width
+        fullHeight = fullSize.height
+        popScrollView.frame = CGRect(x: 0, y: 0, width: fullWidth, height: fullHeight/3)
+        scrollSize = popScrollView.bounds.size
         
         //Default value set.
         saveInfoStruct.setWhich(segmentTitle: .cities)
@@ -67,32 +78,41 @@ class SecondViewController: UIViewController {
         
         connectToServer()
         
-        
         standardImageModel.handleAllImage(names: ["0.jpg","1.jpg","2.jpg","3.jpg"])
 
-        //////
-        scrollSize = popScrollView.frame.size
-        print("000000000scrolSize width\(scrollSize?.width)")
         
         //Setting scrollView's contentSize
         popScrollView.delegate = self
-        let scrollViewWidth = popScrollView.frame.size.width
-        let scrollViewHeight = popScrollView.frame.size.height
         popScrollView.isPagingEnabled = true
-        popScrollView.contentSize = CGSize(width: scrollViewWidth*4, height: scrollViewHeight)
-    
+        popScrollView.isDirectionalLockEnabled = true
+        
         //Set image on scrollView
         setImageViewOnScrollView()
         
         //SearchControll
         searchControll = UISearchController(searchResultsController: nil)
+        searchControll.searchBar.placeholder = "search here..."
+        searchControll.searchBar.showsCancelButton = true
+        searchControll.searchBar.delegate = self
         
+        searchBar = UISearchBar()
+        searchBar.placeholder = "search here..."
+        searchBar.showsCancelButton = false
+        searchBar.delegate = self
+        searchBar.endEditing(true)
+        
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapSearchBarGesture(sender:)))
+//
+//        searchBar.addGestureRecognizer(tapGesture)
         //Recognize the device version
-        if #available (iOS 11.0, *){
-            self.navigationItem.searchController = searchControll
-        }else {
-            self.navigationItem.titleView = searchControll.searchBar
-        }
+        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        
+        
+//        if #available (iOS 11.0, *){
+//            self.navigationItem.searchController = searchControll
+//        }else {
+            self.navigationItem.titleView = searchBar
+//        }
         
         //Set the segmentedControl
         pageSegmentedControl.addTarget(self, action: #selector(onSegementedControlSelect(sender:)), for: .valueChanged)
@@ -102,7 +122,11 @@ class SecondViewController: UIViewController {
         //Connect tableView's delegate on Coordinator
         typeListTableView.delegate = typeListCoordinator
         typeListTableView.dataSource = typeListCoordinator
+//        typeListTableView.rowHeight = UITableViewAutomaticDimension
         
+        //For tableview gesture
+        setupTheTableViewGesture()
+        typeListTableView.isEditing = false
         
         
         // Do any additional setup after loading the view.
@@ -113,6 +137,35 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: - Gesture
+    @objc func tapSearchBarGesture(sender: UITapGestureRecognizer){
+        searchBar.showsCancelButton = true
+        
+    }
+    
+    func setupTheTableViewGesture(){
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(swipGestureRecognizer(sender:)))
+//        swipe.direction = .right
+        typeListTableView.addGestureRecognizer(swipe)
+        
+    }
+    
+   @objc func swipGestureRecognizer(sender: UISwipeGestureRecognizer){
+        
+    switch  sender.direction {
+        
+    case .left: //next one
+        
+        print("NEXT")
+    case .right: // before one
+        
+        print("Before")
+    default:
+        break
+    }
+    
+    
+    }
     
     
     //MARK: - ConnectToServer func.
@@ -211,34 +264,32 @@ class SecondViewController: UIViewController {
         guard let popViewSize = scrollSize else { return  }
         
         let imageViewSize = popViewSize
-        var imageViewPositionX: CGFloat = 0
-        let imageViewPositionY: CGFloat = 0
         
-        print("111111ImageViewSize width: \(imageViewSize.width) and Height: \(imageViewSize.height)")
-        for name in imageName{
+        for (i,name) in imageName.enumerated(){
             
             let muchImageView = UIImageView(image: UIImage(named: name))
-            muchImageView.frame.size = imageViewSize
-            muchImageView.frame.origin.y = imageViewPositionY
-            muchImageView.frame.origin.x = imageViewPositionX
-            muchImageView.contentMode = .scaleAspectFill
+            let xPosition = self.view.frame.width * CGFloat(i)
+            
+            muchImageView.frame = CGRect(x: xPosition, y: 0, width: popViewSize.width, height: popViewSize.height)
+            
+            muchImageView.contentMode = .scaleAspectFit
+            
+            self.popScrollView.contentSize.width = self.popScrollView.frame.width * CGFloat(i + 1)
             
             let labelHight = imageViewSize.height/5
-            let imageLabel = UILabel(frame: CGRect(x: imageViewPositionX,
+            let imageLabel = UILabel(frame: CGRect(x: xPosition,
                                                    y: imageViewSize.height - labelHight,
                                                    width: imageViewSize.width/2,
                                                    height: labelHight))
-            imageLabel.text = "This is loekwokwedeiwjfeo \(name)"
+            imageLabel.text = "This is Place name: \(name)"
             imageLabel.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.5)
             imageLabel.textColor = UIColor.white
             imageLabel.textAlignment = .center
             imageLabel.font = UIFont(name: "Helvetica-light" , size: labelHight)
             imageLabel.adjustsFontSizeToFitWidth = true
-//            imageLabel.adjustsFontForContentSizeCategory = true
             
             
-            imageViewPositionX += popViewSize.width
-            print("222222ImageViewPositionX: \(imageViewPositionX)")
+//            imageViewPositionX += popViewSize.width
             popScrollView.addSubview(muchImageView)
             popScrollView.addSubview(imageLabel)
             
@@ -308,11 +359,33 @@ extension SecondViewController : UIScrollViewDelegate{
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
-        let page = Int(scrollView.contentOffset.x/scrollView.frame.size.width)
+        let page = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
         
         popPageControl.currentPage = page
         
     }
     
+}
+extension SecondViewController: UISearchBarDelegate{
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+       
+        searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
+    }
+
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.showsCancelButton = true
+        return true
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        //Start search from api.
+        
+        
+        
+    }
+    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
+        //Prepare for segue
+    }
 }
 

@@ -53,6 +53,7 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
             
                 
             case .cities:
+                
                 cell.listTitle.text = cityListModel.cityList[indexPath.row].name
                 cell.listImageView.image = images[0]
                 cell.listDetail.text = cityListModel.cityList[indexPath.row].number
@@ -79,11 +80,11 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 100
-        
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        
+//        return 100
+//        
+//    }
     
    
     
