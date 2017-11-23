@@ -102,13 +102,13 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
         case .cities:
             
             let parameter = cityListModel.cityList[indexPath.row].number
-            urlStr = "\(ICLICK_URL)\(getPanoValueCityURL)\(parameter)"
+            urlStr = "\(ICLICK_URL)\(GET_PANOCITY_URL)\(parameter)"
             selectAPI = .cityDetail
             
         case .types:
             
             let parameter = typeListModel.typeList[indexPath.row].name
-            urlStr = "\(ICLICK_URL)\(getPanoValueTagURL)\(parameter)"
+            urlStr = "\(ICLICK_URL)\(GET_PANOTAG_URL)\(parameter)"
             selectAPI = .typeDetail
         
         case .brands:

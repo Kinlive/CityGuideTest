@@ -8,22 +8,101 @@
 
 import UIKit
 import GoogleMaps
-import WebKit
 
-class PanoViewController: UIViewController,WKNavigationDelegate,GMSMapViewDelegate,GMSPanoramaViewDelegate {
 
-    @IBOutlet weak var panoramaView: UIView!
+class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDelegate {
+
+    let communicator = Communicator()
+    let downloadImgQueue = OperationQueue()
+    
+    let firstGuidePoints = ["25.04396,121.52952200000004","25.044561,121.52974300000005","25.043762,121.52936899999997","25.044304,121.52897899999994"]
+    var guidePoints: [(Double,Double)] = []
+    
+    //For guideMapView frame
+    var btnHeight: CGFloat = 0
+    var mapHeight: CGFloat = 0
+    
+    @IBOutlet weak var panoramaView: GMSPanoramaView!
     @IBOutlet weak var guideMapView: UIView!
     
     @IBOutlet weak var tapBtnOut: UIButton!
+    @IBOutlet weak var guideMapImageView: UIImageView!
+    
+    
+    
     var tapStatus = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let btnHeight = tapBtnOut.frame.height
-        let mapHeight = guideMapView.frame.height
-        guideMapView.transform = CGAffineTransform(scaleX: 0, y: mapHeight - btnHeight)
+    self.tabBarController?.hideTabBarAnimated(hide: true)
+        
+        btnHeight = self.tapBtnOut.frame.height
+        mapHeight = self.guideMapView.frame.height
+        
+        
+        prepareForGuidePoints(points: firstGuidePoints)
+        
+        self.guideMapImageView.image = UIImage(named: "placeholder.png")
+        //prepare for the guideMap img download.
+        if let guideMapName = saveInfoStruct.guideMapImageName {
+            
+            let imageUrl = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(guideMapName)"
+            print("imageURL: \(imageUrl)")
+            downloadImgQueueMethod(imageUrlStr: imageUrl, completion: { (success, img) in
+                if success{
+                    OperationQueue.main.addOperation {
+                        self.guideMapImageView.image = img
+                        
+                        
+                        
+                    }
+                }
+            })
+        }
+        
+        self.guideMapView.transform = CGAffineTransform(translationX: 0, y: mapHeight - btnHeight)
+        
+        prepareForPanoramaView()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+    
+        self.tabBarController?.hideTabBarAnimated(hide: false)
+//        panoramaView.removeFromSuperview()
+    }
+  
+    
+    
+    func prepareForGuidePoints(points: [String]){
+        
+        for point in points{
+            
+            let splitPoint = point.split(separator: ",")
+           
+//            for (i,pp) in splitPoint.enumerated(){
+            
+            
+
+//                print("GuidePoint split index:\(i) and point: \(pp)")
+                if
+                    let lat = Double(splitPoint[0]),
+                    let lon = Double(splitPoint[1]){
+                    let touple = (lat,lon)
+//                    print("Test For Touple : \(touple)")
+                    guidePoints.append(touple)
+                }else {
+                    print("SplitPoint fail: \(splitPoint)")
+
+                }
+//            }
+        }
+        
+        print("Test for guidePoints: \(guidePoints)")
+    }
+    
+    func prepareForPanoramaView(){
         
         //Prepare the latLon and hori, verti.
         if let mapUrlStr = saveInfoStruct.mapPanoUrl {
@@ -36,67 +115,114 @@ class PanoViewController: UIViewController,WKNavigationDelegate,GMSMapViewDelega
                 let horizontal = Double(allNeeds.2),
                 let _ = Double(allNeeds.3){
                 
-                let panoView = GMSPanoramaView(frame: CGRect.zero)
-                self.view = panoView
+                //                let panoView = GMSPanoramaView(frame: CGRect.zero)
+                //                self.view = panoView
+//                let latTest: Float = 25.043762 //009//
+//                let lonTest: Float = 121.52936899999997//9//89//00000002
                 
-                panoView.moveNearCoordinate(CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon)))
+                //                panoView.moveNearCoordinate(CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon)))
+                self.panoramaView.moveNearCoordinate(CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon)))
+                
                 
                 let camera = GMSPanoramaCamera(heading: CLLocationDirection(horizontal), pitch: 0, zoom: 1)
-                panoView.camera = camera
-                panoView.delegate = self
+                panoramaView.camera = camera
+                panoramaView.delegate = self
                 print("Lat:\(lat) Lon:\(lon)")
+                
+                //                prepareForGuideView()
                 
             }else{
                 print("Not catch the allNeeds data.")
             }
         }
         
-    
-        
-//        let mapData = saveInfoStruct.getMapNeedsData()
-//
-//        let lat = mapData.2[0]
-//        let lon = mapData.2[1]
-        
-        
-//        let latTest: Float = 22.677//009//
-//        let lonTest: Float = 121.485//9//89//00000002
-        
-        //Test for guidepath position
-//        let latGuidePo: Float = 25.0343355
-//        let lonGuidePo: Float = 121.5639284
-        
-//        let latTest: Float = 22.6768957 //房子裡, 網址給的
-//        let lonTest: Float = 121.4860164
-        
-        
+       
 
     }
+
     
-    override func viewWillDisappear(_ animated: Bool) {
-    
-//        panoramaView.removeFromSuperview()
-    }
-  
     @IBAction func tapButton(_ sender: UIButton) {
         
-        let mapHeight = guideMapView.frame.height
-        let btnHeight = tapBtnOut.frame.height
         if tapStatus == 0{
             
             UIView.animate(withDuration: 0.5, animations: {
-                self.guideMapView.transform = CGAffineTransform(scaleX: 0, y: 0)
+                self.guideMapView.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.tapStatus = 1
             })
             
             
         }else{
             UIView.animate(withDuration: 0.5, animations: {
-                self.guideMapView.transform = CGAffineTransform(scaleX: 0, y: mapHeight - btnHeight)
+                self.guideMapView.transform = CGAffineTransform(translationX: 0, y: self.mapHeight - self.btnHeight)
+                self.tapStatus = 0
             })
             
         }
         
         
+    }
+    //MARK: - FOr Test button .
+    
+    @IBAction func point0(_ sender: UIButton) {
+        letMoveThePano(index: 0)
+    }
+    
+    @IBAction func point1(_ sender: UIButton) {
+        letMoveThePano(index: 1)
+    }
+    @IBAction func point2(_ sender: UIButton) {
+        letMoveThePano(index: 2)
+    }
+    @IBAction func point3(_ sender: UIButton) {
+        letMoveThePano(index: 3)
+    }
+    
+    func letMoveThePano(index: Int){
+        let lat = guidePoints[index].0
+        let lon = guidePoints[index].1
+        self.panoramaView.moveNearCoordinate(CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon)))
+        
+//        let camera = GMSPanoramaCamera(heading: CLLocationDirection(horizontal), pitch: 0, zoom: 1)
+//        panoramaView.camera = camera
+        
+    }
+    
+    typealias HandleCompletion = (Bool, UIImage?) -> Void
+    //MARK: - downloadImg Method.
+    /**
+     Start to download image on server
+     - Parameter imageUrlStr: On func cellForRow, define:"\(iclickURL)\(getImageURL)\(imageName)"
+     - Parameter completion: when image download end, get (Bool , UIImage)
+     */
+    func downloadImgQueueMethod(imageUrlStr: String, completion: @escaping HandleCompletion){
+        
+        //Create an operationQueue
+        downloadImgQueue.addOperation {
+            
+            //Connect to server
+            self.communicator.connectToServer(urlStr: imageUrlStr, whichApiGet: nil, completion: { (success) in
+                if success{
+                    
+                    if let imgUrl = URL(string: imageUrlStr),
+                        let data = try? Data(contentsOf: imgUrl),
+                        let img = UIImage(data: data)
+                    {
+                        //Compress the image when downloaded.
+                        let lowQualityImg = UIImage.compressImageQuality(img, toByte: 5000)
+                        
+                        completion(true, lowQualityImg)
+                        
+                    }else{//URL or data or image invalid
+                        
+                        completion(false, nil)
+                        
+                    }
+                }else{//connect fail
+                    
+                    completion(false, nil)
+                }
+            })
+        }
     }
     
     
@@ -174,6 +300,7 @@ class PanoViewController: UIViewController,WKNavigationDelegate,GMSMapViewDelega
     }
     
 
+    //MARK: - GMSPanoramaView delegate method.
     func panoramaView(_ view: GMSPanoramaView, error: Error, onMoveToPanoramaID panoramaID: String) {
         
         

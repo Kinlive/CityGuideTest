@@ -39,6 +39,7 @@ class SecondViewController: UIViewController {
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
 //    var refreshCtrl: UIRefreshControl!
+    var scrollSize: CGSize?
     
     
     @IBOutlet weak var popScrollView: UIScrollView!
@@ -69,7 +70,10 @@ class SecondViewController: UIViewController {
         
         standardImageModel.handleAllImage(names: ["0.jpg","1.jpg","2.jpg","3.jpg"])
 
-
+        //////
+        scrollSize = popScrollView.frame.size
+        print("000000000scrolSize width\(scrollSize?.width)")
+        
         //Setting scrollView's contentSize
         popScrollView.delegate = self
         let scrollViewWidth = popScrollView.frame.size.width
@@ -118,6 +122,7 @@ class SecondViewController: UIViewController {
         let communicator = Communicator()
         activityIndicator.startAnimating()
         
+//        print("\(ICLICK_URL)\(GET_CITYLIST_URL)")
         communicator.connectToServer(urlStr: "\(ICLICK_URL)\(GET_CITYLIST_URL)", whichApiGet: .cityList) { (success) in
             if success {
                 DispatchQueue.main.async {
@@ -203,17 +208,20 @@ class SecondViewController: UIViewController {
         
         let imageName = ["0.jpg","1.jpg","2.jpg","3.jpg"] //FIXME: - connect the image source
         
-        let imageViewSize = popScrollView.frame.size
+        guard let popViewSize = scrollSize else { return  }
+        
+        let imageViewSize = popViewSize
         var imageViewPositionX: CGFloat = 0
         let imageViewPositionY: CGFloat = 0
         
+        print("111111ImageViewSize width: \(imageViewSize.width) and Height: \(imageViewSize.height)")
         for name in imageName{
             
             let muchImageView = UIImageView(image: UIImage(named: name))
             muchImageView.frame.size = imageViewSize
             muchImageView.frame.origin.y = imageViewPositionY
             muchImageView.frame.origin.x = imageViewPositionX
-            
+            muchImageView.contentMode = .scaleAspectFill
             
             let labelHight = imageViewSize.height/5
             let imageLabel = UILabel(frame: CGRect(x: imageViewPositionX,
@@ -229,7 +237,8 @@ class SecondViewController: UIViewController {
 //            imageLabel.adjustsFontForContentSizeCategory = true
             
             
-            imageViewPositionX += imageViewSize.width
+            imageViewPositionX += popViewSize.width
+            print("222222ImageViewPositionX: \(imageViewPositionX)")
             popScrollView.addSubview(muchImageView)
             popScrollView.addSubview(imageLabel)
             

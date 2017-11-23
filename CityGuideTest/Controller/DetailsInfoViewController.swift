@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import GoogleMaps
+import YouTubePlayer
 
 class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MKMapViewDelegate {
 
@@ -40,6 +41,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
 //    }
 //    let maxHeight: CGFloat = 250.0
 //    let minHeight: CGFloat = 50.0
+    
     
     @IBOutlet weak var headerContentView: UIView!
     @IBOutlet weak var titleImg: UIImageView!
@@ -114,7 +116,9 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
             itemCoordinateStr = cityObject.map
             itemAddress = cityObject.address
             saveInfoStruct.mapPanoUrl = cityObject.panorama
-            
+            saveInfoStruct.guideMapImageName = cityObject.guideMap.first
+            saveInfoStruct.youtubeID = cityObject.youtube.first
+            print("YUOTUBEID: \(cityObject.youtube)")
             
         case .types:
             let typeObject = typeDetailListModel.typeDetailList[selectedIndexPath.row]
@@ -124,6 +128,9 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
             itemCoordinateStr = typeObject.map
             itemAddress = typeObject.address
             saveInfoStruct.mapPanoUrl = typeObject.panorama
+            saveInfoStruct.guideMapImageName = typeObject.guideMap.first
+            saveInfoStruct.youtubeID = typeObject.youtube.first
+            
         case .brands:
 
             let brandObject = brandDetailListModel.brandDetailList[selectedIndexPath.row]
@@ -133,6 +140,8 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
             itemCoordinateStr = brandObject.map
             itemAddress = brandObject.address
             saveInfoStruct.mapPanoUrl = brandObject.panorama
+            saveInfoStruct.guideMapImageName = brandObject.guideMap.first
+            saveInfoStruct.youtubeID = brandObject.youtube.first
         }
         
         guard
@@ -173,6 +182,8 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
                 print("This is ======coor:\(coor)")
                 if let coorDouble = Float(coor){
                     coordin.append(coorDouble)
+                }else{
+                    print("座標其中一項無法正常轉換: \(index) : \(coor)")
                 }
                 //                print("Test for coordinate: \(index) : \(coor)")
             }
@@ -334,7 +345,6 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
             return 1
         case 2:
             
-            print("To get section ")
             return 1
         case 3:
             return 1
@@ -402,8 +412,8 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         if indexPath.section == 3,
             let cell = tableView.dequeueReusableCell(withIdentifier: "videoGuideCell") as? VideoGuideTableViewCell{
             
-            cell.textLabel?.text = "I am a Video Guide"
-            tableView.rowHeight = UITableViewAutomaticDimension
+//            cell.textLabel?.text = "I am a Video Guide"
+            tableView.rowHeight = 400
             return cell
             
         }

@@ -7,111 +7,126 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		007830EF02EB0BDA249844451E5EC932 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		23522F3A6A3C7CAED7CCEDD9610EB4C4 /* Pods-CityGuideTest-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C7C4A701248CF6C72BE6C8E0D736B9 /* Pods-CityGuideTest-dummy.m */; };
-		54697FE38ACB4E4E59E24DA599D1D8D5 /* Pods-CityGuideTest-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B4703A531CCEE4816474E9BA02D02C18 /* Pods-CityGuideTest-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23526DDE7DE99A89890F1A1E1CB4DD68 /* Pods-CityGuideTest-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B4703A531CCEE4816474E9BA02D02C18 /* Pods-CityGuideTest-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A3688CF3257090A1E7E024F74F3FB14 /* YouTubePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C3A909832728F888A198B4D1A5D59 /* YouTubePlayer.swift */; };
+		30D6FC56BAA3570F50348A188C786765 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		78C919EB98D7067D1E42CB2B93599DAB /* YouTubePlayer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 40432342EA30BB8F23A3CE6D124E94F3 /* YouTubePlayer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C1AF5EBB26E03B0563D8CEB148C16EB4 /* YTPlayer.html in Resources */ = {isa = PBXBuildFile; fileRef = 07DF180AD05D083E7D1CAC882E96E8A9 /* YTPlayer.html */; };
+		E7B0988E949D6F6704DBA037E7457A44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		E9DDD15E70DC55C3B452C807194299FD /* YouTubePlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E31E009E1CA5B9D77DD47AE7FF478CF9 /* YouTubePlayer-dummy.m */; };
+		F280A51367AD2A609EC599396B4A19EC /* Pods-CityGuideTest-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C7C4A701248CF6C72BE6C8E0D736B9 /* Pods-CityGuideTest-dummy.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9EE4F2ABFCD3671D595F33C39874E6C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C0D81E2CDA724DEA4EDD1DE259F8E49;
+			remoteInfo = YouTubePlayer;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		08F1229163C7F5E61C7C4B361510F11C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
-		1C6200385182862E9168588E60B1CD37 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		01497F0E9874974B6E342CA1C83E5DC7 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		0320416B71BC3BF766F6EBB1D125B1C6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07DF180AD05D083E7D1CAC882E96E8A9 /* YTPlayer.html */ = {isa = PBXFileReference; includeInIndex = 1; name = YTPlayer.html; path = YouTubePlayer/YouTubePlayer/YTPlayer.html; sourceTree = "<group>"; };
 		1D0F096EA8AACEBA11552EB496721F2D /* Pods-CityGuideTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CityGuideTest.release.xcconfig"; sourceTree = "<group>"; };
 		2079C4E7B9E6BC78E6C2DC5C1A6AA3DF /* Pods-CityGuideTest-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CityGuideTest-resources.sh"; sourceTree = "<group>"; };
 		211FFEA5864E666212DEF3DE880D9B34 /* Pods-CityGuideTest.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-CityGuideTest.modulemap"; sourceTree = "<group>"; };
+		27627C40CEC20471E0FBD575866B90AC /* YouTubePlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YouTubePlayer.framework; path = YouTubePlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40432342EA30BB8F23A3CE6D124E94F3 /* YouTubePlayer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YouTubePlayer-umbrella.h"; sourceTree = "<group>"; };
+		435C3A909832728F888A198B4D1A5D59 /* YouTubePlayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YouTubePlayer.swift; path = YouTubePlayer/YouTubePlayer/YouTubePlayer.swift; sourceTree = "<group>"; };
 		4FB8DBE82B19DF73381BDE28FCC1089E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		70324FDF1FBB41BEA92DE76E00BD3E96 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
+		6A238A6E02079C3232623D51D176A086 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		778A21CC7447F74AFE343930FA92B6A9 /* Pods-CityGuideTest-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CityGuideTest-acknowledgements.markdown"; sourceTree = "<group>"; };
+		820A0C08A05C4C2F68CBE6487612A012 /* YouTubePlayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YouTubePlayer-prefix.pch"; sourceTree = "<group>"; };
 		831B3AF523351029A80FAB7A8F8DD0A2 /* Pods-CityGuideTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CityGuideTest.debug.xcconfig"; sourceTree = "<group>"; };
+		89E767703E91866146956C53AE63039D /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A65ED65616C5861E2765BDC60AAAF910 /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
-		A92DFDA40F47C0FD221B2872C31099A1 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
-		B22C69ADCE7C9D529F11B17B4EF5E065 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		9A05F19D62367B0DA4FC12DE01A283E8 /* Pods_CityGuideTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CityGuideTest.framework; path = "Pods-CityGuideTest.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F142075D1C1BA51B4698C4B79488207 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		AC65F235E7FB8E0A801F1822B1B435F4 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		AF40E62E1FEA13AA21DD9F16D2EED248 /* YouTubePlayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YouTubePlayer.xcconfig; sourceTree = "<group>"; };
+		B10544BD7A626F5FE2B5A6544A98A384 /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
 		B4703A531CCEE4816474E9BA02D02C18 /* Pods-CityGuideTest-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CityGuideTest-umbrella.h"; sourceTree = "<group>"; };
 		B50DFD7352795E72F80E0A0B560CE902 /* Pods-CityGuideTest-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CityGuideTest-frameworks.sh"; sourceTree = "<group>"; };
 		B8C7C4A701248CF6C72BE6C8E0D736B9 /* Pods-CityGuideTest-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CityGuideTest-dummy.m"; sourceTree = "<group>"; };
 		BF7FCB585F7A534DE2F0D290CF0A4FCE /* Pods-CityGuideTest-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CityGuideTest-acknowledgements.plist"; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CCE1CD54DA23DDBBC8197056F8083D82 /* Pods_CityGuideTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CityGuideTest.framework; path = "Pods-CityGuideTest.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDD1BFDAD707F6A30EA94ABA8EDB636F /* YouTubePlayer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = YouTubePlayer.modulemap; sourceTree = "<group>"; };
+		E31E009E1CA5B9D77DD47AE7FF478CF9 /* YouTubePlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YouTubePlayer-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C31FD562D0F04A11523A3DDE90AAA035 /* Frameworks */ = {
+		39C1BFE55CCE7ADB49A678D07031F608 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				007830EF02EB0BDA249844451E5EC932 /* Foundation.framework in Frameworks */,
+				E7B0988E949D6F6704DBA037E7457A44 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78E7F011B1220B6883A01D42011CF725 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30D6FC56BAA3570F50348A188C786765 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00B63D9B3EBC8ECAFD5DA8C24F1A42DF /* GooglePlaces */ = {
+		0611D675B569DA027B301AA9EB048930 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				475420FA59EFC8377CF994A338979247 /* Frameworks */,
-				09DB508F39D8BE758EA4A7B9047268E9 /* Resources */,
-			);
-			name = GooglePlaces;
-			path = GooglePlaces;
-			sourceTree = "<group>";
-		};
-		09DB508F39D8BE758EA4A7B9047268E9 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				A65ED65616C5861E2765BDC60AAAF910 /* GooglePlaces.bundle */,
+				B10544BD7A626F5FE2B5A6544A98A384 /* GooglePlaces.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		26C94CF6FBD559155351548F2127E7DB /* GoogleMaps */ = {
+		0E4427CB2B84CCCDED11878F4266F176 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B2F22323EA3B1ADB4F96376E3F709A68 /* Base */,
-				488E301C4ACDDA928635C4886F5F6158 /* Maps */,
-			);
-			name = GoogleMaps;
-			path = GoogleMaps;
-			sourceTree = "<group>";
-		};
-		343584E22C57489C672A8E6F731CB43A /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				1C6200385182862E9168588E60B1CD37 /* GoogleMaps.bundle */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		385FA015FFB9210F372AB1078B856AAB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				26C94CF6FBD559155351548F2127E7DB /* GoogleMaps */,
-				00B63D9B3EBC8ECAFD5DA8C24F1A42DF /* GooglePlaces */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		475420FA59EFC8377CF994A338979247 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				70324FDF1FBB41BEA92DE76E00BD3E96 /* GooglePlaces.framework */,
+				AC65F235E7FB8E0A801F1822B1B435F4 /* GoogleMaps.framework */,
+				9F142075D1C1BA51B4698C4B79488207 /* GoogleMapsCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		488E301C4ACDDA928635C4886F5F6158 /* Maps */ = {
+		4EE34C66CEA88BFBFAC5B10AD409FCCB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				82CE66B3B7EC3F6274BF43A52FEEAE6E /* Frameworks */,
-				343584E22C57489C672A8E6F731CB43A /* Resources */,
+				6A238A6E02079C3232623D51D176A086 /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		53A0E3C5B8D05EBFD84EFACD190E2540 /* YouTubePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				435C3A909832728F888A198B4D1A5D59 /* YouTubePlayer.swift */,
+				7ECE277503A8B092E58D4896A8847E2A /* Resources */,
+				7A0EAD32711DE491BCEEBC43A1CC7F40 /* Support Files */,
+			);
+			name = YouTubePlayer;
+			path = YouTubePlayer;
+			sourceTree = "<group>";
+		};
+		58781E1CFE3C529445598BEF15D5C0F0 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				0E4427CB2B84CCCDED11878F4266F176 /* Frameworks */,
+				4EE34C66CEA88BFBFAC5B10AD409FCCB /* Resources */,
 			);
 			name = Maps;
 			sourceTree = "<group>";
 		};
-		4CFA8C2E94378AFFDBA3DF92FBE7E3DC /* Frameworks */ = {
+		5E3D558EA2A6C0F643D862F2E75702C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B22C69ADCE7C9D529F11B17B4EF5E065 /* GoogleMapsBase.framework */,
+				01497F0E9874974B6E342CA1C83E5DC7 /* GoogleMapsBase.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -132,22 +147,43 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		7A0EAD32711DE491BCEEBC43A1CC7F40 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0320416B71BC3BF766F6EBB1D125B1C6 /* Info.plist */,
+				DDD1BFDAD707F6A30EA94ABA8EDB636F /* YouTubePlayer.modulemap */,
+				AF40E62E1FEA13AA21DD9F16D2EED248 /* YouTubePlayer.xcconfig */,
+				E31E009E1CA5B9D77DD47AE7FF478CF9 /* YouTubePlayer-dummy.m */,
+				820A0C08A05C4C2F68CBE6487612A012 /* YouTubePlayer-prefix.pch */,
+				40432342EA30BB8F23A3CE6D124E94F3 /* YouTubePlayer-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/YouTubePlayer";
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				385FA015FFB9210F372AB1078B856AAB /* Pods */,
-				F2AA4E5718BF25E83A3CB0BD359869AB /* Products */,
+				E7397D62AE134E882ED1EE3C87BF21C9 /* Pods */,
+				B6201BBDDF3C4DA82BC0F8C6C5981DCD /* Products */,
 				6B099032BC8AF9D4391A6CCF3C6F8070 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		82CE66B3B7EC3F6274BF43A52FEEAE6E /* Frameworks */ = {
+		7ECE277503A8B092E58D4896A8847E2A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				08F1229163C7F5E61C7C4B361510F11C /* GoogleMaps.framework */,
-				A92DFDA40F47C0FD221B2872C31099A1 /* GoogleMapsCore.framework */,
+				07DF180AD05D083E7D1CAC882E96E8A9 /* YTPlayer.html */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		86C309BA06BF27281406D646FEE9A099 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89E767703E91866146956C53AE63039D /* GooglePlaces.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -170,12 +206,31 @@
 			path = "Target Support Files/Pods-CityGuideTest";
 			sourceTree = "<group>";
 		};
-		B2F22323EA3B1ADB4F96376E3F709A68 /* Base */ = {
+		96E3AA6AEBEAA0FF08FA3C6500890D2C /* GooglePlaces */ = {
 			isa = PBXGroup;
 			children = (
-				4CFA8C2E94378AFFDBA3DF92FBE7E3DC /* Frameworks */,
+				86C309BA06BF27281406D646FEE9A099 /* Frameworks */,
+				0611D675B569DA027B301AA9EB048930 /* Resources */,
+			);
+			name = GooglePlaces;
+			path = GooglePlaces;
+			sourceTree = "<group>";
+		};
+		A2341A7E0AF4116B59B6EC23F8C5D221 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				5E3D558EA2A6C0F643D862F2E75702C3 /* Frameworks */,
 			);
 			name = Base;
+			sourceTree = "<group>";
+		};
+		B6201BBDDF3C4DA82BC0F8C6C5981DCD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A05F19D62367B0DA4FC12DE01A283E8 /* Pods_CityGuideTest.framework */,
+				27627C40CEC20471E0FBD575866B90AC /* YouTubePlayer.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -186,43 +241,82 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F2AA4E5718BF25E83A3CB0BD359869AB /* Products */ = {
+		E7397D62AE134E882ED1EE3C87BF21C9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CCE1CD54DA23DDBBC8197056F8083D82 /* Pods_CityGuideTest.framework */,
+				EE15213362D0845C308DDA803D950680 /* GoogleMaps */,
+				96E3AA6AEBEAA0FF08FA3C6500890D2C /* GooglePlaces */,
+				53A0E3C5B8D05EBFD84EFACD190E2540 /* YouTubePlayer */,
 			);
-			name = Products;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EE15213362D0845C308DDA803D950680 /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				A2341A7E0AF4116B59B6EC23F8C5D221 /* Base */,
+				58781E1CFE3C529445598BEF15D5C0F0 /* Maps */,
+			);
+			name = GoogleMaps;
+			path = GoogleMaps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		F96FC42E16BE307BA8C2079F7E189DF5 /* Headers */ = {
+		AF3D0F8354C039B8AB5DD66DA0FAB2D7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54697FE38ACB4E4E59E24DA599D1D8D5 /* Pods-CityGuideTest-umbrella.h in Headers */,
+				23526DDE7DE99A89890F1A1E1CB4DD68 /* Pods-CityGuideTest-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B008D3F8C7B1F360DB25C79D8E700E3F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78C919EB98D7067D1E42CB2B93599DAB /* YouTubePlayer-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		7E2AC7B2D073C6B6881548CA41418898 /* Pods-CityGuideTest */ = {
+		9C0D81E2CDA724DEA4EDD1DE259F8E49 /* YouTubePlayer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6DCC8A89CADA94B5B950353AB6FDDD3F /* Build configuration list for PBXNativeTarget "Pods-CityGuideTest" */;
+			buildConfigurationList = A9ECD8D7921D5FA5394ADD0D35813369 /* Build configuration list for PBXNativeTarget "YouTubePlayer" */;
 			buildPhases = (
-				E3DA3BF5CC73B5FEE20623BD9F86E323 /* Sources */,
-				C31FD562D0F04A11523A3DDE90AAA035 /* Frameworks */,
-				F96FC42E16BE307BA8C2079F7E189DF5 /* Headers */,
+				2011EA26587E2CC5E1956962CA97CF88 /* Sources */,
+				39C1BFE55CCE7ADB49A678D07031F608 /* Frameworks */,
+				DB91FF34FDE8ADB8AE203848A8B93F44 /* Resources */,
+				B008D3F8C7B1F360DB25C79D8E700E3F /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			name = YouTubePlayer;
+			productName = YouTubePlayer;
+			productReference = 27627C40CEC20471E0FBD575866B90AC /* YouTubePlayer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C18CFBB400B26D450680E0B3AFF5F33D /* Pods-CityGuideTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E60ED40C112C0470C953657FE47BF606 /* Build configuration list for PBXNativeTarget "Pods-CityGuideTest" */;
+			buildPhases = (
+				4DDF33074CBCD973FCD8FC37885E3C4E /* Sources */,
+				78E7F011B1220B6883A01D42011CF725 /* Frameworks */,
+				AF3D0F8354C039B8AB5DD66DA0FAB2D7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7027EE12DE150B9F8B6FAD9D9393C1C8 /* PBXTargetDependency */,
+			);
 			name = "Pods-CityGuideTest";
 			productName = "Pods-CityGuideTest";
-			productReference = CCE1CD54DA23DDBBC8197056F8083D82 /* Pods_CityGuideTest.framework */;
+			productReference = 9A05F19D62367B0DA4FC12DE01A283E8 /* Pods_CityGuideTest.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -242,27 +336,122 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = F2AA4E5718BF25E83A3CB0BD359869AB /* Products */;
+			productRefGroup = B6201BBDDF3C4DA82BC0F8C6C5981DCD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7E2AC7B2D073C6B6881548CA41418898 /* Pods-CityGuideTest */,
+				C18CFBB400B26D450680E0B3AFF5F33D /* Pods-CityGuideTest */,
+				9C0D81E2CDA724DEA4EDD1DE259F8E49 /* YouTubePlayer */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		DB91FF34FDE8ADB8AE203848A8B93F44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1AF5EBB26E03B0563D8CEB148C16EB4 /* YTPlayer.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		E3DA3BF5CC73B5FEE20623BD9F86E323 /* Sources */ = {
+		2011EA26587E2CC5E1956962CA97CF88 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23522F3A6A3C7CAED7CCEDD9610EB4C4 /* Pods-CityGuideTest-dummy.m in Sources */,
+				E9DDD15E70DC55C3B452C807194299FD /* YouTubePlayer-dummy.m in Sources */,
+				2A3688CF3257090A1E7E024F74F3FB14 /* YouTubePlayer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DDF33074CBCD973FCD8FC37885E3C4E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F280A51367AD2A609EC599396B4A19EC /* Pods-CityGuideTest-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7027EE12DE150B9F8B6FAD9D9393C1C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YouTubePlayer;
+			target = 9C0D81E2CDA724DEA4EDD1DE259F8E49 /* YouTubePlayer */;
+			targetProxy = 9EE4F2ABFCD3671D595F33C39874E6C1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		05292A9EF0C702C5FC9F3F9203E88DC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF40E62E1FEA13AA21DD9F16D2EED248 /* YouTubePlayer.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/YouTubePlayer/YouTubePlayer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YouTubePlayer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/YouTubePlayer/YouTubePlayer.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = YouTubePlayer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		83358997F4D709E25A685A4712F4D4BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF40E62E1FEA13AA21DD9F16D2EED248 /* YouTubePlayer.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/YouTubePlayer/YouTubePlayer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YouTubePlayer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/YouTubePlayer/YouTubePlayer.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = YouTubePlayer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		9C7A5EE6DE2C3784BAA89D1A5D5EB30D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -300,6 +489,41 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9FE632AB196FAC517FCA65709F35B02A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D0F096EA8AACEBA11552EB496721F2D /* Pods-CityGuideTest.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-CityGuideTest/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CityGuideTest/Pods-CityGuideTest.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_CityGuideTest;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -347,7 +571,7 @@
 			};
 			name = Debug;
 		};
-		D551774B4FBB814FAA094E946FF1D8CA /* Debug */ = {
+		F0994ABF47D74553F825511AF2D15382 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 831B3AF523351029A80FAB7A8F8DD0A2 /* Pods-CityGuideTest.debug.xcconfig */;
 			buildSettings = {
@@ -376,46 +600,12 @@
 				PRODUCT_NAME = Pods_CityGuideTest;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		DD3D915CC7DAB63D2F8974C916069D01 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D0F096EA8AACEBA11552EB496721F2D /* Pods-CityGuideTest.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-CityGuideTest/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-CityGuideTest/Pods-CityGuideTest.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_CityGuideTest;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -429,11 +619,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6DCC8A89CADA94B5B950353AB6FDDD3F /* Build configuration list for PBXNativeTarget "Pods-CityGuideTest" */ = {
+		A9ECD8D7921D5FA5394ADD0D35813369 /* Build configuration list for PBXNativeTarget "YouTubePlayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D551774B4FBB814FAA094E946FF1D8CA /* Debug */,
-				DD3D915CC7DAB63D2F8974C916069D01 /* Release */,
+				05292A9EF0C702C5FC9F3F9203E88DC2 /* Debug */,
+				83358997F4D709E25A685A4712F4D4BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E60ED40C112C0470C953657FE47BF606 /* Build configuration list for PBXNativeTarget "Pods-CityGuideTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0994ABF47D74553F825511AF2D15382 /* Debug */,
+				9FE632AB196FAC517FCA65709F35B02A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

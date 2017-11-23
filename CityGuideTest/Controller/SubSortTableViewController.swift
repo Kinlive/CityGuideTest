@@ -279,7 +279,7 @@ class SubSortTableViewController: UITableViewController {
                         
                     }else{
                         //Prepare api for download image
-                        let imageUrlStr = "\(ICLICK_URL)\(getImageURL)\(imageName)"
+                        let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imageName)"
                         
                         downloadImgQueueMethod(imageUrlStr: imageUrlStr, completion: { (success, img) in
                             
@@ -329,7 +329,7 @@ class SubSortTableViewController: UITableViewController {
                         
                     }else{
                         
-                        let imageUrlStr = "\(ICLICK_URL)\(getImageURL)\(imageName)"
+                        let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imageName)"
                         
                         downloadImgQueueMethod(imageUrlStr: imageUrlStr, completion: { (success, img) in
                             
@@ -378,7 +378,7 @@ class SubSortTableViewController: UITableViewController {
                         
                     }else{
                         
-                        let imageUrlStr = "\(ICLICK_URL)\(getImageURL)\(imageName)"
+                        let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imageName)"
                         
                         downloadImgQueueMethod(imageUrlStr: imageUrlStr, completion: { (success, img) in
                             

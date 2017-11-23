@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PanoViewController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/PanoViewController" class="dashAnchor"></a>
+    <a title="PanoViewController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (22% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        PanoViewController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ARButtonTableViewCell.html">ARButtonTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Communicator.html">Communicator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DetailsInfoTableViewCell.html">DetailsInfoTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DetailsInfoViewController.html">DetailsInfoViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/IClickImageModel.html">IClickImageModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ImageDataModel.html">ImageDataModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MapTableViewCell.html">MapTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PanoViewController.html">PanoViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SecondViewController.html">SecondViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SubSortTableViewCell.html">SubSortTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SubSortTableViewController.html">SubSortTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TypeListTableViewCell.html">TypeListTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TypeListTableViewCoordinator.html">TypeListTableViewCoordinator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserInfoViewController.html">UserInfoViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VideoGuideTableViewCell.html">VideoGuideTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ViewController.html">ViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest17GET_BRANDLIST_URLSSv">GET_BRANDLIST_URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest16GET_CITYLIST_URLSSv">GET_CITYLIST_URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest17GET_PANOBRAND_URLSSv">GET_PANOBRAND_URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest16GET_PANOCITY_URLSSv">GET_PANOCITY_URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest15GET_PANOTAG_URLSSv">GET_PANOTAG_URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest16GET_PLACEIMG_URLSSv">GET_PLACEIMG_URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest16GET_TYPELIST_URLSSv">GET_TYPELIST_URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest11GMSAPI_Key2SSv">GMSAPI_Key2</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest10ICLICK_URLSSv">ICLICK_URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest20brandDetailListModelAA05BrandefG0Vv">brandDetailListModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest14brandListModelAA05BrandeF0Vv">brandListModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest15cacheObjectDataSo7NSCacheCyyXlyXlGv">cacheObjectData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest19cityDetailListModelAA0aefG0Vv">cityDetailListModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest13cityListModelAA0aeF0Vv">cityListModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest14saveInfoStructAA04SaveeF0Vv">saveInfoStruct</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest18standardImageModelAA0e4DataF0Cv">standardImageModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest19standardiClickImageAA06IClickF5ModelCv">standardiClickImage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest22subSortTableViewCellIdSSv">subSortTableViewCellId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest19typeDetailListModelAA04TypeefG0Vv">typeDetailListModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest13typeListModelAA04TypeeF0Vv">typeListModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:13CityGuideTest23typeListTableViewCellIdSSv">typeListTableViewCellId</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/SegmentedTitle.html">SegmentedTitle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/WhichAPIGet.html">WhichAPIGet</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIImage.html">UIImage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Brand.html">Brand</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BrandDetailListModel.html">BrandDetailListModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BrandDetailObject.html">BrandDetailObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BrandListModel.html">BrandListModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/City.html">City</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CityDetailListModel.html">CityDetailListModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CityDetailObject.html">CityDetailObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CityListModel.html">CityListModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SaveInfoStruct.html">SaveInfoStruct</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Type.html">Type</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TypeDetailListModel.html">TypeDetailListModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TypeDetailObject.html">TypeDetailObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TypeListModel.html">TypeListModel</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>PanoViewController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">PanoViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span><span class="kt">GMSMapViewDelegate</span><span class="p">,</span><span class="kt">GMSPanoramaViewDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13CityGuideTest18PanoViewControllerC12communicatorAA12CommunicatorCv"></a>
+                    <a name="//apple_ref/swift/Property/communicator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13CityGuideTest18PanoViewControllerC12communicatorAA12CommunicatorCv">communicator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">communicator</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Communicator.html">Communicator</a></span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13CityGuideTest18PanoViewControllerC16downloadImgQueueSo09OperationI0Cv"></a>
+                    <a name="//apple_ref/swift/Property/downloadImgQueue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13CityGuideTest18PanoViewControllerC16downloadImgQueueSo09OperationI0Cv">downloadImgQueue</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">downloadImgQueue</span> <span class="o">=</span> <span class="kt">OperationQueue</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13CityGuideTest18PanoViewControllerC05firstB6PointsSaySSGv"></a>
+                    <a name="//apple_ref/swift/Property/firstGuidePoints" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13CityGuideTest18PanoViewControllerC05firstB6PointsSaySSGv">firstGuidePoints</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">firstGuidePoints</span> <span class="o">=</span> <span class="p">[</span><span class="s">"25.04396,121.52952200000004"</span><span class="p">,</span><span class="s">"25.044561,121.52974300000005"</span><span class="p">,</span><span class="s">"25.043762,121.52936899999997"</span><span class="p">,</span><span class="s">"25.044304,121.52897899999994"</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13CityGuideTest18PanoViewControllerC11guidePointsSaySd_SdtGv"></a>
+                    <a name="//apple_ref/swift/Property/guidePoints" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13CityGuideTest18PanoViewControllerC11guidePointsSaySd_SdtGv">guidePoints</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">guidePoints</span><span class="p">:</span> <span class="p">[(</span><span class="kt">Double</span><span class="p">,</span><span class="kt">Double</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CityGuideTest@objc(cs)PanoViewController(py)panoramaView"></a>
+                    <a name="//apple_ref/swift/Property/panoramaView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CityGuideTest@objc(cs)PanoViewController(py)panoramaView">panoramaView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">panoramaView</span><span class="p">:</span> <span class="kt">GMSPanoramaView</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CityGuideTest@objc(cs)PanoViewController(py)guideMapView"></a>
+                    <a name="//apple_ref/swift/Property/guideMapView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CityGuideTest@objc(cs)PanoViewController(py)guideMapView">guideMapView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">guideMapView</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CityGuideTest@objc(cs)PanoViewController(py)tapBtnOut"></a>
+                    <a name="//apple_ref/swift/Property/tapBtnOut" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CityGuideTest@objc(cs)PanoViewController(py)tapBtnOut">tapBtnOut</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">tapBtnOut</span><span class="p">:</span> <span class="kt">UIButton</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CityGuideTest@objc(cs)PanoViewController(py)guideMapImageView"></a>
+                    <a name="//apple_ref/swift/Property/guideMapImageView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CityGuideTest@objc(cs)PanoViewController(py)guideMapImageView">guideMapImageView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">guideMapImageView</span><span class="p">:</span> <span class="kt">UIImageView</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13CityGuideTest18PanoViewControllerC9tapStatusSiv"></a>
+                    <a name="//apple_ref/swift/Property/tapStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13CityGuideTest18PanoViewControllerC9tapStatusSiv">tapStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">tapStatus</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CityGuideTest@objc(cs)PanoViewController(im)viewDidLoad"></a>
+                    <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CityGuideTest@objc(cs)PanoViewController(im)viewDidLoad">viewDidLoad()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CityGuideTest@objc(cs)PanoViewController(im)viewWillDisappear:"></a>
+                    <a name="//apple_ref/swift/Method/viewWillDisappear(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CityGuideTest@objc(cs)PanoViewController(im)viewWillDisappear:">viewWillDisappear(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="n">_</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13CityGuideTest18PanoViewControllerC010prepareForB6PointsySaySSG6points_tF"></a>
+                    <a name="//apple_ref/swift/Method/prepareForGuidePoints(points:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13CityGuideTest18PanoViewControllerC010prepareForB6PointsySaySSG6points_tF">prepareForGuidePoints(points:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">prepareForGuidePoints</span><span class="p">(</span><span class="nv">points</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13CityGuideTest18PanoViewControllerC018prepareForPanoramaE0yyF"></a>
+                    <a name="//apple_ref/swift/Method/prepareForPanoramaView()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13CityGuideTest18PanoViewControllerC018prepareForPanoramaE0yyF">prepareForPanoramaView()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">prepareForPanoramaView</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CityGuideTest@objc(cs)PanoViewController(im)tapButton:"></a>
+                    <a name="//apple_ref/swift/Method/tapButton(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CityGuideTest@objc(cs)PanoViewController(im)tapButton:">tapButton(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">tapButton</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/FOr%20Test%20button%20."></a>
+                <a name="//apple_ref/swift/Section/FOr Test button ." class="dashAnchor"></a>
+                <a href="#/FOr%20Test%20button%20.">
+                  <h3 class="section-name">FOr Test button .</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CityGuideTest@objc(cs)PanoViewController(im)point0:"></a>
+                    <a name="//apple_ref/swift/Method/point0(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CityGuideTest@objc(cs)PanoViewController(im)point0:">point0(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">point0</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CityGuideTest@objc(cs)PanoViewController(im)point1:"></a>
+                    <a name="//apple_ref/swift/Method/point1(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CityGuideTest@objc(cs)PanoViewController(im)point1:">point1(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">point1</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CityGuideTest@objc(cs)PanoViewController(im)point2:"></a>
+                    <a name="//apple_ref/swift/Method/point2(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CityGuideTest@objc(cs)PanoViewController(im)point2:">point2(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">point2</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CityGuideTest@objc(cs)PanoViewController(im)point3:"></a>
+                    <a name="//apple_ref/swift/Method/point3(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CityGuideTest@objc(cs)PanoViewController(im)point3:">point3(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">point3</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13CityGuideTest18PanoViewControllerC010letMoveTheD0ySi5index_tF"></a>
+                    <a name="//apple_ref/swift/Method/letMoveThePano(index:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13CityGuideTest18PanoViewControllerC010letMoveTheD0ySi5index_tF">letMoveThePano(index:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">letMoveThePano</span><span class="p">(</span><span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/downloadImg%20Method."></a>
+                <a name="//apple_ref/swift/Section/downloadImg Method." class="dashAnchor"></a>
+                <a href="#/downloadImg%20Method.">
+                  <h3 class="section-name">downloadImg Method.</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13CityGuideTest18PanoViewControllerC22downloadImgQueueMethodySS11imageUrlStr_ySb_So7UIImageCSgtc10completiontF"></a>
+                    <a name="//apple_ref/swift/Method/downloadImgQueueMethod(imageUrlStr:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13CityGuideTest18PanoViewControllerC22downloadImgQueueMethodySS11imageUrlStr_ySb_So7UIImageCSgtc10completiontF">downloadImgQueueMethod(imageUrlStr:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Start to download image on server</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">downloadImgQueueMethod</span><span class="p">(</span><span class="nv">imageUrlStr</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">HandleCompletion</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>imageUrlStr</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>On func cellForRow, define:<q>\(iclickURL)\(getImageURL)\(imageName)</q></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>when image download end, get (Bool , UIImage)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13CityGuideTest18PanoViewControllerC19separatePanoramaURLSS_S3StSS6urlStr_tF"></a>
+                    <a name="//apple_ref/swift/Method/separatePanoramaURL(urlStr:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13CityGuideTest18PanoViewControllerC19separatePanoramaURLSS_S3StSS6urlStr_tF">separatePanoramaURL(urlStr:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Separate the gives url string.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">separatePanoramaURL</span><span class="p">(</span><span class="nv">urlStr</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">String</span><span class="p">,</span><span class="kt">String</span><span class="p">,</span><span class="kt">String</span><span class="p">,</span><span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>urlStr</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>This you pass the url string.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Index[0] is <strong>lat</strong>, index[1] is <strong>lon</strong> , index[2] is <strong>horizontal</strong> , index[3] is <strong>vertical</strong>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CityGuideTest@objc(cs)PanoViewController(im)didReceiveMemoryWarning"></a>
+                    <a name="//apple_ref/swift/Method/didReceiveMemoryWarning()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CityGuideTest@objc(cs)PanoViewController(im)didReceiveMemoryWarning">didReceiveMemoryWarning()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">didReceiveMemoryWarning</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/GMSPanoramaView%20delegate%20method."></a>
+                <a name="//apple_ref/swift/Section/GMSPanoramaView delegate method." class="dashAnchor"></a>
+                <a href="#/GMSPanoramaView%20delegate%20method.">
+                  <h3 class="section-name">GMSPanoramaView delegate method.</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CityGuideTest@objc(cs)PanoViewController(im)panoramaView:error:onMoveToPanoramaID:"></a>
+                    <a name="//apple_ref/swift/Method/panoramaView(_:error:onMoveToPanoramaID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CityGuideTest@objc(cs)PanoViewController(im)panoramaView:error:onMoveToPanoramaID:">panoramaView(_:error:onMoveToPanoramaID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">panoramaView</span><span class="p">(</span><span class="n">_</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">GMSPanoramaView</span><span class="p">,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="n">onMoveToPanoramaID</span> <span class="nv">panoramaID</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CityGuideTest@objc(cs)PanoViewController(im)panoramaView:didMoveToPanorama:"></a>
+                    <a name="//apple_ref/swift/Method/panoramaView(_:didMoveTo:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CityGuideTest@objc(cs)PanoViewController(im)panoramaView:didMoveToPanorama:">panoramaView(_:didMoveTo:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">panoramaView</span><span class="p">(</span><span class="n">_</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">GMSPanoramaView</span><span class="p">,</span> <span class="n">didMoveTo</span> <span class="nv">panorama</span><span class="p">:</span> <span class="kt">GMSPanorama</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CityGuideTest@objc(cs)PanoViewController(im)panoramaView:didMoveCamera:"></a>
+                    <a name="//apple_ref/swift/Method/panoramaView(_:didMove:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CityGuideTest@objc(cs)PanoViewController(im)panoramaView:didMoveCamera:">panoramaView(_:didMove:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">panoramaView</span><span class="p">(</span><span class="n">_</span> <span class="nv">panoramaView</span><span class="p">:</span> <span class="kt">GMSPanoramaView</span><span class="p">,</span> <span class="n">didMove</span> <span class="nv">camera</span><span class="p">:</span> <span class="kt">GMSPanoramaCamera</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CityGuideTest@objc(cs)PanoViewController(im)panoramaView:error:onMoveNearCoordinate:"></a>
+                    <a name="//apple_ref/swift/Method/panoramaView(_:error:onMoveNearCoordinate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CityGuideTest@objc(cs)PanoViewController(im)panoramaView:error:onMoveNearCoordinate:">panoramaView(_:error:onMoveNearCoordinate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">panoramaView</span><span class="p">(</span><span class="n">_</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">GMSPanoramaView</span><span class="p">,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="n">onMoveNearCoordinate</span> <span class="nv">coordinate</span><span class="p">:</span> <span class="kt">CLLocationCoordinate2D</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-11-22)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,0 +1,1895 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/AppDelegate.swift",
+      "line": 14,
+      "symbol": "AppDelegate",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/AppDelegate.swift",
+      "line": 16,
+      "symbol": "AppDelegate.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/AppDelegate.swift",
+      "line": 19,
+      "symbol": "AppDelegate.application(_:didFinishLaunchingWithOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/AppDelegate.swift",
+      "line": 56,
+      "symbol": "AppDelegate.applicationWillResignActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/AppDelegate.swift",
+      "line": 61,
+      "symbol": "AppDelegate.applicationDidEnterBackground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/AppDelegate.swift",
+      "line": 66,
+      "symbol": "AppDelegate.applicationWillEnterForeground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/AppDelegate.swift",
+      "line": 70,
+      "symbol": "AppDelegate.applicationDidBecomeActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/AppDelegate.swift",
+      "line": 74,
+      "symbol": "AppDelegate.applicationWillTerminate(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 14,
+      "symbol": "DetailsInfoViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 16,
+      "symbol": "DetailsInfoViewController.sectionTitle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 18,
+      "symbol": "DetailsInfoViewController.codeHeaderView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 21,
+      "symbol": "DetailsInfoViewController.imageName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 22,
+      "symbol": "DetailsInfoViewController.titleName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 23,
+      "symbol": "DetailsInfoViewController.itemSummary",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 24,
+      "symbol": "DetailsInfoViewController.itemCoordinateStr",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 25,
+      "symbol": "DetailsInfoViewController.itemAddress",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 29,
+      "symbol": "DetailsInfoViewController.coordin",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 30,
+      "symbol": "DetailsInfoViewController.region",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 31,
+      "symbol": "DetailsInfoViewController.annotation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 33,
+      "symbol": "DetailsInfoViewController.gmsMapView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 35,
+      "symbol": "DetailsInfoViewController.cellsMapView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 46,
+      "symbol": "DetailsInfoViewController.headerContentView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 47,
+      "symbol": "DetailsInfoViewController.titleImg",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 48,
+      "symbol": "DetailsInfoViewController.titelLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 49,
+      "symbol": "DetailsInfoViewController.headerView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 50,
+      "symbol": "DetailsInfoViewController.headerHeightConstraint",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 52,
+      "symbol": "DetailsInfoViewController.detailsInfoTableView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 64,
+      "symbol": "DetailsInfoViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 81,
+      "symbol": "DetailsInfoViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 86,
+      "symbol": "DetailsInfoViewController.viewDidDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 92,
+      "symbol": "DetailsInfoViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 100,
+      "symbol": "DetailsInfoViewController.prepareForHeaderTitle()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 174,
+      "symbol": "DetailsInfoViewController.prepareRegion()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 211,
+      "symbol": "DetailsInfoViewController.prepareGMS()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 276,
+      "symbol": "DetailsInfoViewController.getImgWith(cacheKey:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 293,
+      "symbol": "DetailsInfoViewController.getDocumentsDirectory()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 301,
+      "symbol": "DetailsInfoViewController.componentURL(documentPath:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 333,
+      "symbol": "DetailsInfoViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 338,
+      "symbol": "DetailsInfoViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 365,
+      "symbol": "DetailsInfoViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 427,
+      "symbol": "DetailsInfoViewController.tableView(_:viewForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 442,
+      "symbol": "DetailsInfoViewController.tableView(_:heightForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 451,
+      "symbol": "DetailsInfoViewController.mapView(_:viewFor:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/DetailsInfoViewController.swift",
+      "line": 470,
+      "symbol": "DetailsInfoViewController.prepareMapAnnotation()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 13,
+      "symbol": "PanoViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 15,
+      "symbol": "PanoViewController.communicator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 16,
+      "symbol": "PanoViewController.downloadImgQueue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 18,
+      "symbol": "PanoViewController.firstGuidePoints",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 19,
+      "symbol": "PanoViewController.guidePoints",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 22,
+      "symbol": "PanoViewController.panoramaView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 23,
+      "symbol": "PanoViewController.guideMapView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 25,
+      "symbol": "PanoViewController.tapBtnOut",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 26,
+      "symbol": "PanoViewController.guideMapImageView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 30,
+      "symbol": "PanoViewController.tapStatus",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 32,
+      "symbol": "PanoViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 61,
+      "symbol": "PanoViewController.viewWillDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 68,
+      "symbol": "PanoViewController.prepareForGuidePoints(points:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 95,
+      "symbol": "PanoViewController.prepareForPanoramaView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 134,
+      "symbol": "PanoViewController.tapButton(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 158,
+      "symbol": "PanoViewController.point0(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 162,
+      "symbol": "PanoViewController.point1(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 165,
+      "symbol": "PanoViewController.point2(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 168,
+      "symbol": "PanoViewController.point3(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 172,
+      "symbol": "PanoViewController.letMoveThePano(index:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 289,
+      "symbol": "PanoViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 296,
+      "symbol": "PanoViewController.panoramaView(_:error:onMoveToPanoramaID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 301,
+      "symbol": "PanoViewController.panoramaView(_:didMoveTo:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 305,
+      "symbol": "PanoViewController.panoramaView(_:didMove:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/PanoViewController.swift",
+      "line": 309,
+      "symbol": "PanoViewController.panoramaView(_:error:onMoveNearCoordinate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 12,
+      "symbol": "cityListModel",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 13,
+      "symbol": "typeListModel",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 14,
+      "symbol": "brandListModel",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 16,
+      "symbol": "cityDetailListModel",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 17,
+      "symbol": "typeDetailListModel",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 18,
+      "symbol": "brandDetailListModel",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 20,
+      "symbol": "saveInfoStruct",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 23,
+      "symbol": "cacheObjectData",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 26,
+      "symbol": "standardiClickImage",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 27,
+      "symbol": "standardImageModel",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 35,
+      "symbol": "SecondViewController.typeListCoordinator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 37,
+      "symbol": "SecondViewController.searchControll",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 39,
+      "symbol": "SecondViewController.activityIndicator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 44,
+      "symbol": "SecondViewController.popScrollView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 46,
+      "symbol": "SecondViewController.popPageControl",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 48,
+      "symbol": "SecondViewController.pageSegmentedControl",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 50,
+      "symbol": "SecondViewController.typeListTableView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 56,
+      "symbol": "SecondViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 107,
+      "symbol": "SecondViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 115,
+      "symbol": "SecondViewController.connectToServer()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 167,
+      "symbol": "SecondViewController.addIndicatorView(activityIndicator:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SecondViewController.swift",
+      "line": 301,
+      "symbol": "SecondViewController.scrollViewDidEndDecelerating(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 15,
+      "symbol": "SubSortTableViewController.communicator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 17,
+      "symbol": "SubSortTableViewController.activityIndicator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 19,
+      "symbol": "SubSortTableViewController.coverView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 23,
+      "symbol": "SubSortTableViewController.cache",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 25,
+      "symbol": "SubSortTableViewController.downloadImgQueue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 27,
+      "symbol": "SubSortTableViewController.fileManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 29,
+      "symbol": "SubSortTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 49,
+      "symbol": "SubSortTableViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 55,
+      "symbol": "SubSortTableViewController.viewWillDisappear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 78,
+      "symbol": "SubSortTableViewController.addIndicatorView(activityIndicator:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 118,
+      "symbol": "SubSortTableViewController.checkCacheDataExist()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 169,
+      "symbol": "SubSortTableViewController.connectToServer()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 207,
+      "symbol": "SubSortTableViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 212,
+      "symbol": "SubSortTableViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 240,
+      "symbol": "SubSortTableViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 407,
+      "symbol": "SubSortTableViewController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 412,
+      "symbol": "SubSortTableViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 509,
+      "symbol": "SubSortTableViewController.getDocumentsDirectory()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/SubSortTableViewController.swift",
+      "line": 517,
+      "symbol": "SubSortTableViewController.componentURL(documentPath:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/TypeListTableViewCoordinator.swift",
+      "line": 17,
+      "symbol": "TypeListTableViewCoordinator.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/TypeListTableViewCoordinator.swift",
+      "line": 21,
+      "symbol": "TypeListTableViewCoordinator.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/TypeListTableViewCoordinator.swift",
+      "line": 41,
+      "symbol": "TypeListTableViewCoordinator.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/TypeListTableViewCoordinator.swift",
+      "line": 82,
+      "symbol": "TypeListTableViewCoordinator.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/TypeListTableViewCoordinator.swift",
+      "line": 91,
+      "symbol": "TypeListTableViewCoordinator.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/UserInfoViewController.swift",
+      "line": 11,
+      "symbol": "UserInfoViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/UserInfoViewController.swift",
+      "line": 13,
+      "symbol": "UserInfoViewController.fileManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/UserInfoViewController.swift",
+      "line": 15,
+      "symbol": "UserInfoViewController.storageSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/UserInfoViewController.swift",
+      "line": 22,
+      "symbol": "UserInfoViewController.showTheStorageSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/UserInfoViewController.swift",
+      "line": 24,
+      "symbol": "UserInfoViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/UserInfoViewController.swift",
+      "line": 36,
+      "symbol": "UserInfoViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/UserInfoViewController.swift",
+      "line": 44,
+      "symbol": "UserInfoViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/UserInfoViewController.swift",
+      "line": 49,
+      "symbol": "UserInfoViewController.clearTheStorage(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/UserInfoViewController.swift",
+      "line": 57,
+      "symbol": "UserInfoViewController.clearStorage()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/UserInfoViewController.swift",
+      "line": 84,
+      "symbol": "UserInfoViewController.getDocumentSize(completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/ViewController.swift",
+      "line": null,
+      "symbol": "ViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/ViewController.swift",
+      "line": 11,
+      "symbol": "ViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/ViewController.swift",
+      "line": 13,
+      "symbol": "ViewController.searchController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/ViewController.swift",
+      "line": 15,
+      "symbol": "ViewController.showHotScrollView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/ViewController.swift",
+      "line": 17,
+      "symbol": "ViewController.pageControl",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/ViewController.swift",
+      "line": 19,
+      "symbol": "ViewController.fullSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/ViewController.swift",
+      "line": 21,
+      "symbol": "ViewController.hotImageView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/ViewController.swift",
+      "line": 23,
+      "symbol": "ViewController.segmentedControl",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/ViewController.swift",
+      "line": 26,
+      "symbol": "ViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/ViewController.swift",
+      "line": 84,
+      "symbol": "ViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/ViewController.swift",
+      "line": 90,
+      "symbol": "ViewController.settingSegmentedControl()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/ViewController.swift",
+      "line": 121,
+      "symbol": "ViewController.onSegmentedControlChaneged(sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/ViewController.swift",
+      "line": 275,
+      "symbol": "ViewController.pageChanged(sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Controller/ViewController.swift",
+      "line": 322,
+      "symbol": "ViewController.scrollViewDidEndDecelerating(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 34,
+      "symbol": "BrandDetailListModel.toString()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 51,
+      "symbol": "BrandDetailObject.number",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 52,
+      "symbol": "BrandDetailObject.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 53,
+      "symbol": "BrandDetailObject.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 54,
+      "symbol": "BrandDetailObject.city",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 55,
+      "symbol": "BrandDetailObject.img",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 56,
+      "symbol": "BrandDetailObject.imgTitle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 57,
+      "symbol": "BrandDetailObject.content",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 58,
+      "symbol": "BrandDetailObject.summary",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 59,
+      "symbol": "BrandDetailObject.poi",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 60,
+      "symbol": "BrandDetailObject.zip",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 61,
+      "symbol": "BrandDetailObject.address",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 62,
+      "symbol": "BrandDetailObject.openhours",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 63,
+      "symbol": "BrandDetailObject.phone",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 64,
+      "symbol": "BrandDetailObject.email",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 65,
+      "symbol": "BrandDetailObject.web",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 66,
+      "symbol": "BrandDetailObject.tag",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 67,
+      "symbol": "BrandDetailObject.picture",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 68,
+      "symbol": "BrandDetailObject.pictureTitle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 69,
+      "symbol": "BrandDetailObject.map",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 70,
+      "symbol": "BrandDetailObject.panorama",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 71,
+      "symbol": "BrandDetailObject.youtube",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 72,
+      "symbol": "BrandDetailObject.guideMap",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 73,
+      "symbol": "BrandDetailObject.storyImg",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/BrandDetailListModel.swift",
+      "line": 75,
+      "symbol": "BrandDetailObject.init(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 34,
+      "symbol": "CityDetailListModel.toString()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 51,
+      "symbol": "CityDetailObject.number",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 52,
+      "symbol": "CityDetailObject.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 53,
+      "symbol": "CityDetailObject.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 54,
+      "symbol": "CityDetailObject.city",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 55,
+      "symbol": "CityDetailObject.img",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 56,
+      "symbol": "CityDetailObject.imgTitle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 57,
+      "symbol": "CityDetailObject.content",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 58,
+      "symbol": "CityDetailObject.summary",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 59,
+      "symbol": "CityDetailObject.poi",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 60,
+      "symbol": "CityDetailObject.zip",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 61,
+      "symbol": "CityDetailObject.address",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 62,
+      "symbol": "CityDetailObject.openhours",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 63,
+      "symbol": "CityDetailObject.phone",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 64,
+      "symbol": "CityDetailObject.email",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 65,
+      "symbol": "CityDetailObject.web",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 66,
+      "symbol": "CityDetailObject.tag",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 67,
+      "symbol": "CityDetailObject.picture",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 68,
+      "symbol": "CityDetailObject.pictureTitle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 69,
+      "symbol": "CityDetailObject.map",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 70,
+      "symbol": "CityDetailObject.panorama",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 71,
+      "symbol": "CityDetailObject.youtube",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 72,
+      "symbol": "CityDetailObject.guideMap",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 73,
+      "symbol": "CityDetailObject.storyImg",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 76,
+      "symbol": "CityDetailObject.init(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/CityDetailListModel.swift",
+      "line": 152,
+      "symbol": "CityDetailObject.toString()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 34,
+      "symbol": "TypeDetailListModel.toString()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 51,
+      "symbol": "TypeDetailObject.number",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 52,
+      "symbol": "TypeDetailObject.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 53,
+      "symbol": "TypeDetailObject.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 54,
+      "symbol": "TypeDetailObject.city",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 55,
+      "symbol": "TypeDetailObject.img",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 56,
+      "symbol": "TypeDetailObject.imgTitle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 57,
+      "symbol": "TypeDetailObject.content",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 58,
+      "symbol": "TypeDetailObject.summary",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 59,
+      "symbol": "TypeDetailObject.poi",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 60,
+      "symbol": "TypeDetailObject.zip",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 61,
+      "symbol": "TypeDetailObject.address",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 62,
+      "symbol": "TypeDetailObject.openhours",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 63,
+      "symbol": "TypeDetailObject.phone",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 64,
+      "symbol": "TypeDetailObject.email",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 65,
+      "symbol": "TypeDetailObject.web",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 66,
+      "symbol": "TypeDetailObject.tag",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 67,
+      "symbol": "TypeDetailObject.picture",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 68,
+      "symbol": "TypeDetailObject.pictureTitle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 69,
+      "symbol": "TypeDetailObject.map",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 70,
+      "symbol": "TypeDetailObject.panorama",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 71,
+      "symbol": "TypeDetailObject.youtube",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 72,
+      "symbol": "TypeDetailObject.guideMap",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 73,
+      "symbol": "TypeDetailObject.storyImg",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/DetailList/TypeDetailListModel.swift",
+      "line": 75,
+      "symbol": "TypeDetailObject.init(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/Image/IClickImageModel.swift",
+      "line": 11,
+      "symbol": "IClickImageModel",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/Image/IClickImageModel.swift",
+      "line": 21,
+      "symbol": "IClickImageModel.standard()",
+      "symbol_kind": "source.lang.swift.decl.function.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/Image/IClickImageModel.swift",
+      "line": 29,
+      "symbol": "IClickImageModel.image",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/Image/IClickImageModel.swift",
+      "line": 32,
+      "symbol": "IClickImageModel.handleImageWith(data:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/ImageDataModel.swift",
+      "line": 11,
+      "symbol": "ImageDataModel",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/ImageDataModel.swift",
+      "line": 21,
+      "symbol": "ImageDataModel.standard()",
+      "symbol_kind": "source.lang.swift.decl.function.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/SaveInfoStruct.swift",
+      "line": 55,
+      "symbol": "SaveInfoStruct.mapPanoUrl",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/SaveInfoStruct.swift",
+      "line": 56,
+      "symbol": "SaveInfoStruct.guideMapImageName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/SaveInfoStruct.swift",
+      "line": 57,
+      "symbol": "SaveInfoStruct.youtubeID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/SaveInfoStruct.swift",
+      "line": 59,
+      "symbol": "SaveInfoStruct.saveInfoOfMap(title:address:coordinate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/SaveInfoStruct.swift",
+      "line": 66,
+      "symbol": "SaveInfoStruct.getMapNeedsData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/SaveInfoStruct.swift",
+      "line": 73,
+      "symbol": "SaveInfoStruct.resetMapData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/SaveInfoStruct.swift",
+      "line": 131,
+      "symbol": "SaveInfoStruct.setWhichSelected(indexPath:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Model/SaveInfoStruct.swift",
+      "line": 135,
+      "symbol": "SaveInfoStruct.getSelectedIndexPath()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Other/Communicator.swift",
+      "line": 14,
+      "symbol": "Communicator.sessionShared",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Other/Define.swift",
+      "line": 37,
+      "symbol": "subSortTableViewCellId",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Other/Define.swift",
+      "line": 41,
+      "symbol": "GMSAPI_Key2",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Other/Enum.swift",
+      "line": 46,
+      "symbol": "WhichAPIGet.typeList",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Other/Enum.swift",
+      "line": 48,
+      "symbol": "WhichAPIGet.brandList",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Other/Enum.swift",
+      "line": 50,
+      "symbol": "WhichAPIGet.cityDetail",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Other/Enum.swift",
+      "line": 52,
+      "symbol": "WhichAPIGet.typeDetail",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Other/Enum.swift",
+      "line": 54,
+      "symbol": "WhichAPIGet.brandDetail",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Other/Extension.swift",
+      "line": 17,
+      "symbol": "String.urlEncoded()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Other/Extension.swift",
+      "line": 24,
+      "symbol": "String.urlDecoded()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/Other/Extension.swift",
+      "line": 31,
+      "symbol": "UIImage.compressImageQuality(_:toByte:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/ARButtonTableViewCell.swift",
+      "line": 11,
+      "symbol": "ARButtonTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/ARButtonTableViewCell.swift",
+      "line": 13,
+      "symbol": "ARButtonTableViewCell.arInteractionBtn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/ARButtonTableViewCell.swift",
+      "line": 15,
+      "symbol": "ARButtonTableViewCell.arRouteGuideBtn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/ARButtonTableViewCell.swift",
+      "line": 17,
+      "symbol": "ARButtonTableViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/ARButtonTableViewCell.swift",
+      "line": 22,
+      "symbol": "ARButtonTableViewCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/DetailsInfoTableViewCell.swift",
+      "line": 11,
+      "symbol": "DetailsInfoTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/DetailsInfoTableViewCell.swift",
+      "line": 13,
+      "symbol": "DetailsInfoTableViewCell.detailTitleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/DetailsInfoTableViewCell.swift",
+      "line": 15,
+      "symbol": "DetailsInfoTableViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/DetailsInfoTableViewCell.swift",
+      "line": 20,
+      "symbol": "DetailsInfoTableViewCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/MapTableViewCell.swift",
+      "line": 13,
+      "symbol": "MapTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/MapTableViewCell.swift",
+      "line": 16,
+      "symbol": "MapTableViewCell.mapView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/MapTableViewCell.swift",
+      "line": 18,
+      "symbol": "MapTableViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/MapTableViewCell.swift",
+      "line": 24,
+      "symbol": "MapTableViewCell.prepareForGMSView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/MapTableViewCell.swift",
+      "line": 58,
+      "symbol": "MapTableViewCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/SubSortTableViewCell.swift",
+      "line": 11,
+      "symbol": "SubSortTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/SubSortTableViewCell.swift",
+      "line": 15,
+      "symbol": "SubSortTableViewCell.subSortImageView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/SubSortTableViewCell.swift",
+      "line": 18,
+      "symbol": "SubSortTableViewCell.subSortTitle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/SubSortTableViewCell.swift",
+      "line": 20,
+      "symbol": "SubSortTableViewCell.subSortSummery",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/SubSortTableViewCell.swift",
+      "line": 23,
+      "symbol": "SubSortTableViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/SubSortTableViewCell.swift",
+      "line": 28,
+      "symbol": "SubSortTableViewCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/TypeListTableViewCell.swift",
+      "line": 11,
+      "symbol": "TypeListTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/TypeListTableViewCell.swift",
+      "line": 13,
+      "symbol": "TypeListTableViewCell.listImageView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/TypeListTableViewCell.swift",
+      "line": 15,
+      "symbol": "TypeListTableViewCell.listTitle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/TypeListTableViewCell.swift",
+      "line": 17,
+      "symbol": "TypeListTableViewCell.listDetail",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/TypeListTableViewCell.swift",
+      "line": 18,
+      "symbol": "TypeListTableViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/TypeListTableViewCell.swift",
+      "line": 27,
+      "symbol": "TypeListTableViewCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/VideoGuideTableViewCell.swift",
+      "line": 12,
+      "symbol": "VideoGuideTableViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/VideoGuideTableViewCell.swift",
+      "line": 14,
+      "symbol": "VideoGuideTableViewCell.youtubeView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/VideoGuideTableViewCell.swift",
+      "line": 15,
+      "symbol": "VideoGuideTableViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest/CityGuideTest/View/VideoGuideTableViewCell.swift",
+      "line": 27,
+      "symbol": "VideoGuideTableViewCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/kinlive/Desktop/iClick Use/designApp/CityGuideTest"
+}

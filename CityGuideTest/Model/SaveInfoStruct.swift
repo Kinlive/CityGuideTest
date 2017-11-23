@@ -53,6 +53,8 @@ struct SaveInfoStruct{
     private var mapCoordinate = [Float]()
     
     var mapPanoUrl: String?
+    var guideMapImageName: String?
+    var youtubeID: String?
     
     mutating func saveInfoOfMap(title: String, address: String, coordinate:[Float]){
         self.mapTitle = title

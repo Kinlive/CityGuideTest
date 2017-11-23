@@ -68,8 +68,8 @@ struct TypeDetailObject{
     let pictureTitle: String
     let map: String
     let panorama: String
-    let youtube: String
-    let guideMap: String
+    let youtube: [String]
+    let guideMap: [String]
     let storyImg: String
     
     init(json: [String: Any]){
@@ -97,8 +97,8 @@ struct TypeDetailObject{
         self.pictureTitle = json["picturetitle"] as? String ?? ""
         self.map = json["map"] as? String ?? ""
         self.panorama = json["panorama"] as? String ?? ""
-        self.youtube = json["youtube"] as? String ?? ""
-        self.guideMap = json["guidemap"] as? String ?? ""
+        self.youtube = TypeDetailObject.handleTheYoutubeJson(jsonStr: json["youtube"] as? String ?? "")
+        self.guideMap = TypeDetailObject.handleStringToArray(jsonStr: json["guidemap"] as? String ?? "")
         self.storyImg = json["storyimg"] as? String ?? ""
         
     }
@@ -130,6 +130,43 @@ struct TypeDetailObject{
             return [] }
         
         return finalStrArray
+        
+    }
+    
+    
+    private static func handleTheYoutubeJson(jsonStr: String) -> [String]{
+        
+        guard let jsonData = jsonStr.data(using: String.Encoding.utf8, allowLossyConversion: false) else {return ["1"] }
+        var strArray: [[String: Any]]?
+        
+        do{
+            strArray = [[String: Any]]()
+            
+            strArray = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [[String: Any]]
+            
+            
+        }catch let jsonError{
+            
+            print("YoutubeJson is nil :\(jsonError.localizedDescription)")
+            
+        }
+        
+        guard let finalStrArray = strArray else {
+            print("Array is nil")
+            return ["2"] }
+        
+        var finalYoutubeArray = [String]()
+        for i in finalStrArray{
+            let id = i["id"] as? String ?? ""
+            let type = i["type"] as? String ?? ""
+            print("ID: \(id) and type: \(type)")
+            finalYoutubeArray.append(id)
+            
+        }
+        
+        
+        return finalYoutubeArray
+        
         
     }
     

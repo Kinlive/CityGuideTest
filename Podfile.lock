@@ -6,15 +6,18 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (2.5.0):
     - GoogleMaps/Base (= 2.5.0)
+  - YouTubePlayer (0.4.0)
 
 DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
+  - YouTubePlayer
 
 SPEC CHECKSUMS:
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
   GooglePlaces: dd70d9d71ea1c7944846afe67de3712c99b30a77
+  YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: bf062164c7960ddf502566d9284f2714951d8dbd
+PODFILE CHECKSUM: 682834679f08c3fcfd246885279ba54e9242ece6
 
 COCOAPODS: 1.2.0

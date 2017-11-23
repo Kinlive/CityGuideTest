@@ -8,10 +8,10 @@ target 'CityGuideTest' do
   use_frameworks!
 
 source 'https://github.com/CocoaPods/Specs.git'
-
+  
   pod 'GoogleMaps'
   pod 'GooglePlaces'
-
+  pod "YouTubePlayer"
   # Pods for CityGuideTest
 
 
