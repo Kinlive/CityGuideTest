@@ -116,7 +116,7 @@ struct CityDetailObject{
      */
     private static func handleStringToArray(jsonStr: String) -> [String] {
         
-        guard let jsonData = jsonStr.data(using: .utf8) else {return [] }
+        guard let jsonData = jsonStr.data(using: .utf8) else {return [""] }
         var strArray: [String]?
         
         do{
@@ -133,7 +133,7 @@ struct CityDetailObject{
         
         guard let finalStrArray = strArray else {
             print("Array is nil")
-            return [] }
+            return [""] }
         
         return finalStrArray
         

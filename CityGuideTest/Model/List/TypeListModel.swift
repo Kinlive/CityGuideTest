@@ -51,7 +51,7 @@ struct Type{
     let number: String
     ///Type name.
     let name: String
-//    var id: String
+    var id: String
     
     /**
      Initialize the Type of Struct when json parse.
@@ -59,7 +59,7 @@ struct Type{
      */
     init(json: [String: Any]){
         self.number = json["no"] as? String ?? ""
-//        self.id = json["id"] as? String ?? ""
+        self.id = json["img"] as? String ?? ""
         self.name = json["name"] as? String ?? ""
     }
     

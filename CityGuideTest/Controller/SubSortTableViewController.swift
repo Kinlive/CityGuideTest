@@ -223,6 +223,7 @@ class SubSortTableViewController: UITableViewController {
             
         case .cities:
 
+            print("Print the cityDetailListModel. count:\(cityDetailListModel.cityDetailList.count)")
             return cityDetailListModel.cityDetailList.count
             
         case .types:
@@ -256,7 +257,7 @@ class SubSortTableViewController: UITableViewController {
                     cell.subSortSummery.text = noAndId
                     
                     //Prepare for image load and save
-                    let imageName = "\(cityDetailListModel.cityDetailList[indexPath.row].img[0])"
+                    let imageName = "\(cityDetailListModel.cityDetailList[indexPath.row].img.first ?? "noImg")"
                    
                     let cacheKey = "\(segmentTitle)\(imageName)"
                     
@@ -307,7 +308,7 @@ class SubSortTableViewController: UITableViewController {
                     cell.subSortTitle.text = typeDetailListModel.typeDetailList[indexPath.row].name
                     let noAndId = "no:\(typeDetailListModel.typeDetailList[indexPath.row].number) id:\(typeDetailListModel.typeDetailList[indexPath.row].id)"
                     cell.subSortSummery.text = noAndId
-                    let imageName = "\(typeDetailListModel.typeDetailList[indexPath.row].img[0])"
+                    let imageName = "\(typeDetailListModel.typeDetailList[indexPath.row].img.first ?? "noImg")"
                     
                     let cacheKey = "\(segmentTitle)\(imageName)"
                     
@@ -356,7 +357,7 @@ class SubSortTableViewController: UITableViewController {
                     cell.subSortTitle.text = brandDetailListModel.brandDetailList[indexPath.row].name
                     let noAndId = "no:\(brandDetailListModel.brandDetailList[indexPath.row].number) id:\(brandDetailListModel.brandDetailList[indexPath.row].id)"
                     cell.subSortSummery.text = noAndId
-                    let imageName = "\(brandDetailListModel.brandDetailList[indexPath.row].img[0])"
+                    let imageName = "\(brandDetailListModel.brandDetailList[indexPath.row].img.first ?? "noImg")"
                     
                     let cacheKey = "\(segmentTitle)\(imageName)"
                     

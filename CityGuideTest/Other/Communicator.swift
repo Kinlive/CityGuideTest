@@ -26,7 +26,7 @@ class Communicator: NSObject{
         guard let url = URL(string: urlStr.urlEncoded()) else {
             print("NO url")
             return}
-        
+        print("URLURLURLURLURL:\(url)")
         //Check for which api get .
         if let whichApiGet = whichApiGet { //Get json api
             
@@ -86,8 +86,10 @@ class Communicator: NSObject{
         
         do{//JSON parse.
             
+            
             let json = try JSONSerialization.jsonObject(with: data,
                                                         options: .mutableContainers)
+            
             guard let finalJson = json as? [[String: Any]] else { return }
             
             //Put on which model
@@ -98,11 +100,9 @@ class Communicator: NSObject{
                 handleCityList(json: finalJson, completion: completion)
             
             case .typeList:
-            
                 handleTypeList(json: finalJson, completion: completion)
                 
             case .brandList:
-                
                  handleBrandList(json: finalJson, completion: completion)
             
             case .cityDetail:

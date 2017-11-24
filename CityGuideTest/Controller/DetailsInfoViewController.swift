@@ -110,7 +110,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
             //Prepare for cacheKey get.
             let cityObject = cityDetailListModel.cityDetailList[selectedIndexPath.row]
             
-            imageName = cityObject.img[0]
+            imageName = cityObject.img.first ?? "noImg"
             titleName = cityObject.name
             itemSummary = cityObject.content == "" ?cityObject.summary:cityObject.content
             itemCoordinateStr = cityObject.map
@@ -122,7 +122,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
             
         case .types:
             let typeObject = typeDetailListModel.typeDetailList[selectedIndexPath.row]
-            imageName = typeObject.img[0]
+            imageName = typeObject.img.first ?? "noImg"
             titleName = typeObject.name
             itemSummary = typeObject.content == "" ?typeObject.summary:typeObject.content
             itemCoordinateStr = typeObject.map
@@ -134,7 +134,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         case .brands:
 
             let brandObject = brandDetailListModel.brandDetailList[selectedIndexPath.row]
-            imageName = brandObject.img[0]
+            imageName = brandObject.img.first ?? "noImg"
             titleName = brandObject.name
             itemSummary = brandObject.content == "" ?brandObject.summary:brandObject.content
             itemCoordinateStr = brandObject.map
@@ -146,12 +146,19 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         
         guard
             let imgName = imageName,
-            let title = titleName else {return }
+            let title = titleName else {
+                print("Not get imageName And titleName")
+                return }
         
         let cacheKey = "\(segmentTitle)\(imgName)"
-       
+        print("CACHE KEY:\(cacheKey)")
+        
+        var img = UIImage(named: "placeholder.png")
+        if let cacheImg = getImgWith(cacheKey: cacheKey){
+            img = cacheImg
+        }
         //Get image with cacheKey.
-        guard let img = getImgWith(cacheKey: cacheKey) else {return}
+        
         
         
         self.titelLabel.text = title
@@ -195,6 +202,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
             let titleName = self.titleName,
             let itemAddress = self.itemAddress
             else{
+                print("[[][][][][titleName or itemAddress nil.")
                 return
         }
         print("This MapDataForSave: \(titleName),\(coordin)")

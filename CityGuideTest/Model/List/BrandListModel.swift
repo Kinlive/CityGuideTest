@@ -33,11 +33,12 @@ struct BrandListModel{
     ///Print all Brand's properties.
     func toString(){
         
-        for brand in brandList{
-            print(brand.name)
-            print(brand.id)
-            print(brand.number)
-        }
+        print("")
+//        for brand in brandList{
+//            print(brand.name)
+//            print(brand.id)
+//            print(brand.number)
+//        }
         
         
     }
@@ -59,7 +60,7 @@ struct Brand{
      */
     init(json: [String: Any]){
         self.number = json["no"] as? String ?? ""
-        self.id = json["id"] as? String ?? ""
+        self.id = json["img"] as? String ?? ""
         self.name = json["name"] as? String ?? ""
     }
     
