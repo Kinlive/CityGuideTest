@@ -13,6 +13,8 @@ class Communicator: NSObject{
     
     let sessionShared = URLSession.shared
 
+    let topOperationQueue = OperationQueue()
+    
     typealias HandleCompletion = ( _ success: Bool) -> Void
     /**
      Request to server.
@@ -30,28 +32,32 @@ class Communicator: NSObject{
         //Check for which api get .
         if let whichApiGet = whichApiGet { //Get json api
             
-            let task = sessionShared.dataTask(with: url) { (data, response, error) in
-            
-                if let error = error {
-                
-                    print(error.localizedDescription)
-                
-                    return
+//            if whichApiGet != .searchKeyword{ //Normal api request
+                let task = sessionShared.dataTask(with: url) { (data, response, error) in
+                    
+                    if let error = error {
+                        
+                        print(error.localizedDescription)
+                        
+                        return
+                    }
+                    
+                    guard let data = data else {
+                        
+                        print("No data")
+                        
+                        return }
+                    
+                    self.saveDataOnModel(data: data,
+                                         whichAPI: whichApiGet,
+                                         completion: completion)
                 }
-            
-                guard let data = data else {
                 
-                    print("No data")
-                
-                    return }
-            
-                self.saveDataOnModel(data: data,
-                                     whichAPI: whichApiGet,
-                                     completion: completion)
-            }
-            
                 task.resume()
-                
+//            }else if whichApiGet == .searchKeyword{
+//
+//
+//            }
            
         }else{ // Into the download images api
                 
@@ -117,6 +123,15 @@ class Communicator: NSObject{
              
                 handleBrandDetailList(json: finalJson, completion: completion)
             
+            case .downloadImg:
+                print("On saveDataOnModel doloadImg case.")
+                
+                handleTopPlaceList(json: finalJson, completion: completion)
+            
+            case .searchKeyword:
+                
+                handleSearchResultList(json: finalJson, completion: completion)
+                print("On saveDataOnModel searchKeyword.")
             }
         
         }catch let jsonErr{
@@ -281,9 +296,95 @@ class Communicator: NSObject{
         completion(true)
     }
     
-    
+    //MARK: - HandleSearchResultList func
+    /**
+     Handle the searchResult data on struct.
+     - Parameter json: Array of parse end.
+     - Parameter completion: Handle completion.
+     */
+    fileprivate func handleSearchResultList(json: [[String: Any]], completion: HandleCompletion){
+        
+        searchResultModel.searchResultList.removeAll()
+        
+        for searchResultOne in json {
+            
+            let searchResult = SearchResultObject.init(json: searchResultOne)
+            
+            searchResultModel.searchResultList.append(searchResult)
+        }
+        //For cache data
+//        let forCacheObject = brandDetailListModel.brandDetailList
+        
+//        cacheObjectData.setObject(forCacheObject as AnyObject,
+//                                  forKey: saveInfoStruct.whichUrlStr as AnyObject )
+        
+        completion(true)
+    }
    
     
+    //MARK: - handleTopPlaceList func
+    /**
+     Handle the topPlace data on struct.
+     - Parameter json: Array of parse end.
+     - Parameter completion: Handle completion.
+     */
+    fileprivate func handleTopPlaceList(json: [[String: Any]], completion: HandleCompletion){
+        
+        topPlaceResultModel.topPlaceResultList.removeAll()
+        
+        for (_,topPlaceResultOne) in json.enumerated() {
+            
+            
+            let topPlace = TopPlaceResultObject.init(json: topPlaceResultOne)
+            
+            topPlaceResultModel.topPlaceResultList.append(topPlace)
+            
+        }
+        
+        //For cache data
+//        let forCacheObject = cityDetailListModel.cityDetailList
+        
+//        cacheObjectData.setObject(forCacheObject as AnyObject,
+//                                  forKey: saveInfoStruct.whichUrlStr as AnyObject )
+        
+        
+        completion(true)
+        
+    }
+    
+    func downloadTheImage(completion: @escaping HandleCompletion){
+        
+        
+        for topPlace in topPlaceResultModel.topPlaceResultList{
+            
+            let imgName = topPlace.img.first ?? "noImg"
+            let urlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgName)"
+//            topOperationQueue.addOperation {
+            guard let url = URL(string: urlStr.urlEncoded()) else {
+                print("NO url")
+                return}
+            
+                let downloadTask = sessionShared.downloadTask(with: url, completionHandler: { (url, response, error) in
+                    if let err = error {
+                       print("\(err.localizedDescription)")
+                    }else{
+                        
+                        
+                        
+                     completion(true)
+                        
+                    }
+                })
+                downloadTask.resume()
+            
+        }
+        
+        
+        
+        
+        
+        
+    }
     
 }
 

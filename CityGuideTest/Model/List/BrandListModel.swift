@@ -53,6 +53,7 @@ struct Brand{
     let name: String
     ///Brand id.
     let id: String
+    let img: [String]
     
     /**
      Initialize the Brand of Struct when json parse.
@@ -60,8 +61,38 @@ struct Brand{
      */
     init(json: [String: Any]){
         self.number = json["no"] as? String ?? ""
-        self.id = json["img"] as? String ?? ""
+        self.id = json["id"] as? String ?? ""
         self.name = json["name"] as? String ?? ""
+        self.img = Brand.handleStringToArray(jsonStr: json["img"] as? String ?? "")
     }
     
+    /**
+     It's to transfer the json's back data like string but we want it to array.
+     - Parameter jsonStr: Json back data.
+     - Returns: Transfer to array
+     */
+    private static func handleStringToArray(jsonStr: String) -> [String] {
+        
+        guard let jsonData = jsonStr.data(using: .utf8) else {return [] }
+        var strArray: [String]?
+        
+        do{
+            strArray = [String]()
+            
+            strArray = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [String]
+            
+            
+        }catch let jsonError{
+            
+            print("Poi is nil :\(jsonError.localizedDescription)")
+            
+        }
+        
+        guard let finalStrArray = strArray else {
+            print("Array is nil")
+            return [] }
+        
+        return finalStrArray
+        
+    }
 }

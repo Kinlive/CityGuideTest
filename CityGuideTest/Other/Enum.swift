@@ -53,9 +53,18 @@ enum WhichAPIGet{
     
     case brandDetail
     
+    case downloadImg
+    
+    case searchKeyword
     
     
 }
 
 
+enum CheckIsSearch: Int{
+    
+    case noSearch = 0
+    
+    case isSearch
+}
 

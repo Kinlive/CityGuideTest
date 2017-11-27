@@ -56,6 +56,12 @@ struct SaveInfoStruct{
     var guideMapImageName: String?
     var youtubeID: String?
     
+    ///It's for check now is search request or not.
+    var isSearchNow: CheckIsSearch = .noSearch
+    ///Search keyword save
+    var keywordOfSearch: String?
+    
+    
     mutating func saveInfoOfMap(title: String, address: String, coordinate:[Float]){
         self.mapTitle = title
         self.mapAddress = address

@@ -52,9 +52,13 @@ class SubSortTableViewController: UITableViewController {
     }
 
     
+    
     override func viewWillDisappear(_ animated: Bool) {
         
-
+        //Set default is not search.
+//        saveInfoStruct.isSearchNow = .noSearch
+//        print("是不是先行消滅了？")
+        
         //To clear model's list when leave.
 //        if let whichApi = saveInfoStruct.getWhichSelectedAPI(){
 //
@@ -121,43 +125,71 @@ class SubSortTableViewController: UITableViewController {
         
 //        self.tableView.alpha = 0.0
         
-        if (cacheObjectData.object(forKey: saveInfoStruct.whichUrlStr as AnyObject) != nil){
+        switch saveInfoStruct.isSearchNow {
+        case .isSearch:
             
-            print("Cache not nil 111111111111")
-            if let getWhichApi = saveInfoStruct.getWhichSelectedAPI(),
-                let cacheObject = cacheObjectData.object(forKey: saveInfoStruct.whichUrlStr as AnyObject){
+            print("[][][][][][][][][][][]search now [][][][][][][][]")
+            if let keyword = saveInfoStruct.keywordOfSearch{
+                let url = "\(ICLICK_URL)\(GET_SEARCH_URL)\(keyword)"
+                communicator.connectToServer(urlStr: url, whichApiGet: WhichAPIGet.searchKeyword , completion: { (success) in
+                    if success{
+                        DispatchQueue.main.async {
+                            
+                            self.activityIndicator.stopAnimating()
+                            self.activityIndicator.removeFromSuperview()
+                            self.coverView.removeFromSuperview()
+                            //                    self.tableView.alpha = 1
+                            self.tableView.reloadData()
+                            
+                        }
+                        
+                    }else{
+                        print("Search result api get fail.")
+                        
+                    }
+                })
                 
-                switch getWhichApi{
-                    
-                case .cityDetail:
-                    cityDetailListModel.cityDetailList = cacheObject as! [CityDetailObject]
-                    
-                case .brandDetail:
-                    brandDetailListModel.brandDetailList = cacheObject as! [BrandDetailObject]
-                    
-                case .typeDetail:
-                    typeDetailListModel.typeDetailList = cacheObject as! [TypeDetailObject]
-                    
-                default :
-                    break
-                }
-                
-                
-                self.activityIndicator.stopAnimating()
-                self.activityIndicator.removeFromSuperview()
-                self.coverView.removeFromSuperview()
-//                self.tableView.alpha = 1
-                
-                print("Cached brand data used, no need to download it2222222")
-                
-            }else {
-                print("It not get cacheObject here !!4444444")
             }
-        }else{
             
-            print("Cache is nil 55555555")
-            
-            connectToServer()
+        case .noSearch:
+            if (cacheObjectData.object(forKey: saveInfoStruct.whichUrlStr as AnyObject) != nil){
+                
+                print("Cache not nil 111111111111")
+                if let getWhichApi = saveInfoStruct.getWhichSelectedAPI(),
+                    let cacheObject = cacheObjectData.object(forKey: saveInfoStruct.whichUrlStr as AnyObject){
+                    
+                    switch getWhichApi{
+                        
+                    case .cityDetail:
+                        cityDetailListModel.cityDetailList = cacheObject as! [CityDetailObject]
+                        
+                    case .brandDetail:
+                        brandDetailListModel.brandDetailList = cacheObject as! [BrandDetailObject]
+                        
+                    case .typeDetail:
+                        typeDetailListModel.typeDetailList = cacheObject as! [TypeDetailObject]
+                        
+                    default :
+                        break
+                    }
+                    
+                    
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.removeFromSuperview()
+                    self.coverView.removeFromSuperview()
+                    //                self.tableView.alpha = 1
+                    
+                    print("Cached brand data used, no need to download it2222222")
+                    
+                }else {
+                    print("It not get cacheObject here !!4444444")
+                }
+            }else{
+                
+                print("Cache is nil 55555555")
+                
+                connectToServer()
+            }
         }
         
         
@@ -211,30 +243,38 @@ class SubSortTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        
-        guard let segmentTitle = saveInfoStruct.getWhichSegmentedTitle() else {
-          
+        if saveInfoStruct.isSearchNow == .isSearch{
             
-            fatalError("saveInfoStruct.getWhichSegmentedTitle isn't get.")
+            return searchResultModel.searchResultList.count
             
+        }else{
+            
+            guard let segmentTitle = saveInfoStruct.getWhichSegmentedTitle() else {
+                
+                
+                fatalError("saveInfoStruct.getWhichSegmentedTitle isn't get.")
+                
             }
-        
-        switch segmentTitle{
             
-        case .cities:
-
-            print("Print the cityDetailListModel. count:\(cityDetailListModel.cityDetailList.count)")
-            return cityDetailListModel.cityDetailList.count
+            switch segmentTitle{
+                
+            case .cities:
+                
+                print("Print the cityDetailListModel. count:\(cityDetailListModel.cityDetailList.count)")
+                return cityDetailListModel.cityDetailList.count
+                
+            case .types:
+                
+                return typeDetailListModel.typeDetailList.count
+                
+            case .brands:
+                
+                return brandDetailListModel.brandDetailList.count
+                
+            }
             
-        case .types:
-            
-            return typeDetailListModel.typeDetailList.count
-        
-        case .brands:
-            
-            return brandDetailListModel.brandDetailList.count
-        
         }
+//        return 0
     }
 
     //MARK: - cellForRow func.
@@ -248,9 +288,51 @@ class SubSortTableViewController: UITableViewController {
             
             cell.subSortImageView.image = UIImage(named: "placeholder.png")
             
-            //Choice which segmentTitle pass in
-            switch segmentTitle{
+            //Check is search or noraml select item.
             
+            if saveInfoStruct.isSearchNow == .isSearch{
+                
+                let searchResultObject = searchResultModel.searchResultList[indexPath.row]
+                cell.subSortTitle.text = searchResultObject.name
+                let noAndId = "no:\(searchResultObject.number) id: \(searchResultObject.id)"
+                cell.subSortSummery.text = noAndId
+                
+                let imgName = searchResultObject.img.first ?? "noImg"
+                let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgName)"
+                let cacheKey = "\(WhichAPIGet.searchKeyword)\(imgName)"
+                
+                if (cache.object(forKey: cacheKey as AnyObject) != nil){
+                    print("Cached image used, no need to download it")
+                    
+                    cell.subSortImageView.image = cache.object(forKey: cacheKey as AnyObject) as? UIImage
+                    
+                    
+                }else{ //Not get image with cache then to started download img.
+                    downloadImgQueueMethod(imageUrlStr: imageUrlStr, completion: { (success, img) in
+                        
+                        OperationQueue.main.addOperation {
+                            //Img download end, to check which cell on view.
+                            if let updataCell = tableView.cellForRow(at: indexPath) as? SubSortTableViewCell,
+                                let lowImg = img
+                            {
+                                
+                                updataCell.subSortImageView.image = lowImg
+                                
+                                //                            //Save on cache
+                                self.cache.setObject(lowImg, forKey: cacheKey as AnyObject)
+                                //                            //Save on document directory
+                                self.saveImgToSandboxWith(cacheKey: cacheKey, img: lowImg)
+                                print("Save end")
+                            }
+                        }
+                    })
+                    
+                }
+      
+            }else {
+                //Choice which segmentTitle pass in
+                switch segmentTitle{
+                    
                 case .cities:
                     cell.subSortTitle.text = cityDetailListModel.cityDetailList[indexPath.row].name
                     let noAndId = "no:\(cityDetailListModel.cityDetailList[indexPath.row].number) id:\(cityDetailListModel.cityDetailList[indexPath.row].id)"
@@ -258,7 +340,7 @@ class SubSortTableViewController: UITableViewController {
                     
                     //Prepare for image load and save
                     let imageName = "\(cityDetailListModel.cityDetailList[indexPath.row].img.first ?? "noImg")"
-                   
+                    
                     let cacheKey = "\(segmentTitle)\(imageName)"
                     
                     
@@ -301,8 +383,8 @@ class SubSortTableViewController: UITableViewController {
                             }
                         })
                     }
-                
-                
+                    
+                    
                 case .types:
                     
                     cell.subSortTitle.text = typeDetailListModel.typeDetailList[indexPath.row].name
@@ -324,7 +406,7 @@ class SubSortTableViewController: UITableViewController {
                         
                         
                     }else if(fileManager.fileExists(atPath: fileURL.path)){
-                    
+                        
                         cell.subSortImageView.image = getImgFromSandboxOn(url: fileURL)
                         print("Get on sandBox")
                         
@@ -348,12 +430,12 @@ class SubSortTableViewController: UITableViewController {
                                 }
                             }
                         })
-                }
-                
-                
-
+                    }
+                    
+                    
+                    
                 case .brands:
-                
+                    
                     cell.subSortTitle.text = brandDetailListModel.brandDetailList[indexPath.row].name
                     let noAndId = "no:\(brandDetailListModel.brandDetailList[indexPath.row].number) id:\(brandDetailListModel.brandDetailList[indexPath.row].id)"
                     cell.subSortSummery.text = noAndId
@@ -397,15 +479,16 @@ class SubSortTableViewController: UITableViewController {
                                 }
                             }
                         })
+                    }
                 }
             }
-            
         }
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //FIXME: - Not to use heightForRowAt
         return 100
     }
     

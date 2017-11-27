@@ -24,8 +24,21 @@ let GET_PANOBRAND_URL = "vtapp/getdata.php?dbname=place&brand="
 let GET_PANOCITY_URL = "vtapp/getdata.php?dbname=place&city="
 ///API: Request for Tag of type ,old api:getPanoValueTag.php?tag=
 let GET_PANOTAG_URL = "vtapp/getdata.php?dbname=place&tag="
+
 ///API: Request for download the image, contain guideMap
 let GET_PLACEIMG_URL = "upload/place/"
+///API: Request for download image of City.
+let GET_CITYIMG_URL = "upload/city/"
+///API: Request for download image of Tag.
+let GET_TAGIMG_URL = "upload/tag/"
+///API: Request for download image of Brand.
+let GET_BRANDIMG_URL = "upload/brand/"
+
+///API: Request for search keyword.
+let GET_SEARCH_URL = "vtapp/getdata.php?dbname=place&name="
+
+///API: Request for hot place.
+let GET_HOTPLACE_URL = "vtapp/getdata.php?dbname=place&order=votes&desc=true&limit=5"
 
 ///API: Request for get guidemap
 //let GET_GUIDEMAP_URL = "upload/guidemap/"
@@ -35,6 +48,8 @@ let GET_PLACEIMG_URL = "upload/place/"
 let typeListTableViewCellId = "typeListCell"
 
 let subSortTableViewCellId = "SubSortTableViewCell"
+
+let SEARCHRESULTCELL_ID = "SearchResultTableViewCell"//no use
 
 ///GoogleMap API key
 //let GMSAPI_Key = "AIzaSyCaBlL_1-qcmOtcKUMTmjRRPJ2jFqdxA9c"

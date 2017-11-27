@@ -104,68 +104,101 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
             let selectedIndexPath = saveInfoStruct.getSelectedIndexPath()
             else {return }
         
-        
-        switch  segmentTitle {
-        case .cities:
-            //Prepare for cacheKey get.
-            let cityObject = cityDetailListModel.cityDetailList[selectedIndexPath.row]
+        if saveInfoStruct.isSearchNow == .isSearch{
             
-            imageName = cityObject.img.first ?? "noImg"
-            titleName = cityObject.name
-            itemSummary = cityObject.content == "" ?cityObject.summary:cityObject.content
-            itemCoordinateStr = cityObject.map
-            itemAddress = cityObject.address
-            saveInfoStruct.mapPanoUrl = cityObject.panorama
-            saveInfoStruct.guideMapImageName = cityObject.guideMap.first
-            saveInfoStruct.youtubeID = cityObject.youtube.first
-            print("YUOTUBEID: \(cityObject.youtube)")
+            let searchObject = searchResultModel.searchResultList[selectedIndexPath.row]
             
-        case .types:
-            let typeObject = typeDetailListModel.typeDetailList[selectedIndexPath.row]
-            imageName = typeObject.img.first ?? "noImg"
-            titleName = typeObject.name
-            itemSummary = typeObject.content == "" ?typeObject.summary:typeObject.content
-            itemCoordinateStr = typeObject.map
-            itemAddress = typeObject.address
-            saveInfoStruct.mapPanoUrl = typeObject.panorama
-            saveInfoStruct.guideMapImageName = typeObject.guideMap.first
-            saveInfoStruct.youtubeID = typeObject.youtube.first
+            imageName = searchObject.img.first ?? "noImg"
+            titleName = searchObject.name
+            itemSummary = searchObject.content == "" ?searchObject.summary:searchObject.content
+            itemCoordinateStr = searchObject.map
+            itemAddress = searchObject.address
+            saveInfoStruct.mapPanoUrl = searchObject.panorama
+            saveInfoStruct.guideMapImageName = searchObject.guideMap.first
+            saveInfoStruct.youtubeID = searchObject.youtube.first
             
-        case .brands:
+            guard
+                let imgName = imageName,
+                let title = titleName else {
+                    print("Not get imageName And titleName")
+                    return }
+            
+            let cacheKey = "\(WhichAPIGet.searchKeyword)\(imgName)"
+            print("CACHE KEY:\(cacheKey)")
+            
+            var img = UIImage(named: "placeholder.png")
+            //Get image with cacheKey on document directory.
+            
+            if let cacheImg = getImgWith(cacheKey: cacheKey){
+                img = cacheImg
+            }
+            
+            self.titelLabel.text = title
+            self.titleImg.image = img
 
-            let brandObject = brandDetailListModel.brandDetailList[selectedIndexPath.row]
-            imageName = brandObject.img.first ?? "noImg"
-            titleName = brandObject.name
-            itemSummary = brandObject.content == "" ?brandObject.summary:brandObject.content
-            itemCoordinateStr = brandObject.map
-            itemAddress = brandObject.address
-            saveInfoStruct.mapPanoUrl = brandObject.panorama
-            saveInfoStruct.guideMapImageName = brandObject.guideMap.first
-            saveInfoStruct.youtubeID = brandObject.youtube.first
+        }else {
+            switch  segmentTitle {
+            case .cities:
+                //Prepare for cacheKey get.
+                let cityObject = cityDetailListModel.cityDetailList[selectedIndexPath.row]
+                
+                imageName = cityObject.img.first ?? "noImg"
+                titleName = cityObject.name
+                itemSummary = cityObject.content == "" ?cityObject.summary:cityObject.content
+                itemCoordinateStr = cityObject.map
+                itemAddress = cityObject.address
+                saveInfoStruct.mapPanoUrl = cityObject.panorama
+                saveInfoStruct.guideMapImageName = cityObject.guideMap.first
+                saveInfoStruct.youtubeID = cityObject.youtube.first
+                print("YUOTUBEID: \(cityObject.youtube)")
+                
+            case .types:
+                let typeObject = typeDetailListModel.typeDetailList[selectedIndexPath.row]
+                imageName = typeObject.img.first ?? "noImg"
+                titleName = typeObject.name
+                itemSummary = typeObject.content == "" ?typeObject.summary:typeObject.content
+                itemCoordinateStr = typeObject.map
+                itemAddress = typeObject.address
+                saveInfoStruct.mapPanoUrl = typeObject.panorama
+                saveInfoStruct.guideMapImageName = typeObject.guideMap.first
+                saveInfoStruct.youtubeID = typeObject.youtube.first
+                
+            case .brands:
+                
+                let brandObject = brandDetailListModel.brandDetailList[selectedIndexPath.row]
+                imageName = brandObject.img.first ?? "noImg"
+                titleName = brandObject.name
+                itemSummary = brandObject.content == "" ?brandObject.summary:brandObject.content
+                itemCoordinateStr = brandObject.map
+                itemAddress = brandObject.address
+                saveInfoStruct.mapPanoUrl = brandObject.panorama
+                saveInfoStruct.guideMapImageName = brandObject.guideMap.first
+                saveInfoStruct.youtubeID = brandObject.youtube.first
+            }
+            
+            guard
+                let imgName = imageName,
+                let title = titleName else {
+                    print("Not get imageName And titleName")
+                    return }
+            
+            let cacheKey = "\(segmentTitle)\(imgName)"
+            print("CACHE KEY:\(cacheKey)")
+            
+            var img = UIImage(named: "placeholder.png")
+            //Get image with cacheKey.
+            if let cacheImg = getImgWith(cacheKey: cacheKey){
+                img = cacheImg
+            }
+
+            self.titelLabel.text = title
+            self.titleImg.image = img
+            
         }
         
-        guard
-            let imgName = imageName,
-            let title = titleName else {
-                print("Not get imageName And titleName")
-                return }
         
-        let cacheKey = "\(segmentTitle)\(imgName)"
-        print("CACHE KEY:\(cacheKey)")
-        
-        var img = UIImage(named: "placeholder.png")
-        if let cacheImg = getImgWith(cacheKey: cacheKey){
-            img = cacheImg
-        }
-        //Get image with cacheKey.
-        
-        
-        
-        self.titelLabel.text = title
-        self.titleImg.image = img
 //        setTableHeaderView(image: img, titleStr: title)
         
-        print("This is cache key\(cacheKey)")
         prepareRegion()
         
 //        prepareMapAnnotation()
@@ -182,10 +215,16 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         saveInfoStruct.resetMapData()
         coordin.removeAll()
         
-        if let coorStr = itemCoordinateStr {
+        if var coorStr = itemCoordinateStr {
+            
+            if coorStr.contains(" "){
+                
+                coorStr.remove(at: coorStr.index(of: " ")!)
+            }
+            
             let coorArray = coorStr.split(separator: ",")
             for (_,coor) in coorArray.enumerated(){
-                
+
                 print("This is ======coor:\(coor)")
                 if let coorDouble = Float(coor){
                     coordin.append(coorDouble)

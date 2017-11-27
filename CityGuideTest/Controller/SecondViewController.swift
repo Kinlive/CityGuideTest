@@ -16,6 +16,9 @@ var brandListModel = BrandListModel.standard()
 var cityDetailListModel = CityDetailListModel.standard()
 var typeDetailListModel = TypeDetailListModel.standard()
 var brandDetailListModel = BrandDetailListModel.standard()
+var searchResultModel = SearchResultModel.standard()
+var topPlaceResultModel = TopPlaceResultModel.standard()
+
 
 var saveInfoStruct = SaveInfoStruct.standard()
 
@@ -23,7 +26,7 @@ var saveInfoStruct = SaveInfoStruct.standard()
 let cacheObjectData = NSCache<AnyObject, AnyObject>()
 
 //Image constant
-let standardiClickImage = IClickImageModel.standard()
+let standardiClickImage = IClickImageModel.standard() // no use
 let standardImageModel = ImageDataModel.standard()
 
 /**
@@ -38,6 +41,10 @@ class SecondViewController: UIViewController {
     var searchBar: UISearchBar!
     
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    
+    //For 5 topmost place use.
+    let topOperator = OperationQueue()
+    var topImages = [UIImage]()
     
 //    var refreshCtrl: UIRefreshControl!
     var scrollSize: CGSize!
@@ -78,7 +85,7 @@ class SecondViewController: UIViewController {
         
         connectToServer()
         
-        standardImageModel.handleAllImage(names: ["0.jpg","1.jpg","2.jpg","3.jpg"])
+        standardImageModel.handleAllImage(names: ["0.jpg","1.jpg","2.jpg","3.jpg"]) //FIXME: fake img use.
 
         
         //Setting scrollView's contentSize
@@ -87,14 +94,18 @@ class SecondViewController: UIViewController {
         popScrollView.isDirectionalLockEnabled = true
         
         //Set image on scrollView
-        setImageViewOnScrollView()
+//        setImageViewOnScrollView()
+        
+        //Set top 5 place on scrollView
+        requestForTopPlaces()
         
         //SearchControll
-        searchControll = UISearchController(searchResultsController: nil)
-        searchControll.searchBar.placeholder = "search here..."
-        searchControll.searchBar.showsCancelButton = true
-        searchControll.searchBar.delegate = self
+//        searchControll = UISearchController(searchResultsController: nil)
+//        searchControll.searchBar.placeholder = "search here..."
+//        searchControll.searchBar.showsCancelButton = true
+//        searchControll.searchBar.delegate = self
         
+        //Set searchBar.
         searchBar = UISearchBar()
         searchBar.placeholder = "search here..."
         searchBar.showsCancelButton = false
@@ -125,31 +136,40 @@ class SecondViewController: UIViewController {
 //        typeListTableView.rowHeight = UITableViewAutomaticDimension
         
         //For tableview gesture
-        setupTheTableViewGesture()
+        setupTheTableViewGesture() //FIXME: - No use now , tableView's gesture.
         typeListTableView.isEditing = false
         
         
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        //Set default is not search.
+        saveInfoStruct.isSearchNow = .noSearch
+        
+//        self.searchBar.text = nil
+        searchBar.showsCancelButton = false
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - Gesture
+    //MARK: - Gesture no use now.
     @objc func tapSearchBarGesture(sender: UITapGestureRecognizer){
         searchBar.showsCancelButton = true
         
     }
-    
+    //MARK: - No use now, setupTheTableViewGesture() .
     func setupTheTableViewGesture(){
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(swipGestureRecognizer(sender:)))
 //        swipe.direction = .right
         typeListTableView.addGestureRecognizer(swipe)
         
     }
-    
+    //MARK: - No use now, swipGestureRecognizer
    @objc func swipGestureRecognizer(sender: UISwipeGestureRecognizer){
         
     switch  sender.direction {
@@ -166,6 +186,96 @@ class SecondViewController: UIViewController {
     
     
     }
+    
+    //MARK: - Request for the 5 topmost vote place.
+    func requestForTopPlaces(){
+        let communicator = Communicator()
+        let url = "\(ICLICK_URL)\(GET_HOTPLACE_URL)"
+        
+        topOperator.addOperation {
+            //First request for detail list.
+            communicator.connectToServer(urlStr: url, whichApiGet: WhichAPIGet.downloadImg, completion: { (success) in
+                if success{
+                    //The topPlaceResultList is set end.
+                    for (index,topPlace) in topPlaceResultModel.topPlaceResultList.enumerated(){
+                        //Prepare the img url for second request.
+                        let imgName = topPlace.img.first ?? "noImg"
+                        let urlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgName)"
+                        
+                        //Second request for download img.
+                        self.downloadImgQueueMethod(imageUrlStr: urlStr,
+                                                    completion: { (success, img) in
+                            if success ,
+                                let finalImg = img{
+                                
+                                self.topImages.append(finalImg)
+//                                print("是否有將圖片加入?\(finalImg.accessibilityIdentifier)")
+                                print("當前的圖片index= \(index) 下載完的熱門點總數: \(topPlaceResultModel.topPlaceResultList.count)")
+                                if index == topPlaceResultModel.topPlaceResultList.count - 1 {
+                                    //If all imgs downloaded , set the image on scrollView.
+                                    OperationQueue.main.addOperation {
+                                        self.setImageViewOnScrollView()
+                                        print("已經先設定scrollView了")
+                                    }
+                                }
+                                
+                            }else{
+                                print("Download the top img fail.")
+                            }
+                        })
+                    }
+//                   //If all imgs downloaded , set the image on scrollView.
+//                    OperationQueue.main.addOperation {
+//                        self.setImageViewOnScrollView()
+//                        print("已經先設定scrollView了")
+//                    }
+                    
+                }
+            })
+        }
+        
+    }
+    
+    typealias HandleCompletion = (Bool, UIImage?) -> Void
+    //MARK: - downloadImg Method.
+    /**
+     Start to download image on server
+     - Parameter imageUrlStr: On func cellForRow, define:"\(iclickURL)\(getImageURL)\(imageName)"
+     - Parameter completion: when image download end, get (Bool , UIImage)
+     */
+    func downloadImgQueueMethod(imageUrlStr: String, completion: @escaping HandleCompletion){
+        
+        //Create an operationQueue
+        topOperator.addOperation {
+            
+            let communicator = Communicator()
+            //Connect to server
+            communicator.connectToServer(urlStr: imageUrlStr, whichApiGet: nil, completion: { (success) in
+                if success{
+                    
+                    if let imgUrl = URL(string: imageUrlStr),
+                        //With path to find the imgdata and convert the img data
+                        let data = try? Data(contentsOf: imgUrl),
+                        let img = UIImage(data: data)
+                    {
+                        //Compress the image when downloaded.
+                        let lowQualityImg = UIImage.compressImageQuality(img, toByte: 5000)
+                        
+                        completion(true, lowQualityImg)
+                        
+                    }else{//URL or data or image invalid
+                        
+                        completion(false, nil)
+                        
+                    }
+                }else{//connect fail
+                    
+                    completion(false, nil)
+                }
+            })
+        }
+    }
+    
     
     
     //MARK: - ConnectToServer func.
@@ -259,15 +369,17 @@ class SecondViewController: UIViewController {
      */
     func setImageViewOnScrollView(){
         
-        let imageName = ["0.jpg","1.jpg","2.jpg","3.jpg"] //FIXME: - connect the image source
+//        let imageName = ["0.jpg","1.jpg","2.jpg","3.jpg"] //FIXME: - connect the image source
+        let imageName = topImages
+        print("\(imageName)")
         
         guard let popViewSize = scrollSize else { return  }
         
         let imageViewSize = popViewSize
         
-        for (i,name) in imageName.enumerated(){
+        for (i,img) in imageName.enumerated(){
             
-            let muchImageView = UIImageView(image: UIImage(named: name))
+            let muchImageView = UIImageView(image: img)
             let xPosition = self.view.frame.width * CGFloat(i)
             
             muchImageView.frame = CGRect(x: xPosition, y: 0, width: popViewSize.width, height: popViewSize.height)
@@ -281,7 +393,10 @@ class SecondViewController: UIViewController {
                                                    y: imageViewSize.height - labelHight,
                                                    width: imageViewSize.width/2,
                                                    height: labelHight))
-            imageLabel.text = "This is Place name: \(name)"
+            
+            let topObject = topPlaceResultModel.topPlaceResultList[i]
+            
+            imageLabel.text = "\(topObject.name)"
             imageLabel.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.5)
             imageLabel.textColor = UIColor.white
             imageLabel.textAlignment = .center
@@ -366,6 +481,7 @@ extension SecondViewController : UIScrollViewDelegate{
     }
     
 }
+//UISearchBarDelegate
 extension SecondViewController: UISearchBarDelegate{
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
        
@@ -380,8 +496,20 @@ extension SecondViewController: UISearchBarDelegate{
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         //Start search from api.
-        
-        
+        if let keyword = searchBar.text{
+
+            saveInfoStruct.keywordOfSearch = keyword
+            saveInfoStruct.isSearchNow = .isSearch
+            //Prepare for segue.
+
+//            let segue = UIStoryboardSegue(identifier: "SearchSegueId", source: , destination: SubSortTableViewController)
+
+            self.performSegue(withIdentifier: "SearchSegueId", sender: nil)
+
+            searchBar.resignFirstResponder()
+//            self.prepare(for: , sender: <#T##Any?#>)
+
+        }
         
     }
     func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {

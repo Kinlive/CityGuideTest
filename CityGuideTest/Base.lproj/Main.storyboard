@@ -70,10 +70,10 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHK-fp-wP2">
                                 <rect key="frame" x="0.0" y="64" width="375" height="222.5"/>
                             </scrollView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kLz-fS-Yq3">
-                                <rect key="frame" x="0.0" y="286.5" width="375" height="31"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kLz-fS-Yq3">
+                                <rect key="frame" x="0.0" y="286.5" width="375" height="41"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Nez-z8-Alx"/>
+                                    <constraint firstAttribute="height" constant="40" id="Nez-z8-Alx"/>
                                 </constraints>
                                 <segments>
                                     <segment title="地區"/>
@@ -87,7 +87,7 @@
                                 <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.1368543837" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nwk-KR-Yr1">
-                                <rect key="frame" x="0.0" y="316.5" width="375" height="301.5"/>
+                                <rect key="frame" x="0.0" y="326.5" width="375" height="291.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="typeListCell" rowHeight="250" id="1xS-q0-f96" customClass="TypeListTableViewCell" customModule="CityGuideTest" customModuleProvider="target">
@@ -183,6 +183,7 @@
                         <outlet property="popPageControl" destination="qZT-9I-IQy" id="6Yg-Zx-tS7"/>
                         <outlet property="popScrollView" destination="XHK-fp-wP2" id="Cuy-Gc-Gva"/>
                         <outlet property="typeListTableView" destination="Nwk-KR-Yr1" id="6jz-Kd-xMi"/>
+                        <segue destination="7RK-g7-Qhd" kind="show" identifier="SearchSegueId" id="8uT-64-LRF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbN-QQ-Fnd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -547,7 +548,7 @@
                                         <rect key="frame" x="0.0" y="27.5" width="355" height="249.5"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="PIg-bA-by7">
-                                        <rect key="frame" x="20" y="47.5" width="315" height="30"/>
+                                        <rect key="frame" x="20" y="123.5" width="315" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUk-Il-b0f">
                                                 <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
@@ -599,7 +600,6 @@
                                     <constraint firstItem="oqK-qq-JqZ" firstAttribute="leading" secondItem="Ggg-PP-k6Q" secondAttribute="leading" constant="8" id="BYP-M2-HhF"/>
                                     <constraint firstAttribute="bottom" secondItem="PyD-CZ-3SW" secondAttribute="bottom" id="CAY-2J-pAg"/>
                                     <constraint firstItem="oqK-qq-JqZ" firstAttribute="top" secondItem="Ggg-PP-k6Q" secondAttribute="top" id="Cjf-a3-Ljh"/>
-                                    <constraint firstItem="PIg-bA-by7" firstAttribute="top" secondItem="PyD-CZ-3SW" secondAttribute="top" constant="20" id="QNL-uv-YhJ"/>
                                     <constraint firstItem="4Bg-pQ-enx" firstAttribute="leading" secondItem="oqK-qq-JqZ" secondAttribute="trailing" id="R6M-zj-Wfq"/>
                                     <constraint firstItem="4Bg-pQ-enx" firstAttribute="top" secondItem="Ggg-PP-k6Q" secondAttribute="top" id="cvZ-6e-fZ5"/>
                                     <constraint firstItem="PyD-CZ-3SW" firstAttribute="leading" secondItem="Ggg-PP-k6Q" secondAttribute="leading" id="iOl-Lm-Yep"/>
@@ -608,6 +608,7 @@
                                     <constraint firstAttribute="trailing" secondItem="PyD-CZ-3SW" secondAttribute="trailing" id="kDX-TK-Lqg"/>
                                     <constraint firstItem="PIg-bA-by7" firstAttribute="trailing" secondItem="PyD-CZ-3SW" secondAttribute="trailing" constant="-20" id="pkO-WA-W6K"/>
                                     <constraint firstItem="4Bg-pQ-enx" firstAttribute="width" secondItem="Ggg-PP-k6Q" secondAttribute="width" multiplier="1/4" id="qOB-Rh-d14"/>
+                                    <constraint firstItem="PIg-bA-by7" firstAttribute="centerY" secondItem="Ggg-PP-k6Q" secondAttribute="centerY" id="tf0-Sn-c00"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is autolayout line" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Os-KT-IPm">
@@ -714,7 +715,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BBZ-nw-w7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="425.60000000000002" y="213.54679802955667"/>
+            <point key="canvasLocation" x="325" y="81"/>
         </scene>
         <!--活動-->
         <scene sceneID="5xN-TX-zjC">
@@ -736,4 +737,7 @@
             <point key="canvasLocation" x="424" y="928.81773399014787"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="8uT-64-LRF"/>
+    </inferredMetricsTieBreakers>
 </document>

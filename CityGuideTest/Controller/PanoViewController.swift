@@ -37,6 +37,10 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
         
     self.tabBarController?.hideTabBarAnimated(hide: true)
         
+        if let titleName = saveInfoStruct.getMapNeedsData().0 {
+            self.navigationItem.title = titleName
+        }
+        
         btnHeight = self.tapBtnOut.frame.height
         mapHeight = self.guideMapView.frame.height
         
