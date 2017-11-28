@@ -114,7 +114,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
             itemCoordinateStr = searchObject.map
             itemAddress = searchObject.address
             saveInfoStruct.mapPanoUrl = searchObject.panorama
-            saveInfoStruct.guideMapImageName = searchObject.guideMap.first
+            saveInfoStruct.guideMapImageName = searchObject.guideMap
             saveInfoStruct.youtubeID = searchObject.youtube.first
             
             guard
@@ -148,7 +148,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
                 itemCoordinateStr = cityObject.map
                 itemAddress = cityObject.address
                 saveInfoStruct.mapPanoUrl = cityObject.panorama
-                saveInfoStruct.guideMapImageName = cityObject.guideMap.first
+                saveInfoStruct.guideMapImageName = cityObject.guideMap
                 saveInfoStruct.youtubeID = cityObject.youtube.first
                 print("YUOTUBEID: \(cityObject.youtube)")
                 
@@ -160,7 +160,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
                 itemCoordinateStr = typeObject.map
                 itemAddress = typeObject.address
                 saveInfoStruct.mapPanoUrl = typeObject.panorama
-                saveInfoStruct.guideMapImageName = typeObject.guideMap.first
+                saveInfoStruct.guideMapImageName = typeObject.guideMap
                 saveInfoStruct.youtubeID = typeObject.youtube.first
                 
             case .brands:
@@ -172,7 +172,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
                 itemCoordinateStr = brandObject.map
                 itemAddress = brandObject.address
                 saveInfoStruct.mapPanoUrl = brandObject.panorama
-                saveInfoStruct.guideMapImageName = brandObject.guideMap.first
+                saveInfoStruct.guideMapImageName = brandObject.guideMap
                 saveInfoStruct.youtubeID = brandObject.youtube.first
             }
             

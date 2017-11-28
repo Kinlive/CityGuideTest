@@ -53,7 +53,7 @@ struct SaveInfoStruct{
     private var mapCoordinate = [Float]()
     
     var mapPanoUrl: String?
-    var guideMapImageName: String?
+    var guideMapImageName: [String] = []
     var youtubeID: String?
     
     ///It's for check now is search request or not.

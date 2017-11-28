@@ -42,6 +42,7 @@ class SecondViewController: UIViewController {
     
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
+    let scrollActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray )
     //For 5 topmost place use.
     let topOperator = OperationQueue()
     var topImages = [UIImage]()
@@ -81,7 +82,8 @@ class SecondViewController: UIViewController {
         
         //Add loading activityIndicator on tableView 
         
-        addIndicatorView(activityIndicator: activityIndicator)
+        addIndicatorView(activityIndicator: activityIndicator, superView: typeListTableView)
+//        addIndicatorView(activityIndicator: scrollActivityIndicator, superView: popScrollView)
         
         connectToServer()
         
@@ -128,7 +130,7 @@ class SecondViewController: UIViewController {
         //Set the segmentedControl
         pageSegmentedControl.addTarget(self, action: #selector(onSegementedControlSelect(sender:)), for: .valueChanged)
         
-        settingPageControl()
+        
         
         //Connect tableView's delegate on Coordinator
         typeListTableView.delegate = typeListCoordinator
@@ -189,10 +191,11 @@ class SecondViewController: UIViewController {
     
     //MARK: - Request for the 5 topmost vote place.
     func requestForTopPlaces(){
+        scrollActivityIndicator.startAnimating()
         let communicator = Communicator()
         let url = "\(ICLICK_URL)\(GET_HOTPLACE_URL)"
         
-        topOperator.addOperation {
+//        topOperator.addOperation {
             //First request for detail list.
             communicator.connectToServer(urlStr: url, whichApiGet: WhichAPIGet.downloadImg, completion: { (success) in
                 if success{
@@ -208,12 +211,15 @@ class SecondViewController: UIViewController {
                             if success ,
                                 let finalImg = img{
                                 
+//                                self.topImages[index] = finalImg
                                 self.topImages.append(finalImg)
+                                
 //                                print("是否有將圖片加入?\(finalImg.accessibilityIdentifier)")
                                 print("當前的圖片index= \(index) 下載完的熱門點總數: \(topPlaceResultModel.topPlaceResultList.count)")
                                 if index == topPlaceResultModel.topPlaceResultList.count - 1 {
                                     //If all imgs downloaded , set the image on scrollView.
                                     OperationQueue.main.addOperation {
+                                        self.settingPageControl()
                                         self.setImageViewOnScrollView()
                                         print("已經先設定scrollView了")
                                     }
@@ -232,7 +238,7 @@ class SecondViewController: UIViewController {
                     
                 }
             })
-        }
+//        }
         
     }
     
@@ -331,9 +337,10 @@ class SecondViewController: UIViewController {
     
     
     
-    func addIndicatorView(activityIndicator: UIActivityIndicatorView){
+    func addIndicatorView(activityIndicator: UIActivityIndicatorView, superView: UIView){
         
-        self.typeListTableView.addSubview(activityIndicator)
+//        self.typeListTableView.addSubview(activityIndicator)
+        superView.addSubview(activityIndicator)
         
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.hidesWhenStopped = true
@@ -370,16 +377,21 @@ class SecondViewController: UIViewController {
     func setImageViewOnScrollView(){
         
 //        let imageName = ["0.jpg","1.jpg","2.jpg","3.jpg"] //FIXME: - connect the image source
-        let imageName = topImages
-        print("\(imageName)")
-        
+//        let imageName = topImages
+//        print("\(imageName)")
+        let topObjectCount = topPlaceResultModel.topPlaceResultList.count
         guard let popViewSize = scrollSize else { return  }
         
         let imageViewSize = popViewSize
         
-        for (i,img) in imageName.enumerated(){
+        for i in 0..<topObjectCount{
             
-            let muchImageView = UIImageView(image: img)
+            let muchImageView = UIImageView(image: UIImage(named: "placeholder.png"))
+            
+//            if !topImages[i].description.isEmpty {
+//                muchImageView.image = topImages[i]
+//            }
+            
             let xPosition = self.view.frame.width * CGFloat(i)
             
             muchImageView.frame = CGRect(x: xPosition, y: 0, width: popViewSize.width, height: popViewSize.height)
@@ -408,6 +420,8 @@ class SecondViewController: UIViewController {
             popScrollView.addSubview(muchImageView)
             popScrollView.addSubview(imageLabel)
             
+            scrollActivityIndicator.stopAnimating()
+            scrollActivityIndicator.removeFromSuperview()
         }
         
     }
@@ -451,7 +465,8 @@ class SecondViewController: UIViewController {
      */
     func settingPageControl(){
         
-        popPageControl.numberOfPages = 4
+        
+        popPageControl.numberOfPages = topPlaceResultModel.topPlaceResultList.count
         popPageControl.currentPage = 0
         popPageControl.isUserInteractionEnabled = false
         

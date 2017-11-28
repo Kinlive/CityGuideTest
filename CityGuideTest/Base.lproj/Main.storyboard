@@ -537,7 +537,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bg-pQ-enx">
                                         <rect key="frame" x="266.5" y="0.0" width="88.5" height="27.5"/>
-                                        <color key="backgroundColor" red="0.0078431372550000003" green="0.96862745100000003" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="Tap"/>
                                         <connections>
@@ -545,7 +544,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PyD-CZ-3SW">
-                                        <rect key="frame" x="0.0" y="27.5" width="355" height="249.5"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="355" height="221.5"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="PIg-bA-by7">
                                         <rect key="frame" x="20" y="123.5" width="315" height="30"/>
@@ -585,30 +584,39 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="愛點科技股份有限公司, iClick Inc." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqK-qq-JqZ">
-                                        <rect key="frame" x="8" y="0.0" width="258.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="266.5" height="27.5"/>
                                         <color key="backgroundColor" red="0.42745098040000001" green="0.76470588240000004" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAL-ee-yAg" userLabel="floorBtnBgView">
+                                        <rect key="frame" x="0.0" y="27.5" width="355" height="28"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="PyD-CZ-3SW" firstAttribute="top" secondItem="4Bg-pQ-enx" secondAttribute="bottom" id="6CE-fT-Pb7"/>
                                     <constraint firstItem="PIg-bA-by7" firstAttribute="leading" secondItem="PyD-CZ-3SW" secondAttribute="leading" constant="20" id="6gW-h1-etO"/>
                                     <constraint firstAttribute="trailing" secondItem="4Bg-pQ-enx" secondAttribute="trailing" id="9Ri-7E-JaB"/>
-                                    <constraint firstItem="oqK-qq-JqZ" firstAttribute="leading" secondItem="Ggg-PP-k6Q" secondAttribute="leading" constant="8" id="BYP-M2-HhF"/>
+                                    <constraint firstItem="oqK-qq-JqZ" firstAttribute="leading" secondItem="Ggg-PP-k6Q" secondAttribute="leading" id="BYP-M2-HhF"/>
                                     <constraint firstAttribute="bottom" secondItem="PyD-CZ-3SW" secondAttribute="bottom" id="CAY-2J-pAg"/>
                                     <constraint firstItem="oqK-qq-JqZ" firstAttribute="top" secondItem="Ggg-PP-k6Q" secondAttribute="top" id="Cjf-a3-Ljh"/>
+                                    <constraint firstItem="rAL-ee-yAg" firstAttribute="top" secondItem="4Bg-pQ-enx" secondAttribute="bottom" id="H8k-a6-GmL"/>
+                                    <constraint firstItem="rAL-ee-yAg" firstAttribute="top" secondItem="oqK-qq-JqZ" secondAttribute="bottom" id="KJM-gM-ezN"/>
+                                    <constraint firstItem="rAL-ee-yAg" firstAttribute="leading" secondItem="Ggg-PP-k6Q" secondAttribute="leading" id="KbD-5i-YhD"/>
                                     <constraint firstItem="4Bg-pQ-enx" firstAttribute="leading" secondItem="oqK-qq-JqZ" secondAttribute="trailing" id="R6M-zj-Wfq"/>
                                     <constraint firstItem="4Bg-pQ-enx" firstAttribute="top" secondItem="Ggg-PP-k6Q" secondAttribute="top" id="cvZ-6e-fZ5"/>
                                     <constraint firstItem="PyD-CZ-3SW" firstAttribute="leading" secondItem="Ggg-PP-k6Q" secondAttribute="leading" id="iOl-Lm-Yep"/>
                                     <constraint firstItem="4Bg-pQ-enx" firstAttribute="height" secondItem="Ggg-PP-k6Q" secondAttribute="height" multiplier="1/10" id="iuE-0y-In1"/>
                                     <constraint firstItem="PyD-CZ-3SW" firstAttribute="centerX" secondItem="Ggg-PP-k6Q" secondAttribute="centerX" id="j5V-pa-Ihh"/>
                                     <constraint firstAttribute="trailing" secondItem="PyD-CZ-3SW" secondAttribute="trailing" id="kDX-TK-Lqg"/>
+                                    <constraint firstItem="PyD-CZ-3SW" firstAttribute="top" secondItem="rAL-ee-yAg" secondAttribute="bottom" id="mmC-pW-RKz"/>
                                     <constraint firstItem="PIg-bA-by7" firstAttribute="trailing" secondItem="PyD-CZ-3SW" secondAttribute="trailing" constant="-20" id="pkO-WA-W6K"/>
                                     <constraint firstItem="4Bg-pQ-enx" firstAttribute="width" secondItem="Ggg-PP-k6Q" secondAttribute="width" multiplier="1/4" id="qOB-Rh-d14"/>
                                     <constraint firstItem="PIg-bA-by7" firstAttribute="centerY" secondItem="Ggg-PP-k6Q" secondAttribute="centerY" id="tf0-Sn-c00"/>
+                                    <constraint firstItem="rAL-ee-yAg" firstAttribute="height" secondItem="4Bg-pQ-enx" secondAttribute="height" id="u1z-Ql-UcF"/>
+                                    <constraint firstAttribute="trailing" secondItem="rAL-ee-yAg" secondAttribute="trailing" id="uyK-rV-Ng7"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is autolayout line" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Os-KT-IPm">
@@ -634,6 +642,7 @@
                         <viewLayoutGuide key="safeArea" id="k1G-SO-aUK"/>
                     </view>
                     <connections>
+                        <outlet property="floorBtnBgView" destination="rAL-ee-yAg" id="hBI-ot-Ftp"/>
                         <outlet property="guideMapImageView" destination="PyD-CZ-3SW" id="1HQ-Y3-YNw"/>
                         <outlet property="guideMapView" destination="Ggg-PP-k6Q" id="7hm-TD-eWw"/>
                         <outlet property="panoramaView" destination="lzl-0g-OMc" id="zhE-Yd-9Dw"/>
@@ -642,7 +651,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXo-vN-kup" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4005.5999999999999" y="213.54679802955667"/>
+            <point key="canvasLocation" x="4005.5999999999999" y="212.74362818590706"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="esP-um-9XK">
