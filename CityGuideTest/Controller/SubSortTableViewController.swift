@@ -294,8 +294,8 @@ class SubSortTableViewController: UITableViewController {
                 
                 let searchResultObject = searchResultModel.searchResultList[indexPath.row]
                 cell.subSortTitle.text = searchResultObject.name
-                let noAndId = "no:\(searchResultObject.number) id: \(searchResultObject.id)"
-                cell.subSortSummery.text = noAndId
+//                let noAndId = "no:\(searchResultObject.number) id: \(searchResultObject.id)"
+                cell.subSortSummery.text = ""
                 
                 let imgName = searchResultObject.img.first ?? "noImg"
                 let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgName)"
@@ -335,8 +335,8 @@ class SubSortTableViewController: UITableViewController {
                     
                 case .cities:
                     cell.subSortTitle.text = cityDetailListModel.cityDetailList[indexPath.row].name
-                    let noAndId = "no:\(cityDetailListModel.cityDetailList[indexPath.row].number) id:\(cityDetailListModel.cityDetailList[indexPath.row].id)"
-                    cell.subSortSummery.text = noAndId
+//                    let noAndId = "no:\(cityDetailListModel.cityDetailList[indexPath.row].number) id:\(cityDetailListModel.cityDetailList[indexPath.row].id)"
+                    cell.subSortSummery.text = ""
                     
                     //Prepare for image load and save
                     let imageName = "\(cityDetailListModel.cityDetailList[indexPath.row].img.first ?? "noImg")"
@@ -388,8 +388,8 @@ class SubSortTableViewController: UITableViewController {
                 case .types:
                     
                     cell.subSortTitle.text = typeDetailListModel.typeDetailList[indexPath.row].name
-                    let noAndId = "no:\(typeDetailListModel.typeDetailList[indexPath.row].number) id:\(typeDetailListModel.typeDetailList[indexPath.row].id)"
-                    cell.subSortSummery.text = noAndId
+//                    let noAndId = "no:\(typeDetailListModel.typeDetailList[indexPath.row].number) id:\(typeDetailListModel.typeDetailList[indexPath.row].id)"
+                    cell.subSortSummery.text = ""
                     let imageName = "\(typeDetailListModel.typeDetailList[indexPath.row].img.first ?? "noImg")"
                     
                     let cacheKey = "\(segmentTitle)\(imageName)"
@@ -437,8 +437,8 @@ class SubSortTableViewController: UITableViewController {
                 case .brands:
                     
                     cell.subSortTitle.text = brandDetailListModel.brandDetailList[indexPath.row].name
-                    let noAndId = "no:\(brandDetailListModel.brandDetailList[indexPath.row].number) id:\(brandDetailListModel.brandDetailList[indexPath.row].id)"
-                    cell.subSortSummery.text = noAndId
+//                    let noAndId = "no:\(brandDetailListModel.brandDetailList[indexPath.row].number) id:\(brandDetailListModel.brandDetailList[indexPath.row].id)"
+                    cell.subSortSummery.text = ""
                     let imageName = "\(brandDetailListModel.brandDetailList[indexPath.row].img.first ?? "noImg")"
                     
                     let cacheKey = "\(segmentTitle)\(imageName)"
@@ -486,11 +486,11 @@ class SubSortTableViewController: UITableViewController {
         
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //FIXME: - Not to use heightForRowAt
-        return 100
-    }
+//
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        //FIXME: - Not to use heightForRowAt
+//        return 100
+//    }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

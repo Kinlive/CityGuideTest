@@ -58,13 +58,14 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
             case .cities:
                 let cityListObject = cityListModel.cityList[indexPath.row]
                 cell.listTitle.text = cityListObject.name
-                cell.listDetail.text = cityListObject.number
+//                cell.listDetail.text = cityListObject.number
                 let imgName = cityListObject.img.first ?? "noImg"
                 let imgUrl = "\(ICLICK_URL)\(GET_CITYIMG_URL)\(imgName)"
-                let cacheKey = "\(GET_CITYIMG_URL)\(imgName)"
+                let cacheKey = "\(CheckWhichDataFrom.fromList)\(imgName)"
                 let fileURL = componentURL(documentPath: getDocumentsDirectory(),
                                            with: cacheKey)
-                
+                print("fileURL: \(fileURL)=======")
+                print("cacheKey: \(cacheKey)=====")
                 //To estimate img had exist on cache or document directory.
                 if (cache.object(forKey: cacheKey as AnyObject) != nil){
                     print("Cached image used, no need to download it")
@@ -90,6 +91,7 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
                                     self.cache.setObject(finalImg, forKey: cacheKey as AnyObject)
                                     //Save on document directory
                                     self.saveImgToSandboxWith(cacheKey: cacheKey, img: finalImg)
+                                    
                                     print("Save end")
                                     
                                 }
@@ -107,11 +109,11 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
             case .types:
                 let tagListObject = typeListModel.typeList[indexPath.row]
                 cell.listTitle.text = tagListObject.name
-                cell.listDetail.text = tagListObject.number
+//                cell.listDetail.text = tagListObject.number
                 
                 let imgName = tagListObject.img.first ?? "noImg"
                 let imgUrl = "\(ICLICK_URL)\(GET_TAGIMG_URL)\(imgName)"
-                let cacheKey = "\(GET_TAGIMG_URL)\(imgName)"
+                let cacheKey = "\(CheckWhichDataFrom.fromList)\(imgName)"
                 let fileURL = componentURL(documentPath: getDocumentsDirectory(),
                                            with: cacheKey)
                 
@@ -154,12 +156,12 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
             case .brands:
                 let brandListObject = brandListModel.brandList[indexPath.row]
                 cell.listTitle.text = brandListObject.name
-                cell.listDetail.text = brandListObject.number
+//                cell.listDetail.text = brandListObject.number
 //                cell.listImageView.image = images[2]
                 
                 let imgName = brandListObject.img.first ?? "noImg"
                 let imgUrl = "\(ICLICK_URL)\(GET_BRANDIMG_URL)\(imgName)"
-                let cacheKey = "\(GET_BRANDIMG_URL)\(imgName)"
+                let cacheKey = "\(CheckWhichDataFrom.fromList)\(imgName)"
                 let fileURL = componentURL(documentPath: getDocumentsDirectory(),
                                            with: cacheKey)
                 
@@ -259,7 +261,7 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
         
         
     }
-    
+   
     
     
     typealias HandleCompletion = (Bool, UIImage?) -> Void

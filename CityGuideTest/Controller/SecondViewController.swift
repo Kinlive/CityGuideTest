@@ -40,12 +40,15 @@ class SecondViewController: UIViewController {
     var searchControll : UISearchController!
     var searchBar: UISearchBar!
     
+    
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
     let scrollActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray )
+    
     //For 5 topmost place use.
     let topOperator = OperationQueue()
-    var topImages = [UIImage]()
+    var nextVcTopObject: TopPlaceResultObject?
+    
     
 //    var refreshCtrl: UIRefreshControl!
     var scrollSize: CGSize!
@@ -53,6 +56,7 @@ class SecondViewController: UIViewController {
     var fullSize: CGSize!
     var fullWidth: CGFloat = 0
     var fullHeight: CGFloat = 0
+    
     
     
     @IBOutlet weak var popScrollView: UIScrollView!
@@ -83,29 +87,19 @@ class SecondViewController: UIViewController {
         //Add loading activityIndicator on tableView 
         
         addIndicatorView(activityIndicator: activityIndicator, superView: typeListTableView)
-//        addIndicatorView(activityIndicator: scrollActivityIndicator, superView: popScrollView)
+        addIndicatorView(activityIndicator: scrollActivityIndicator, superView: popScrollView)
         
         connectToServer()
         
-        standardImageModel.handleAllImage(names: ["0.jpg","1.jpg","2.jpg","3.jpg"]) //FIXME: fake img use.
-
         
         //Setting scrollView's contentSize
         popScrollView.delegate = self
         popScrollView.isPagingEnabled = true
         popScrollView.isDirectionalLockEnabled = true
         
-        //Set image on scrollView
-//        setImageViewOnScrollView()
-        
+
         //Set top 5 place on scrollView
         requestForTopPlaces()
-        
-        //SearchControll
-//        searchControll = UISearchController(searchResultsController: nil)
-//        searchControll.searchBar.placeholder = "search here..."
-//        searchControll.searchBar.showsCancelButton = true
-//        searchControll.searchBar.delegate = self
         
         //Set searchBar.
         searchBar = UISearchBar()
@@ -114,9 +108,7 @@ class SecondViewController: UIViewController {
         searchBar.delegate = self
         searchBar.endEditing(true)
         
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapSearchBarGesture(sender:)))
-//
-//        searchBar.addGestureRecognizer(tapGesture)
+
         //Recognize the device version
         self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         
@@ -135,7 +127,6 @@ class SecondViewController: UIViewController {
         //Connect tableView's delegate on Coordinator
         typeListTableView.delegate = typeListCoordinator
         typeListTableView.dataSource = typeListCoordinator
-//        typeListTableView.rowHeight = UITableViewAutomaticDimension
         
         //For tableview gesture
         setupTheTableViewGesture() //FIXME: - No use now , tableView's gesture.
@@ -149,21 +140,136 @@ class SecondViewController: UIViewController {
         //Set default is not search.
         saveInfoStruct.isSearchNow = .noSearch
         
-//        self.searchBar.text = nil
         searchBar.showsCancelButton = false
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        print("連到VC前是否有經過這裡？")
+        if segue.destination is DetailsInfoViewController,
+            let nextVc = segue.destination as? DetailsInfoViewController,
+            let topObject = nextVcTopObject{
+         
+            //Prepare detail data for next vc.
+            nextVc.imageName = topObject.img.first ?? "noImg"
+            nextVc.titleName = topObject.name
+            nextVc.itemSummary = topObject.content == "" ?topObject.summary:topObject.content
+            nextVc.itemCoordinateStr = topObject.map
+            nextVc.itemAddress = topObject.address
+            saveInfoStruct.mapPanoUrl = topObject.panorama
+            saveInfoStruct.guideMapImageName = topObject.guideMap
+            saveInfoStruct.youtubeID = topObject.youtube.first
+            let imgName = topObject.img.first ?? "noImg"
+            let imgCacheKey = "\(CheckWhichDataFrom.fromTopPlace)\(imgName)"
+            print("Cache the img key : \(imgCacheKey)")
+            
+            nextVc.beforeVcCacheKey = imgCacheKey
+            
+//            var titleName = "Title Test"
+//            if let newTitle = nextVc.titleName{
+//                titleName = newTitle
+//            }
+            
+//            nextVc.titelLabel.text = titleName
+//            nextVc.titleImg.image = img
+            nextVc.whichDataFrom = .fromTopPlace
+            
+        }
+        
+    }
+    
+    
+    //MARK: - Get img on document directory or cache file
+    func getImgWith(cacheKey: String) -> UIImage?{
+        
+        //ComponentURL of document directory with cacheKey.
+        let fileURL = componentURL(documentPath: getDocumentsDirectory(), with: cacheKey)
+        
+        //To check file exist.
+        if FileManager.default.fileExists(atPath: fileURL.path){
+            //if true to get image on document
+            guard let img = getImgFromSandboxOn(url: fileURL) else {return nil}
+            return img
+            
+        }else {//file not exist.
+            return nil
+        }
+    }
+    
+    //MARK: - Get Document directory
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return paths[0]
+        
+    }
+    
+    //MARK: - Component the document's path and cache key
+    func componentURL(documentPath: URL, with cacheKey: String) -> URL{
+        
+        let finalURL = documentPath.appendingPathComponent(cacheKey)
+        
+        return finalURL
+        
+    }
+    
+    /**
+     When check image is exist on device,get from document directory.
+     - Parameter url: DocumentPath+cacheKey.
+     - Returns: Image from document directory.
+     */
+    func getImgFromSandboxOn(url: URL) -> UIImage?{
+        
+        
+        do{
+            let imgFile = try Data.init(contentsOf: url)
+            
+            return UIImage(data: imgFile)
+            
+            
+        }catch let error {
+            print(error.localizedDescription)
+            return nil
+        }
+        
+        
+    }
+    
+    //MARK: - Save img to sandbox func.
+    /**
+     When image downloaded, save image on device.
+     - Parameter cacheKey: On func cellForRow define:"\(segmentTitle)\(imageName)".
+     - Parameter img: Compressed low quality image.
+     */
+    func saveImgToSandboxWith(cacheKey: String, img: UIImage){
+        
+        //Prepare data for save.
+        if let data = UIImageJPEGRepresentation(img, 0.5) {
+            
+            //Prepare the file path.
+            let imgURL = componentURL(documentPath: getDocumentsDirectory(), with: cacheKey)
+            
+            do {
+                
+                try data.write(to: imgURL)
+                
+            }catch let error{ //Save to document directory fail.
+                
+                print(error.localizedDescription)
+                
+            }
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - Gesture no use now.
-    @objc func tapSearchBarGesture(sender: UITapGestureRecognizer){
-        searchBar.showsCancelButton = true
-        
-    }
+   
+    
     //MARK: - No use now, setupTheTableViewGesture() .
     func setupTheTableViewGesture(){
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(swipGestureRecognizer(sender:)))
@@ -195,51 +301,17 @@ class SecondViewController: UIViewController {
         let communicator = Communicator()
         let url = "\(ICLICK_URL)\(GET_HOTPLACE_URL)"
         
-//        topOperator.addOperation {
-            //First request for detail list.
-            communicator.connectToServer(urlStr: url, whichApiGet: WhichAPIGet.downloadImg, completion: { (success) in
-                if success{
-                    //The topPlaceResultList is set end.
-                    for (index,topPlace) in topPlaceResultModel.topPlaceResultList.enumerated(){
-                        //Prepare the img url for second request.
-                        let imgName = topPlace.img.first ?? "noImg"
-                        let urlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgName)"
-                        
-                        //Second request for download img.
-                        self.downloadImgQueueMethod(imageUrlStr: urlStr,
-                                                    completion: { (success, img) in
-                            if success ,
-                                let finalImg = img{
-                                
-//                                self.topImages[index] = finalImg
-                                self.topImages.append(finalImg)
-                                
-//                                print("是否有將圖片加入?\(finalImg.accessibilityIdentifier)")
-                                print("當前的圖片index= \(index) 下載完的熱門點總數: \(topPlaceResultModel.topPlaceResultList.count)")
-                                if index == topPlaceResultModel.topPlaceResultList.count - 1 {
-                                    //If all imgs downloaded , set the image on scrollView.
-                                    OperationQueue.main.addOperation {
-                                        self.settingPageControl()
-                                        self.setImageViewOnScrollView()
-                                        print("已經先設定scrollView了")
-                                    }
-                                }
-                                
-                            }else{
-                                print("Download the top img fail.")
-                            }
-                        })
-                    }
-//                   //If all imgs downloaded , set the image on scrollView.
-//                    OperationQueue.main.addOperation {
-//                        self.setImageViewOnScrollView()
-//                        print("已經先設定scrollView了")
-//                    }
-                    
+        //First request for detail list.
+        communicator.connectToServer(urlStr: url, whichApiGet: WhichAPIGet.downloadImg, completion: { (success) in
+            if success{
+                OperationQueue.main.addOperation {
+                    self.settingPageControl()
+                    self.setImageViewOnScrollView()
                 }
-            })
-//        }
-        
+                
+
+            }
+        })
     }
     
     typealias HandleCompletion = (Bool, UIImage?) -> Void
@@ -369,34 +441,52 @@ class SecondViewController: UIViewController {
     
     
 
-    
+    //MARK: - SetImageViewOnScrollView func.
     /**
      To set the popular Image and show imageLabel method
      
      */
     func setImageViewOnScrollView(){
         
-//        let imageName = ["0.jpg","1.jpg","2.jpg","3.jpg"] //FIXME: - connect the image source
-//        let imageName = topImages
-//        print("\(imageName)")
-        let topObjectCount = topPlaceResultModel.topPlaceResultList.count
         guard let popViewSize = scrollSize else { return  }
         
         let imageViewSize = popViewSize
         
-        for i in 0..<topObjectCount{
+        for (i,topPlaceObject) in topPlaceResultModel.topPlaceResultList.enumerated() {
             
-            let muchImageView = UIImageView(image: UIImage(named: "placeholder.png"))
+            //Prepare the btn for top place.
+            let btnImageView = UIButton()
+            btnImageView.setBackgroundImage(UIImage(named: "placeholder.png"), for: .normal)
+            btnImageView.tag = i
+            btnImageView.addTarget(self, action: #selector(onTopPlaceBtnTap(sender:)), for: .touchUpInside)
             
-//            if !topImages[i].description.isEmpty {
-//                muchImageView.image = topImages[i]
-//            }
+            //Prepare the img url for second request.
+            let imgName = topPlaceObject.img.first ?? "noImg"
+            let urlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgName)"
+            let imgCacheKey = "\(CheckWhichDataFrom.fromTopPlace)\(imgName)"
+            //Second request for download img.
+            topOperator.addOperation {
+                self.downloadImgQueueMethod(imageUrlStr: urlStr, completion: { (success, img) in
+                    if success , let finalImg = img{
+                        OperationQueue.main.addOperation {
+                            
+                            btnImageView.setBackgroundImage(finalImg, for: .normal)
+                            self.saveImgToSandboxWith(cacheKey: imgCacheKey, img: finalImg)
+                            print("Save Img key is : \(imgCacheKey)")
+                        }
+                        
+                    }else{
+                        print("Download the top img fail.")
+                        
+                    }
+                })
+            }
             
+          //Init the imageView and labelView.
             let xPosition = self.view.frame.width * CGFloat(i)
             
-            muchImageView.frame = CGRect(x: xPosition, y: 0, width: popViewSize.width, height: popViewSize.height)
-            
-            muchImageView.contentMode = .scaleAspectFit
+            btnImageView.frame = CGRect(x: xPosition, y: 0, width: popViewSize.width, height: popViewSize.height)
+            btnImageView.contentMode = .scaleToFill
             
             self.popScrollView.contentSize.width = self.popScrollView.frame.width * CGFloat(i + 1)
             
@@ -406,9 +496,8 @@ class SecondViewController: UIViewController {
                                                    width: imageViewSize.width/2,
                                                    height: labelHight))
             
-            let topObject = topPlaceResultModel.topPlaceResultList[i]
-            
-            imageLabel.text = "\(topObject.name)"
+       
+            imageLabel.text = "\(topPlaceObject.name)"
             imageLabel.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.5)
             imageLabel.textColor = UIColor.white
             imageLabel.textAlignment = .center
@@ -416,8 +505,7 @@ class SecondViewController: UIViewController {
             imageLabel.adjustsFontSizeToFitWidth = true
             
             
-//            imageViewPositionX += popViewSize.width
-            popScrollView.addSubview(muchImageView)
+            popScrollView.addSubview(btnImageView)
             popScrollView.addSubview(imageLabel)
             
             scrollActivityIndicator.stopAnimating()
@@ -426,7 +514,22 @@ class SecondViewController: UIViewController {
         
     }
     
+    //MARK: - onTopPlaceBtnTap selector func .
+    /**
+     On top place image be tapped.
+     - Parameter sender: UIButton , get which button be touched.
+     */
+    @objc func onTopPlaceBtnTap(sender: UIButton){
+        
+        print("Test for btn's tag pass : \(sender.tag)")
+      
+        nextVcTopObject = topPlaceResultModel.topPlaceResultList[sender.tag]
+            
+        self.performSegue(withIdentifier: TOPPLACE_SEGUE, sender: nil)
+      
+    }
     
+    //MARK: - onSegementedControlSelect func.
     /**
      When segmentedControl be selected one, it will call this method.
      
@@ -439,6 +542,7 @@ class SecondViewController: UIViewController {
         print("Now is \(sender.selectedSegmentIndex) be selected ")
 
         print(sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "No selected")
+        
         
         switch sender.selectedSegmentIndex{
             case 0:

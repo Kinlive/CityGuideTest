@@ -14,6 +14,9 @@ import YouTubePlayer
 class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MKMapViewDelegate {
 
     let sectionTitle = ["AR體驗","Detail","Map","Video Guide"]
+//    var placeObject: Any?
+    var whichDataFrom: CheckWhichDataFrom?
+    var beforeVcCacheKey: String = ""
     
     var codeHeaderView = UIView() //no use now, define by code
     
@@ -69,6 +72,31 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         
 //        prepareForHeaderTitle()
         
+        if let dataFrom = whichDataFrom, dataFrom == .fromTopPlace{
+            
+            print("&&&&&Data from top place.&&&&")
+            
+            if let newTitle = self.titleName{
+//                titleName = newTitle
+                
+                self.titelLabel.text = newTitle
+                
+                var img = UIImage(named: "placeholder.png")
+                //Get image with cacheKey on document directory.
+                
+                if let cacheImg = getImgWith(cacheKey: beforeVcCacheKey){
+                    img = cacheImg
+                }
+                
+                self.titleImg.image = img
+                
+            }
+            prepareRegion()
+        }else{
+            prepareForHeaderTitle()
+        }
+        
+        
         
         detailsInfoTableView.estimatedRowHeight = 300
         detailsInfoTableView.rowHeight = UITableViewAutomaticDimension
@@ -90,7 +118,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        prepareForHeaderTitle()
+       
         print("ViewWillAppear")
 
     }
@@ -193,6 +221,13 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
 
             self.titelLabel.text = title
             self.titleImg.image = img
+//            print("Test for summery : \(self.itemSummary)")
+//            if (itemSummary?.contains("View Taiwan專業環景攝影團隊- Google店家360度環景攝影讓您的環景不只是環景。"))!{
+//
+////                itemSummary?.removeSubrange()
+//                let contentIndex = itemSummary?.index(of: "View Taiwan專業環景攝影團隊- Google店家360度環景攝影讓您的環景不只是環景。")
+//
+//            }
             
         }
         

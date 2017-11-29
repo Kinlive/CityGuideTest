@@ -68,3 +68,10 @@ enum CheckIsSearch: Int{
     case isSearch
 }
 
+enum CheckWhichDataFrom: String{
+    case fromSearch
+    case fromTopPlace
+    case fromList
+    
+}
+

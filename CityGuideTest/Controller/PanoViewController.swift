@@ -20,16 +20,16 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
     
     //For guideMapImage
     let guideMapName = saveInfoStruct.guideMapImageName
-    var guideMapImages: [UIImage] = []{
-        didSet{
-            if guideMapImages.count == 0{
-                guideMapImageView.image = UIImage(named: "placeholder.png")
-                print("GUIDE MAP Images count == 0")
-            }else{
-                guideMapImageView.image = guideMapImages[imageNumber]
-            }
-        }
-    }
+//    var guideMapImages: [UIImage] = []{
+//        didSet{
+//            if guideMapImages.count == 0{
+//                guideMapImageView.image = UIImage(named: "placeholder.png")
+//                print("GUIDE MAP Images count == 0")
+//            }else{
+//                guideMapImageView.image = guideMapImages[imageNumber]
+//            }
+//        }
+//    }
     var imageNumber = 0 //for guideMap count use.
     var guideMapImagesTest: [String:UIImage] = [:]{
         didSet{
@@ -114,6 +114,7 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
             }
             prepareForGuideMapFloor()
         }else{
+            guideMapImageView.image = UIImage(named: "placeholder.png")
             print("GuideMap array is EMPTY.")
         }
     }

@@ -86,22 +86,22 @@
                                 <color key="pageIndicatorTintColor" red="0.80392158030000005" green="0.80392158030000005" blue="0.80392158030000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.1368543837" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nwk-KR-Yr1">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="250" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nwk-KR-Yr1">
                                 <rect key="frame" x="0.0" y="326.5" width="375" height="291.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="typeListCell" rowHeight="250" id="1xS-q0-f96" customClass="TypeListTableViewCell" customModule="CityGuideTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="250"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="typeListCell" rowHeight="500" id="1xS-q0-f96" customClass="TypeListTableViewCell" customModule="CityGuideTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="500"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1xS-q0-f96" id="wA0-QL-9sE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="499.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBX-O5-cDy" userLabel="backgroundView">
-                                                    <rect key="frame" x="5" y="5" width="365" height="239.5"/>
+                                                    <rect key="frame" x="5" y="5" width="365" height="489.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fn8-uO-wzY">
-                                                            <rect key="frame" x="8" y="32" width="349" height="207.5"/>
+                                                            <rect key="frame" x="8" y="32" width="349" height="457.5"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="MGl-Ps-F9Y">
                                                             <rect key="frame" x="8" y="2" width="349" height="30"/>
@@ -113,9 +113,8 @@
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="qbf-JT-iki">
-                                                            <rect key="frame" x="8" y="207.5" width="349" height="30"/>
-                                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.1368543837" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="qbf-JT-iki">
+                                                            <rect key="frame" x="8" y="457.5" width="349" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="e9z-Yi-NbZ"/>
                                                             </constraints>
@@ -184,11 +183,12 @@
                         <outlet property="popScrollView" destination="XHK-fp-wP2" id="Cuy-Gc-Gva"/>
                         <outlet property="typeListTableView" destination="Nwk-KR-Yr1" id="6jz-Kd-xMi"/>
                         <segue destination="7RK-g7-Qhd" kind="show" identifier="SearchSegueId" id="8uT-64-LRF"/>
+                        <segue destination="Vmn-hq-CHm" kind="show" identifier="TopPlaceSegue" id="e82-iu-NB3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbN-QQ-Fnd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1232.8" y="928.81773399014787"/>
+            <point key="canvasLocation" x="1233" y="929"/>
         </scene>
         <!--User-->
         <scene sceneID="q5e-Bl-MYO">
@@ -234,25 +234,25 @@
         <scene sceneID="QOb-FB-CBa">
             <objects>
                 <tableViewController id="7RK-g7-Qhd" customClass="SubSortTableViewController" customModule="CityGuideTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="W8x-2K-S1k">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="250" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="W8x-2K-S1k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubSortTableViewCell" rowHeight="170" id="buN-YJ-5Qd" customClass="SubSortTableViewCell" customModule="CityGuideTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="170"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubSortTableViewCell" rowHeight="250" id="buN-YJ-5Qd" customClass="SubSortTableViewCell" customModule="CityGuideTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="buN-YJ-5Qd" id="acB-q5-fPU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="169.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZS-LD-skH" userLabel="backgroundView">
-                                            <rect key="frame" x="5" y="5" width="365" height="159.5"/>
+                                            <rect key="frame" x="5" y="5" width="365" height="239.5"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mkX-4a-KQb">
-                                                    <rect key="frame" x="2" y="42" width="361" height="115.5"/>
+                                                    <rect key="frame" x="2" y="42" width="361" height="195.5"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0L-QL-Cpu">
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="a0L-QL-Cpu">
                                                     <rect key="frame" x="2" y="2" width="361" height="40"/>
                                                     <color key="backgroundColor" red="0.42745098040000001" green="0.76470588240000004" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -263,7 +263,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="introduce" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUz-xD-Usv">
-                                                    <rect key="frame" x="30" y="79.5" width="315" height="50"/>
+                                                    <rect key="frame" x="30" y="159.5" width="315" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="ut2-lY-SVR"/>
                                                     </constraints>
@@ -310,12 +310,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5f-px-BwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2196" y="928.81773399014787"/>
+            <point key="canvasLocation" x="2138" y="1327"/>
         </scene>
         <!--Details Info View Controller-->
         <scene sceneID="MlH-5Q-Vpq">
             <objects>
-                <viewController id="Vmn-hq-CHm" customClass="DetailsInfoViewController" customModule="CityGuideTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsInfoViewController" id="Vmn-hq-CHm" customClass="DetailsInfoViewController" customModule="CityGuideTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nHe-Bf-Kgo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -747,6 +747,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="zMk-uu-t8S"/>
         <segue reference="8uT-64-LRF"/>
     </inferredMetricsTieBreakers>
 </document>
