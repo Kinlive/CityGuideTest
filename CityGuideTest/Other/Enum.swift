@@ -57,6 +57,7 @@ enum WhichAPIGet{
     
     case searchKeyword
     
+    case panoramaObject
     
 }
 

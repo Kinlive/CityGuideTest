@@ -13,7 +13,7 @@ import YouTubePlayer
 
 class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MKMapViewDelegate {
 
-    let sectionTitle = ["AR體驗","Detail","Map","Video Guide"]
+    let sectionTitle = ["Detail","Map"]
 //    var placeObject: Any?
     var whichDataFrom: CheckWhichDataFrom?
     var beforeVcCacheKey: String = ""
@@ -26,7 +26,20 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
     var itemSummary: String?
     var itemCoordinateStr: String?
     var itemAddress: String?
-
+    var itemId: String?{
+        didSet{
+            if let id = itemId {
+                let urlStr = "\(ICLICK_URL)\(GET_PANORAMADATA_URL)\(id)"
+                let communicator = Communicator()
+                communicator.connectToServer(urlStr: urlStr, whichApiGet: .panoramaObject, completion: { (success) in
+                    
+                    //success get the panorama data
+                })
+                
+                
+            }
+        }
+    }
     
     //For map use
     var coordin = [Float]()
@@ -70,20 +83,18 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         detailsInfoTableView.delegate = self
         detailsInfoTableView.dataSource = self
         
-//        prepareForHeaderTitle()
-        
+
         if let dataFrom = whichDataFrom, dataFrom == .fromTopPlace{
             
             print("&&&&&Data from top place.&&&&")
             
             if let newTitle = self.titleName{
-//                titleName = newTitle
-                
+             
                 self.titelLabel.text = newTitle
                 
                 var img = UIImage(named: "placeholder.png")
+               
                 //Get image with cacheKey on document directory.
-                
                 if let cacheImg = getImgWith(cacheKey: beforeVcCacheKey){
                     img = cacheImg
                 }
@@ -92,7 +103,9 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
                 
             }
             prepareRegion()
+            
         }else{
+            
             prepareForHeaderTitle()
         }
         
@@ -123,6 +136,18 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
 
     }
     
+    //MARK: - IBAction .
+    
+    @IBAction func shareUrlBtn(_ sender: UIButton) {
+        
+    }
+    
+    
+
+    @IBAction func videoGuideBtn(_ sender: UIButton) {// no use .
+        
+        
+    }
     
     //MARK: - Prepare for header title data.
     func prepareForHeaderTitle() {
@@ -141,6 +166,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
             itemSummary = searchObject.content == "" ?searchObject.summary:searchObject.content
             itemCoordinateStr = searchObject.map
             itemAddress = searchObject.address
+            itemId = searchObject.id
             saveInfoStruct.mapPanoUrl = searchObject.panorama
             saveInfoStruct.guideMapImageName = searchObject.guideMap
             saveInfoStruct.youtubeID = searchObject.youtube.first
@@ -175,6 +201,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
                 itemSummary = cityObject.content == "" ?cityObject.summary:cityObject.content
                 itemCoordinateStr = cityObject.map
                 itemAddress = cityObject.address
+                itemId = cityObject.id
                 saveInfoStruct.mapPanoUrl = cityObject.panorama
                 saveInfoStruct.guideMapImageName = cityObject.guideMap
                 saveInfoStruct.youtubeID = cityObject.youtube.first
@@ -187,6 +214,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
                 itemSummary = typeObject.content == "" ?typeObject.summary:typeObject.content
                 itemCoordinateStr = typeObject.map
                 itemAddress = typeObject.address
+                itemId = typeObject.id
                 saveInfoStruct.mapPanoUrl = typeObject.panorama
                 saveInfoStruct.guideMapImageName = typeObject.guideMap
                 saveInfoStruct.youtubeID = typeObject.youtube.first
@@ -199,6 +227,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
                 itemSummary = brandObject.content == "" ?brandObject.summary:brandObject.content
                 itemCoordinateStr = brandObject.map
                 itemAddress = brandObject.address
+                itemId = brandObject.id
                 saveInfoStruct.mapPanoUrl = brandObject.panorama
                 saveInfoStruct.guideMapImageName = brandObject.guideMap
                 saveInfoStruct.youtubeID = brandObject.youtube.first
@@ -221,24 +250,10 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
 
             self.titelLabel.text = title
             self.titleImg.image = img
-//            print("Test for summery : \(self.itemSummary)")
-//            if (itemSummary?.contains("View Taiwan專業環景攝影團隊- Google店家360度環景攝影讓您的環景不只是環景。"))!{
-//
-////                itemSummary?.removeSubrange()
-//                let contentIndex = itemSummary?.index(of: "View Taiwan專業環景攝影團隊- Google店家360度環景攝影讓您的環景不只是環景。")
-//
-//            }
-            
+
         }
         
-        
-//        setTableHeaderView(image: img, titleStr: title)
-        
         prepareRegion()
-        
-//        prepareMapAnnotation()
-//        prepareGMS()
-        
         
     }
     
@@ -427,9 +442,9 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
             return 1
         case 2:
             
-            return 1
+            return 0
         case 3:
-            return 1
+            return 0
         default:
             return 0
         }
@@ -449,15 +464,15 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
        
         
         //AR cell
-        if indexPath.section == 0,
-            let cell = tableView.dequeueReusableCell(withIdentifier: "arButtonCell") as? ARButtonTableViewCell {
-            tableView.rowHeight = UITableViewAutomaticDimension
-            
-           return cell
-        }
+//        if indexPath.section == 0,
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "arButtonCell") as? ARButtonTableViewCell {
+//            tableView.rowHeight = UITableViewAutomaticDimension
+//
+//           return cell
+//        }
         
         //Detail content cell
-        if indexPath.section == 1,
+        if indexPath.section == 0,
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailHeaderCell") as? DetailsInfoTableViewCell,
             let summary = itemSummary {
             
@@ -470,7 +485,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         }
       
         //Map cell
-        if indexPath.section == 2,
+        if indexPath.section == 1,
             let cell = tableView.dequeueReusableCell(withIdentifier: "mapCell") as? MapTableViewCell{
             print("It on cell init")
             tableView.rowHeight = 400
@@ -491,14 +506,14 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         }
         
         //Video guide cell
-        if indexPath.section == 3,
-            let cell = tableView.dequeueReusableCell(withIdentifier: "videoGuideCell") as? VideoGuideTableViewCell{
-            
-//            cell.textLabel?.text = "I am a Video Guide"
-            tableView.rowHeight = 400
-            return cell
-            
-        }
+//        if indexPath.section == 2,
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "videoGuideCell") as? VideoGuideTableViewCell{
+//
+////            cell.textLabel?.text = "I am a Video Guide"
+//            tableView.rowHeight = 400
+//            return cell
+//
+//        }
         
 
         let cell = tableView.cellForRow(at: indexPath)
@@ -508,22 +523,43 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
     
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
-        view.layer.cornerRadius = 25
-        view.layer.borderWidth = 2
-        view.layer.borderColor = UIColor.white.cgColor
-        let label = UILabel()
-        label.frame = CGRect(x: 5, y: 5, width: tableView.frame.width, height: 50)
-        label.textAlignment = .center
-        label.text = sectionTitle[section]
-        view.addSubview(label)
+        
+        var view = UIView()
+        if section == 0{
+            
+            view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width
+                , height: 5))
+            view.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+            
+            return view
+//        }else if section == 1{
+//            print("Nothing to do in section 1 ")
+        }else{
+            view = UIView()
+            view.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+            view.layer.cornerRadius = 25
+            view.layer.borderWidth = 2
+            view.layer.borderColor = UIColor.white.cgColor
+            let label = UILabel()
+            label.frame = CGRect(x: 5, y: 5, width: tableView.frame.width, height: 50)
+            label.textAlignment = .center
+            label.text = sectionTitle[section]
+            view.addSubview(label)
+        }
+        
         return view
         
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        
+        if section == 0 {
+            return 5
+        }else{
+           return 40
+        }
+        
+        
     }
 
 

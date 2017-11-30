@@ -39,6 +39,9 @@ let GET_SEARCH_URL = "vtapp/getplace.php?name="
 
 ///API: Request for hot place.
 let GET_HOTPLACE_URL = "vtapp/getdata.php?dbname=place&order=votes&desc=true&limit=5"
+///API: Request for panorama data for Google street view use.
+let GET_PANORAMADATA_URL = "vtapp/getpano.php?place="
+
 
 ///API: Request for get guidemap
 //let GET_GUIDEMAP_URL = "upload/guidemap/"

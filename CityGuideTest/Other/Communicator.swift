@@ -29,36 +29,32 @@ class Communicator: NSObject{
             print("NO url")
             return}
         print("URLURLURLURLURL:\(url)")
+        
         //Check for which api get .
         if let whichApiGet = whichApiGet { //Get json api
             
-//            if whichApiGet != .searchKeyword{ //Normal api request
-                let task = sessionShared.dataTask(with: url) { (data, response, error) in
+            let task = sessionShared.dataTask(with: url) { (data, response, error) in
                     
-                    if let error = error {
+                if let error = error {
                         
-                        print(error.localizedDescription)
+                    print(error.localizedDescription)
                         
-                        return
-                    }
+                    return
+                }
                     
-                    guard let data = data else {
+                guard let data = data else {
                         
-                        print("No data")
+                    print("No data")
                         
-                        return }
+                    return }
                     
-                    self.saveDataOnModel(data: data,
+                self.saveDataOnModel(data: data,
                                          whichAPI: whichApiGet,
                                          completion: completion)
-                }
+            }
                 
-                task.resume()
-//            }else if whichApiGet == .searchKeyword{
-//
-//
-//            }
-           
+            task.resume()
+
         }else{ // Into the download images api
                 
             let downloadTask = sessionShared.downloadTask(with: url, completionHandler: { (url, response, error) in
@@ -96,42 +92,54 @@ class Communicator: NSObject{
             let json = try JSONSerialization.jsonObject(with: data,
                                                         options: .mutableContainers)
             
-            guard let finalJson = json as? [[String: Any]] else { return }
+//            guard let finalJson = json as? [[String: Any]] else { return }
             
             //Put on which model
             switch  whichAPI {
                 
             case .cityList:
               
+                guard let finalJson = json as? [[String: Any]] else { return }
                 handleCityList(json: finalJson, completion: completion)
             
             case .typeList:
+                guard let finalJson = json as? [[String: Any]] else { return }
                 handleTypeList(json: finalJson, completion: completion)
                 
             case .brandList:
+                 guard let finalJson = json as? [[String: Any]] else { return }
                  handleBrandList(json: finalJson, completion: completion)
             
             case .cityDetail:
               
+                guard let finalJson = json as? [[String: Any]] else { return }
                 handleCityDetailList(json: finalJson, completion: completion)
             
             case .typeDetail:
                 
+                guard let finalJson = json as? [[String: Any]] else { return }
                 handleTypeDetailList(json: finalJson, completion: completion)
             
             case .brandDetail:
              
+                guard let finalJson = json as? [[String: Any]] else { return }
                 handleBrandDetailList(json: finalJson, completion: completion)
             
             case .downloadImg:
-                print("On saveDataOnModel doloadImg case.")
                 
+                guard let finalJson = json as? [[String: Any]] else { return }
                 handleTopPlaceList(json: finalJson, completion: completion)
             
             case .searchKeyword:
                 
+                guard let finalJson = json as? [[String: Any]] else { return }
                 handleSearchResultList(json: finalJson, completion: completion)
-                print("On saveDataOnModel searchKeyword.")
+                
+            case .panoramaObject:
+                
+                guard let finalJson = json as? [String: Any] else { return }
+                
+                handlePanoramaData(json: finalJson, completion: completion)
             }
         
         }catch let jsonErr{
@@ -312,12 +320,7 @@ class Communicator: NSObject{
             
             searchResultModel.searchResultList.append(searchResult)
         }
-        //For cache data
-//        let forCacheObject = brandDetailListModel.brandDetailList
-        
-//        cacheObjectData.setObject(forCacheObject as AnyObject,
-//                                  forKey: saveInfoStruct.whichUrlStr as AnyObject )
-        
+       
         completion(true)
     }
    
@@ -341,17 +344,15 @@ class Communicator: NSObject{
             
         }
         
-        //For cache data
-//        let forCacheObject = cityDetailListModel.cityDetailList
-        
-//        cacheObjectData.setObject(forCacheObject as AnyObject,
-//                                  forKey: saveInfoStruct.whichUrlStr as AnyObject )
-        
-        
         completion(true)
         
     }
     
+    
+    //MARK: - downloadTheImage
+    /**
+     Download the top place's img ,
+     */
     func downloadTheImage(completion: @escaping HandleCompletion){
         
         
@@ -378,12 +379,25 @@ class Communicator: NSObject{
                 downloadTask.resume()
             
         }
+    }
+    
+    //MARK: - handlePanoramaData func
+    /**
+     Handle the panorama data on struct.
+     - Parameter json: Dictionary of parse end.
+     - Parameter completion: Handle completion.
+     */
+    fileprivate func handlePanoramaData(json: [String: Any], completion: HandleCompletion){
         
+        panoramaModel.panoramaObjectList.removeAll()
         
+        print("Test for the json by panorama data=========: \(json)")
+        let panoramaOne = PanoramaObject.init(json: json)
+            
+        panoramaModel.panoramaObjectList.append(panoramaOne)
         
-        
-        
-        
+        panoramaOne.toString()
+        completion(true)
     }
     
 }

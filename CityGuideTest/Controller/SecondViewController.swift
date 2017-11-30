@@ -18,7 +18,7 @@ var typeDetailListModel = TypeDetailListModel.standard()
 var brandDetailListModel = BrandDetailListModel.standard()
 var searchResultModel = SearchResultModel.standard()
 var topPlaceResultModel = TopPlaceResultModel.standard()
-
+var panoramaModel = PanoramaModel.standard()
 
 var saveInfoStruct = SaveInfoStruct.standard()
 
@@ -157,6 +157,7 @@ class SecondViewController: UIViewController {
             nextVc.itemSummary = topObject.content == "" ?topObject.summary:topObject.content
             nextVc.itemCoordinateStr = topObject.map
             nextVc.itemAddress = topObject.address
+            nextVc.itemId = topObject.id
             saveInfoStruct.mapPanoUrl = topObject.panorama
             saveInfoStruct.guideMapImageName = topObject.guideMap
             saveInfoStruct.youtubeID = topObject.youtube.first

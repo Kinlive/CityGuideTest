@@ -20,26 +20,17 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
     
     //For guideMapImage
     let guideMapName = saveInfoStruct.guideMapImageName
-//    var guideMapImages: [UIImage] = []{
-//        didSet{
-//            if guideMapImages.count == 0{
-//                guideMapImageView.image = UIImage(named: "placeholder.png")
-//                print("GUIDE MAP Images count == 0")
-//            }else{
-//                guideMapImageView.image = guideMapImages[imageNumber]
-//            }
-//        }
-//    }
+
     var imageNumber = 0 //for guideMap count use.
     var guideMapImagesTest: [String:UIImage] = [:]{
         didSet{
             if guideMapImagesTest.count == 0{
                 guideMapImageView.image = UIImage(named: "placeholder.png")
-                print("GUIDE MAP Images count == 0")
+//                print("GUIDE MAP Images count == 0")
             }else{
                 let whichImageKey = guideMapName[imageNumber]
                 guideMapImageView.image = guideMapImagesTest[whichImageKey]
-                print("GUIDE MAP Images count != 0")
+//                print("GUIDE MAP Images count != 0")
             }
         }
     }
@@ -63,7 +54,7 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    self.tabBarController?.hideTabBarAnimated(hide: true)
+   
         
         if let titleName = saveInfoStruct.getMapNeedsData().0 {
             self.navigationItem.title = titleName
@@ -80,8 +71,12 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
 
         self.guideMapView.transform = CGAffineTransform(translationX: 0, y: mapHeight - btnHeight)
         
-        prepareForPanoramaView()
-        
+//        prepareForPanoramaView()
+        newprepareForPanoramaView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         self.tabBarController?.hideTabBarAnimated(hide: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -99,8 +94,8 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
         if guideMapName.count != 0{
             for imageName in guideMapName{
                 let imageUrl = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imageName)"
-                print("imageURL: \(imageUrl)")
-                print("GuideMapName:\(guideMapName)")
+//                print("imageURL: \(imageUrl)")
+//                print("GuideMapName:\(guideMapName)")
                 downloadImgQueueMethod(imageUrlStr: imageUrl, completion: { (success, img) in
                     if success,
                         let finalImg = img{
@@ -179,7 +174,7 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
 //            }
         }
         
-        print("Test for guidePoints: \(guidePoints)")
+//        print("Test for guidePoints: \(guidePoints)")
     }
     
     func prepareForPanoramaView(){
@@ -195,14 +190,9 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
                 let horizontal = Double(allNeeds.2),
                 let _ = Double(allNeeds.3){
                 
-                //                let panoView = GMSPanoramaView(frame: CGRect.zero)
-                //                self.view = panoView
-//                let latTest: Float = 25.043762 //009//
-//                let lonTest: Float = 121.52936899999997//9//89//00000002
-                
                 //                panoView.moveNearCoordinate(CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon)))
-                self.panoramaView.moveNearCoordinate(CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon)))
-                
+                self.panoramaView.move(toPanoramaID: "6F0S3yjWeRgAAAQfCX0a9w")
+
                 
                 let camera = GMSPanoramaCamera(heading: CLLocationDirection(horizontal), pitch: 0, zoom: 1)
                 panoramaView.camera = camera
@@ -220,6 +210,70 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
 
     }
 
+    
+    func newprepareForPanoramaView(){
+        
+        //Prepare the pano data.
+        if
+            let panoData = panoramaModel.panoramaObjectList.first{
+        
+            let lat = Double(panoData.lat) ?? 0.0
+            let lon = Double(panoData.lon) ?? 0.0
+            
+            let position = panoData.position
+            let splitPosi = position.split(separator: ",")
+            let posiLat = Double(splitPosi[0]) ?? 0.0
+            let posiLon = Double(splitPosi[1]) ?? 0.0
+            
+            let panoId = panoData.panoId
+            
+            
+            let pitch = panoData.pitch
+            let heading = Double(panoData.heading) ?? 0.0
+            let zoom = Float(panoData.zoom) ?? 0.0
+            
+            
+            if panoId != "" {//If you look out here, you maybe think the boss had many things of himself. And run away right, because him will very very stick like a limpet with u. It's not kidding!! Trust me you will be fine on your work life.
+                
+               self.panoramaView.move(toPanoramaID: panoId)
+                
+            }else if lat != 0.0, lon != 0.0{
+                
+                self.panoramaView.moveNearCoordinate(CLLocationCoordinate2D(latitude: lat, longitude: lon))
+                
+            }else if posiLat != 0.0, posiLon != 0.0{
+                self.panoramaView.moveNearCoordinate(CLLocationCoordinate2D(latitude: posiLat, longitude: posiLon))
+            }else{
+                createAlertView()
+            }
+            
+            
+            
+            let camera = GMSPanoramaCamera(heading: CLLocationDirection(heading), pitch: pitch , zoom: zoom)
+            panoramaView.camera = camera
+            panoramaView.delegate = self
+            
+            print("Test for the panodata on panoView: \(panoId),\(heading),\(pitch),\(zoom)")
+        }else{
+            print("NO catch the need data-==-=-=-=-=-=-=-=-=-==-.")
+            createAlertView()
+        }
+        
+    }
+    
+    
+    func createAlertView(){
+        let alert = UIAlertController(title: "未提供環景功能", message: "這個景點目前暫無360環景功能。", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .default) { (ok) in
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     
     @IBAction func tapButton(_ sender: UIButton) {
         
