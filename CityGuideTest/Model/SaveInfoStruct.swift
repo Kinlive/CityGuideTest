@@ -39,27 +39,24 @@ struct SaveInfoStruct{
     ///Save for which subSortCell be selected.
     private var selectedIndexOfSubCell: IndexPath?
     
-//    var testForGet: String{
-//        get{
-//            return "forGET 556+\(self.testForGet)"
-//        }
-//        set(newString){
-//            self.testForGet = "FOR SET 321\(newString)"
-//        }
-//        
-//    }
+
     private var mapTitle: String?
     private var mapAddress: String?
     private var mapCoordinate = [Float]()
     
     var mapPanoUrl: String?
     var guideMapImageName: [String] = []
+    var saveGuideMapNameForObject: String?
+    
     var youtubeID: String?
     
     ///It's for check now is search request or not.
     var isSearchNow: CheckIsSearch = .noSearch
     ///Search keyword save
     var keywordOfSearch: String?
+    
+    ///GuideMap download save.
+    var guideMapNames: [String] = []
     
     
     mutating func saveInfoOfMap(title: String, address: String, coordinate:[Float]){
@@ -149,3 +146,13 @@ struct SaveInfoStruct{
 
 }
 
+
+//    var testForGet: String{
+//        get{
+//            return "forGET 556+\(self.testForGet)"
+//        }
+//        set(newString){
+//            self.testForGet = "FOR SET 321\(newString)"
+//        }
+//
+//    }

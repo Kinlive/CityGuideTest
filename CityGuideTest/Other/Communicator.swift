@@ -26,7 +26,7 @@ class Communicator: NSObject{
         
         //Check for url string.
         guard let url = URL(string: urlStr.urlEncoded()) else {
-            print("NO url")
+            print("NO url:\(urlStr)")
             return}
         print("URLURLURLURLURL:\(url)")
         
@@ -140,6 +140,11 @@ class Communicator: NSObject{
                 guard let finalJson = json as? [String: Any] else { return }
                 
                 handlePanoramaData(json: finalJson, completion: completion)
+                
+            case .guideMapObject:
+                guard let finalJson = json as? [String: Any] else { return }
+                handleGuideMapData(json: finalJson, completion: completion)
+                
             }
         
         }catch let jsonErr{
@@ -349,6 +354,36 @@ class Communicator: NSObject{
     }
     
     
+    //MARK: - handleGuideMapData func
+    /**
+     Handle the guideMap data on struct.
+     - Parameter json: Array of parse end.
+     - Parameter completion: Handle completion.
+     */
+    fileprivate func handleGuideMapData(json: [String: Any], completion: HandleCompletion){
+        
+//        guideMapModel.guideMapObjectList.removeAll()
+
+//        print("Test for the guideName[] : \(saveInfoStruct.guideMapNames)")
+        
+        for (_,imgName) in saveInfoStruct.guideMapNames.enumerated(){
+            if
+                let guideMapObject = json[imgName] as? [String: Any] {
+                //            saveInfoStruct.guideMapNames.removeFirst()
+//                print("Test for guideMapObject pase的結果============ \(guideMapObject)")
+                let guideMap = GuideMapObject.init(json: guideMapObject)
+//                print("guideMapObject  init 的結果[][][][]:\(guideMap)")
+                guideMapModel.guideMapObjectList[imgName] = guideMap
+                completion(true)
+            }else{
+                
+//                print("Parse guideMapObject fail. Maybe the key name incorrect.")
+                completion(false)
+            }
+        }
+    }
+    
+    
     //MARK: - downloadTheImage
     /**
      Download the top place's img ,
@@ -358,8 +393,9 @@ class Communicator: NSObject{
         
         for topPlace in topPlaceResultModel.topPlaceResultList{
             
-            let imgName = topPlace.img.first ?? "noImg"
-            let urlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgName)"
+//            let imgName = topPlace.img.first ?? "noImg"
+            let imgId = topPlace.id
+            let urlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_IMG)"
 //            topOperationQueue.addOperation {
             guard let url = URL(string: urlStr.urlEncoded()) else {
                 print("NO url")

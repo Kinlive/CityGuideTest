@@ -33,7 +33,7 @@ class MapTableViewCell: UITableViewCell {
         //CGRect(x: 0, y: 0, width: mapView.frame.width, height: mapView.frame.height)
         let camera = GMSCameraPosition.camera(withLatitude: CLLocationDegrees(lat),
                                               longitude: CLLocationDegrees(lon), zoom: 15.0)
-        let gmsView = GMSMapView.map(withFrame: CGRect(x: 0, y: 0, width: mapView.frame.width, height: mapView.frame.height), camera: camera)
+        let gmsView = GMSMapView.map(withFrame: CGRect(x: 0, y: 0, width: mapView.bounds.width, height: mapView.bounds.height), camera: camera)
         
         gmsView.isMyLocationEnabled = true
 //        view = mapView

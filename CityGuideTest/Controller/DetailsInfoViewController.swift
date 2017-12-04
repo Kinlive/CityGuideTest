@@ -29,6 +29,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
     var itemId: String?{
         didSet{
             if let id = itemId {
+                print("Get the ID : \(id) ))))))))))))")
                 let urlStr = "\(ICLICK_URL)\(GET_PANORAMADATA_URL)\(id)"
                 let communicator = Communicator()
                 communicator.connectToServer(urlStr: urlStr, whichApiGet: .panoramaObject, completion: { (success) in
@@ -202,6 +203,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
                 itemCoordinateStr = cityObject.map
                 itemAddress = cityObject.address
                 itemId = cityObject.id
+                print("Get the itemId: \(itemId)")
                 saveInfoStruct.mapPanoUrl = cityObject.panorama
                 saveInfoStruct.guideMapImageName = cityObject.guideMap
                 saveInfoStruct.youtubeID = cityObject.youtube.first
@@ -488,7 +490,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
         if indexPath.section == 1,
             let cell = tableView.dequeueReusableCell(withIdentifier: "mapCell") as? MapTableViewCell{
             print("It on cell init")
-            tableView.rowHeight = 400
+            tableView.rowHeight = 500
             
             
 //            cell.mapView.addSubview(gmsMapView)

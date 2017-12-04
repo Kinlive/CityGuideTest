@@ -19,6 +19,7 @@ var brandDetailListModel = BrandDetailListModel.standard()
 var searchResultModel = SearchResultModel.standard()
 var topPlaceResultModel = TopPlaceResultModel.standard()
 var panoramaModel = PanoramaModel.standard()
+var guideMapModel = GuideMapModel.standard()
 
 var saveInfoStruct = SaveInfoStruct.standard()
 
@@ -463,7 +464,8 @@ class SecondViewController: UIViewController {
             
             //Prepare the img url for second request.
             let imgName = topPlaceObject.img.first ?? "noImg"
-            let urlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgName)"
+            let imgId = topPlaceObject.id
+            let urlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_IMG)"
             let imgCacheKey = "\(CheckWhichDataFrom.fromTopPlace)\(imgName)"
             //Second request for download img.
             topOperator.addOperation {

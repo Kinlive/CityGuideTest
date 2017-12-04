@@ -42,15 +42,25 @@ let GET_HOTPLACE_URL = "vtapp/getdata.php?dbname=place&order=votes&desc=true&lim
 ///API: Request for panorama data for Google street view use.
 let GET_PANORAMADATA_URL = "vtapp/getpano.php?place="
 
+//API: Get compress image
+let GET_COMPRESS_IMG = "/img/3.jpg"
+let GET_COMPRESS_PNG = "/img/3.png"
+
+
+///API: Get guide map object.
+let GET_GUIDEMAPOBJECT_URL = "vtapp/getguidemap.php?guidemap="
+///API Get guide map with place id.
+let GET_GUIDEMAP_WITHID_URL = "vtapp/getguidemap.php?place="
+
 
 ///API: Request for get guidemap
 //let GET_GUIDEMAP_URL = "upload/guidemap/"
 
 
 ///Identify here
-let typeListTableViewCellId = "typeListCell"
+let TYPELISTTABLEVIEWCELL_ID = "typeListCell"
 
-let subSortTableViewCellId = "SubSortTableViewCell"
+let SUBSORTABLEVIEWCELL_ID = "SubSortTableViewCell"
 
 let TOPPLACE_SEGUE = "TopPlaceSegue"
 let STORYBOARDID_DETAILVC = "DetailsInfoViewController"
@@ -59,7 +69,7 @@ let SEARCHRESULTCELL_ID = "SearchResultTableViewCell"//no use
 
 ///GoogleMap API key
 //let GMSAPI_Key = "AIzaSyCaBlL_1-qcmOtcKUMTmjRRPJ2jFqdxA9c"
-let GMSAPI_Key2 = "AIzaSyCsBLVDhdaSm_bzE8U1vSYiRhG2sW9m7U4"
+let GMSAPI_KEY = "AIzaSyCsBLVDhdaSm_bzE8U1vSYiRhG2sW9m7U4"
 
 
 

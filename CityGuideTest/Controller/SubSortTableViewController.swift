@@ -52,6 +52,11 @@ class SubSortTableViewController: UITableViewController {
     }
 
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        panoramaModel.panoramaObjectList.removeAll()
+    }
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         
@@ -281,7 +286,7 @@ class SubSortTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: subSortTableViewCellId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: SUBSORTABLEVIEWCELL_ID, for: indexPath)
 
         if let cell = cell as? SubSortTableViewCell,
             let segmentTitle = saveInfoStruct.getWhichSegmentedTitle(){
@@ -298,7 +303,8 @@ class SubSortTableViewController: UITableViewController {
                 cell.subSortSummery.text = ""
                 
                 let imgName = searchResultObject.img.first ?? "noImg"
-                let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgName)"
+                let imgId = searchResultObject.id
+                let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_IMG)"
                 let cacheKey = "\(WhichAPIGet.searchKeyword)\(imgName)"
                 
                 if (cache.object(forKey: cacheKey as AnyObject) != nil){
@@ -309,22 +315,44 @@ class SubSortTableViewController: UITableViewController {
                     
                 }else{ //Not get image with cache then to started download img.
                     downloadImgQueueMethod(imageUrlStr: imageUrlStr, completion: { (success, img) in
-                        
-                        OperationQueue.main.addOperation {
-                            //Img download end, to check which cell on view.
-                            if let updataCell = tableView.cellForRow(at: indexPath) as? SubSortTableViewCell,
-                                let lowImg = img
-                            {
-                                
-                                updataCell.subSortImageView.image = lowImg
-                                
-                                //                            //Save on cache
-                                self.cache.setObject(lowImg, forKey: cacheKey as AnyObject)
-                                //                            //Save on document directory
-                                self.saveImgToSandboxWith(cacheKey: cacheKey, img: lowImg)
-                                print("Save end")
+                        if success {
+                            OperationQueue.main.addOperation {
+                                //Img download end, to check which cell on view.
+                                if let updataCell = tableView.cellForRow(at: indexPath) as? SubSortTableViewCell,
+                                    let lowImg = img
+                                {
+                                    
+                                    updataCell.subSortImageView.image = lowImg
+                                    
+                                    //                            //Save on cache
+                                    self.cache.setObject(lowImg, forKey: cacheKey as AnyObject)
+                                    //                            //Save on document directory
+                                    self.saveImgToSandboxWith(cacheKey: cacheKey, img: lowImg)
+                                    print("Save end")
+                                }
                             }
+                        }else{
+                            print("Not found img on jpg. ")
+                             let newImageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_PNG)"
+                            self.downloadImgQueueMethod(imageUrlStr: newImageUrlStr, completion: { (success, img) in
+                                if
+                                    success,
+                                    let updateCell = tableView.cellForRow(at: indexPath) as? SubSortTableViewCell,
+                                    let finalImg = img{
+                                   updateCell.subSortImageView.image = finalImg
+                                   //Save on cache
+                                    self.cache.setObject(finalImg, forKey: cacheKey as AnyObject)
+                                   //Save on document directory
+                                    self.saveImgToSandboxWith(cacheKey: cacheKey, img: finalImg)
+                                    print("Save end")
+                                    
+                                }else{
+                                    print("Download img fail on png.")
+                                }
+                            })
+                            
                         }
+                        
                     })
                     
                 }
@@ -340,6 +368,7 @@ class SubSortTableViewController: UITableViewController {
                     
                     //Prepare for image load and save
                     let imageName = "\(cityDetailListModel.cityDetailList[indexPath.row].img.first ?? "noImg")"
+                    let imgId = cityDetailListModel.cityDetailList[indexPath.row].id
                     
                     let cacheKey = "\(segmentTitle)\(imageName)"
                     
@@ -362,25 +391,47 @@ class SubSortTableViewController: UITableViewController {
                         
                     }else{
                         //Prepare api for download image
-                        let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imageName)"
+                        let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_IMG)"
                         
                         downloadImgQueueMethod(imageUrlStr: imageUrlStr, completion: { (success, img) in
-                            
-                            OperationQueue.main.addOperation {
-                                //Img download end, to check which cell on view.
-                                if let updataCell = tableView.cellForRow(at: indexPath) as? SubSortTableViewCell,
-                                    let lowImg = img
-                                {
-                                    
-                                    updataCell.subSortImageView.image = lowImg
-                                    
-                                    //Save on cache
-                                    self.cache.setObject(lowImg, forKey: cacheKey as AnyObject)
-                                    //Save on document directory
-                                    self.saveImgToSandboxWith(cacheKey: cacheKey, img: lowImg)
-                                    print("Save end")
+                            if success{
+                                OperationQueue.main.addOperation {
+                                    //Img download end, to check which cell on view.
+                                    if let updataCell = tableView.cellForRow(at: indexPath) as? SubSortTableViewCell,
+                                        let lowImg = img
+                                    {
+                                        
+                                        updataCell.subSortImageView.image = lowImg
+                                        
+                                        //Save on cache
+                                        self.cache.setObject(lowImg, forKey: cacheKey as AnyObject)
+                                        //Save on document directory
+                                        self.saveImgToSandboxWith(cacheKey: cacheKey, img: lowImg)
+                                        print("Save end")
+                                    }
                                 }
+                            
+                            }else{
+                                let newImageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_PNG)"
+                                self.downloadImgQueueMethod(imageUrlStr: newImageUrlStr, completion: { (success, img) in
+                                    if
+                                        success,
+                                        let updateCell = tableView.cellForRow(at: indexPath) as? SubSortTableViewCell,
+                                        let finalImg = img{
+                                        updateCell.subSortImageView.image = finalImg
+                                        //Save on cache
+                                        self.cache.setObject(finalImg, forKey: cacheKey as AnyObject)
+                                        //Save on document directory
+                                        self.saveImgToSandboxWith(cacheKey: cacheKey, img: finalImg)
+                                        print("Save end")
+                                        
+                                    }else{
+                                        print("Download img fail on png.")
+                                    }
+                                })
+                                
                             }
+                           
                         })
                     }
                     
@@ -391,6 +442,7 @@ class SubSortTableViewController: UITableViewController {
 //                    let noAndId = "no:\(typeDetailListModel.typeDetailList[indexPath.row].number) id:\(typeDetailListModel.typeDetailList[indexPath.row].id)"
                     cell.subSortSummery.text = ""
                     let imageName = "\(typeDetailListModel.typeDetailList[indexPath.row].img.first ?? "noImg")"
+                    let imgId = typeDetailListModel.typeDetailList[indexPath.row].id
                     
                     let cacheKey = "\(segmentTitle)\(imageName)"
                     
@@ -412,22 +464,46 @@ class SubSortTableViewController: UITableViewController {
                         
                     }else{
                         
-                        let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imageName)"
+                        let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_IMG)"
                         
                         downloadImgQueueMethod(imageUrlStr: imageUrlStr, completion: { (success, img) in
                             
-                            OperationQueue.main.addOperation {
-                                if let updataCell = tableView.cellForRow(at: indexPath) as? SubSortTableViewCell,
-                                    let lowImg = img
-                                {
-                                    
-                                    updataCell.subSortImageView.image = lowImg
-                                    
-                                    self.cache.setObject(lowImg, forKey: cacheKey as AnyObject)
-                                    
-                                    self.saveImgToSandboxWith(cacheKey: cacheKey, img: lowImg)
-                                    print("Save end")
+                            if success{
+                                OperationQueue.main.addOperation {
+                                    //Img download end, to check which cell on view.
+                                    if let updataCell = tableView.cellForRow(at: indexPath) as? SubSortTableViewCell,
+                                        let lowImg = img
+                                    {
+                                        
+                                        updataCell.subSortImageView.image = lowImg
+                                        
+                                        //Save on cache
+                                        self.cache.setObject(lowImg, forKey: cacheKey as AnyObject)
+                                        //Save on document directory
+                                        self.saveImgToSandboxWith(cacheKey: cacheKey, img: lowImg)
+                                        print("Save end")
+                                    }
                                 }
+                                
+                            }else{
+                                let newImageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_PNG)"
+                                self.downloadImgQueueMethod(imageUrlStr: newImageUrlStr, completion: { (success, img) in
+                                    if
+                                        success,
+                                        let updateCell = tableView.cellForRow(at: indexPath) as? SubSortTableViewCell,
+                                        let finalImg = img{
+                                        updateCell.subSortImageView.image = finalImg
+                                        //Save on cache
+                                        self.cache.setObject(finalImg, forKey: cacheKey as AnyObject)
+                                        //Save on document directory
+                                        self.saveImgToSandboxWith(cacheKey: cacheKey, img: finalImg)
+                                        print("Save end")
+                                        
+                                    }else{
+                                        print("Download img fail on png.")
+                                    }
+                                })
+                                
                             }
                         })
                     }
@@ -440,6 +516,7 @@ class SubSortTableViewController: UITableViewController {
 //                    let noAndId = "no:\(brandDetailListModel.brandDetailList[indexPath.row].number) id:\(brandDetailListModel.brandDetailList[indexPath.row].id)"
                     cell.subSortSummery.text = ""
                     let imageName = "\(brandDetailListModel.brandDetailList[indexPath.row].img.first ?? "noImg")"
+                    let imgId = brandDetailListModel.brandDetailList[indexPath.row].id
                     
                     let cacheKey = "\(segmentTitle)\(imageName)"
                     
@@ -461,22 +538,46 @@ class SubSortTableViewController: UITableViewController {
                         
                     }else{
                         
-                        let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imageName)"
+                        let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_IMG)"
                         
                         downloadImgQueueMethod(imageUrlStr: imageUrlStr, completion: { (success, img) in
                             
-                            OperationQueue.main.addOperation {
-                                if let updataCell = tableView.cellForRow(at: indexPath) as? SubSortTableViewCell,
-                                    let lowImg = img
-                                {
-                                    
-                                    updataCell.subSortImageView.image = lowImg
-                                    
-                                    self.cache.setObject(lowImg, forKey: cacheKey as AnyObject)
-                                    
-                                    self.saveImgToSandboxWith(cacheKey: cacheKey, img: lowImg)
-                                    print("Save end")
+                            if success{
+                                OperationQueue.main.addOperation {
+                                    //Img download end, to check which cell on view.
+                                    if let updataCell = tableView.cellForRow(at: indexPath) as? SubSortTableViewCell,
+                                        let lowImg = img
+                                    {
+                                        
+                                        updataCell.subSortImageView.image = lowImg
+                                        
+                                        //Save on cache
+                                        self.cache.setObject(lowImg, forKey: cacheKey as AnyObject)
+                                        //Save on document directory
+                                        self.saveImgToSandboxWith(cacheKey: cacheKey, img: lowImg)
+                                        print("Save end")
+                                    }
                                 }
+                                
+                            }else{
+                                let newImageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_PNG)"
+                                self.downloadImgQueueMethod(imageUrlStr: newImageUrlStr, completion: { (success, img) in
+                                    if
+                                        success,
+                                        let updateCell = tableView.cellForRow(at: indexPath) as? SubSortTableViewCell,
+                                        let finalImg = img{
+                                        updateCell.subSortImageView.image = finalImg
+                                        //Save on cache
+                                        self.cache.setObject(finalImg, forKey: cacheKey as AnyObject)
+                                        //Save on document directory
+                                        self.saveImgToSandboxWith(cacheKey: cacheKey, img: finalImg)
+                                        print("Save end")
+                                        
+                                    }else{
+                                        print("Download img fail on png.")
+                                    }
+                                })
+                                
                             }
                         })
                     }

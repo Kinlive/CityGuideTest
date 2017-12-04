@@ -59,6 +59,8 @@ enum WhichAPIGet{
     
     case panoramaObject
     
+    case guideMapObject
+    
 }
 
 

@@ -43,7 +43,7 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: typeListTableViewCellId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: TYPELISTTABLEVIEWCELL_ID, for: indexPath)
         
         
         if let cell = cell as? TypeListTableViewCell,
@@ -60,12 +60,14 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
                 cell.listTitle.text = cityListObject.name
 //                cell.listDetail.text = cityListObject.number
                 let imgName = cityListObject.img.first ?? "noImg"
-                let imgUrl = "\(ICLICK_URL)\(GET_CITYIMG_URL)\(imgName)"
+                let imgId = cityListObject.id
+                
+                let imgUrl = "\(ICLICK_URL)\(GET_CITYIMG_URL)\(imgId)\(GET_COMPRESS_IMG)"
                 let cacheKey = "\(CheckWhichDataFrom.fromList)\(imgName)"
                 let fileURL = componentURL(documentPath: getDocumentsDirectory(),
                                            with: cacheKey)
-                print("fileURL: \(fileURL)=======")
-                print("cacheKey: \(cacheKey)=====")
+//                print("fileURL: \(fileURL)=======")
+//                print("cacheKey: \(cacheKey)=====")
                 //To estimate img had exist on cache or document directory.
                 if (cache.object(forKey: cacheKey as AnyObject) != nil){
                     print("Cached image used, no need to download it")
@@ -98,6 +100,23 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
                             }
                         }else{
                             print("Not found the img")
+                            let newImgUrl = "\(ICLICK_URL)\(GET_CITYIMG_URL)\(imgId)\(GET_COMPRESS_PNG)"
+                            self.downloadImgQueueMethod(imageUrlStr: newImgUrl, completion: { (success, img) in
+                                if success{
+                                    OperationQueue.main.addOperation {
+                                        if let updateCell = tableView.cellForRow(at: indexPath) as? TypeListTableViewCell, let finalImg = img{
+                                            updateCell.listImageView.image = finalImg
+                                            //Save on cache
+                                            self.cache.setObject(finalImg, forKey: cacheKey as AnyObject)
+                                            //Save on document directory
+                                            self.saveImgToSandboxWith(cacheKey: cacheKey, img: finalImg)
+                                            
+                                            
+                                        }
+                                    }
+                                }
+                            })
+                        
                         }
                     })
                 }
@@ -112,7 +131,9 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
 //                cell.listDetail.text = tagListObject.number
                 
                 let imgName = tagListObject.img.first ?? "noImg"
-                let imgUrl = "\(ICLICK_URL)\(GET_TAGIMG_URL)\(imgName)"
+                let imgId = tagListObject.id
+                
+                let imgUrl = "\(ICLICK_URL)\(GET_TAGIMG_URL)\(imgId)\(GET_COMPRESS_IMG)"
                 let cacheKey = "\(CheckWhichDataFrom.fromList)\(imgName)"
                 let fileURL = componentURL(documentPath: getDocumentsDirectory(),
                                            with: cacheKey)
@@ -144,10 +165,29 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
                                     self.saveImgToSandboxWith(cacheKey: cacheKey, img: finalImg)
                                     print("Save end")
                                     
+                                    
                                 }
                             }
-                        }else{
+                        }else{// If jpg now found img then try png again.
                             print("Not found the img")
+                            let newImgUrl = "\(ICLICK_URL)\(GET_TAGIMG_URL)\(imgId)\(GET_COMPRESS_PNG)"
+                            self.downloadImgQueueMethod(imageUrlStr: newImgUrl, completion: { (success, img) in
+                                if success{
+                                    OperationQueue.main.addOperation {
+                                        if let updateCell = tableView.cellForRow(at: indexPath) as? TypeListTableViewCell, let finalImg = img{
+                                            updateCell.listImageView.image = finalImg
+                                            //Save on cache
+                                            self.cache.setObject(finalImg, forKey: cacheKey as AnyObject)
+                                            //Save on document directory
+                                            self.saveImgToSandboxWith(cacheKey: cacheKey, img: finalImg)
+                                            
+                                            
+                                        }
+                                    }
+                                }else{
+                                    print("Not found the img on png download.")
+                                }
+                            })
                         }
                     })
                 }
@@ -160,7 +200,8 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
 //                cell.listImageView.image = images[2]
                 
                 let imgName = brandListObject.img.first ?? "noImg"
-                let imgUrl = "\(ICLICK_URL)\(GET_BRANDIMG_URL)\(imgName)"
+                let imgId = brandListObject.id
+                let imgUrl = "\(ICLICK_URL)\(GET_BRANDIMG_URL)\(imgId)\(GET_COMPRESS_IMG)"
                 let cacheKey = "\(CheckWhichDataFrom.fromList)\(imgName)"
                 let fileURL = componentURL(documentPath: getDocumentsDirectory(),
                                            with: cacheKey)
@@ -196,6 +237,24 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
                             }
                         }else{
                             print("Not found the img")
+                            let newImgUrl = "\(ICLICK_URL)\(GET_BRANDIMG_URL)\(imgId)\(GET_COMPRESS_PNG)"
+                            self.downloadImgQueueMethod(imageUrlStr: newImgUrl, completion: { (success, img) in
+                                if success{
+                                    OperationQueue.main.addOperation {
+                                        if let updateCell = tableView.cellForRow(at: indexPath) as? TypeListTableViewCell, let finalImg = img{
+                                            updateCell.listImageView.image = finalImg
+                                            //Save on cache
+                                            self.cache.setObject(finalImg, forKey: cacheKey as AnyObject)
+                                            //Save on document directory
+                                            self.saveImgToSandboxWith(cacheKey: cacheKey, img: finalImg)
+                                            
+                                        }
+                                    }
+                                }else{
+                                     print("Not found the img on png download.")
+                                }
+                            })
+                            
                         }
                     })
                 }

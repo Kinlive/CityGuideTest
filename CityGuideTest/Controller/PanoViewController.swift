@@ -30,10 +30,48 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
             }else{
                 let whichImageKey = guideMapName[imageNumber]
                 guideMapImageView.image = guideMapImagesTest[whichImageKey]
+                
+                
+                
+//                print("Look LOOK imgView size \(whichImageKey)'s WIDTH: \(guideMapImageView.image?.size.width) HEIGHT:\(guideMapImageView.image?.size.height)")
 //                print("GUIDE MAP Images count != 0")
+               
             }
         }
     }
+    
+    
+    
+    //For guideMap pano btn use.
+    var btnArrays: [UIButton] = []
+    
+    var guidePoint: [(Double,Double)] = []
+    
+    var guideMapPosition: [(CGFloat, CGFloat)] = []{
+        didSet{
+            
+            for btn in btnArrays{
+                btn.removeFromSuperview()
+            }
+            
+            for (index,position) in guideMapPosition.enumerated(){
+             
+                OperationQueue.main.addOperation {
+                    let btn = UIButton()
+                    btn.frame = CGRect(x: position.0, y: position.1, width: 30, height: 30)
+                    btn.setTitle("\(index + 1)", for: .normal)
+                    btn.tag = index
+                    btn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                    btn.addTarget(self, action: #selector(self.guidePointsBtnPress(sender:)), for: .touchUpInside)
+                    self.btnArrays.append(btn)
+                    
+                    self.guideMapImageView.addSubview(btn)
+                }
+                
+            }
+        }
+    }
+    
     
     
     //For guideMapView frame
@@ -86,57 +124,146 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
     }
   
     
+    func prepareForGuideMapDataDownload(){
+        
+        
+        
+    }
+    
     //MARK: - Prepare for guideMap image download
     func prepareForGuideMapImageDownload(){
         
         //prepare for the guideMap img download.
-        
+       
         if guideMapName.count != 0{
-            for imageName in guideMapName{
-                let imageUrl = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imageName)"
+            saveInfoStruct.guideMapNames = guideMapName
+            
+            for (index,imageName) in guideMapName.enumerated(){
+                //Request for get guideMap object.
+                let guideMapUrl = "\(ICLICK_URL)\(GET_GUIDEMAPOBJECT_URL)\(imageName)"
+                print("GUIDEMAP========URL\(index)\(index)\(index):\(guideMapUrl)")
+                downloadImgQueue.addOperation {
+                    self.communicator.connectToServer(urlStr: guideMapUrl, whichApiGet: WhichAPIGet.guideMapObject, completion: { (success) in
+                        //Get the guideMapObject.index pass to init btn
+                        //and pass imgName to btn.
+                        if success {
+                            OperationQueue.main.addOperation {
+                                self.prepareForGuideMapFloor(tag: index, imgName: imageName)
+                                
+                                /////////
+                                let imageUrl = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imageName)"
+                                
+                                self.downloadImgQueue.addOperation {
+                                    //Image url change to GET_PLACEIMG_URL with GET_COMPRESS_IMG
+                                    self.downloadImgQueueMethod(imageUrlStr: imageUrl, completion: { (success, img) in
+                                        if success,
+                                            let finalImg = img{
+                                            OperationQueue.main.addOperation {
+                                                
+                                                //Add the img to dictionary.
+                                                self.guideMapImagesTest[imageName] = finalImg
+                                                //Prepare the scale for panorama's point.
+                                                
+                                                if index == 0 {
+                                                    
+                                                    self.prepareImgScaleForPano(finalImg: finalImg, imageName: imageName)
+                                                    
+                                                }
+                                                
+                                                
+                                            }
+                                        }
+                                    })
+                                    
+                                    
+                                }
+                                
+                                
+                                
+                                ////////
+                            }
+                        }
+                    })
+                }
+                
 //                print("imageURL: \(imageUrl)")
 //                print("GuideMapName:\(guideMapName)")
-                downloadImgQueueMethod(imageUrlStr: imageUrl, completion: { (success, img) in
-                    if success,
-                        let finalImg = img{
-                        OperationQueue.main.addOperation {
-//                            self.guideMapImages.append(finalImg)
-                            
-                            self.guideMapImagesTest[imageName] = finalImg
-                        }
-                    }
-                })
+                
+                
+                
             }
-            prepareForGuideMapFloor()
+            
         }else{
             guideMapImageView.image = UIImage(named: "placeholder.png")
             print("GuideMap array is EMPTY.")
         }
     }
     
+    
     //MARK: - Prepare for guide map floor change btn
-    func prepareForGuideMapFloor(){
+    func prepareForGuideMapFloor(tag: Int, imgName: String){
         
         let btnPositionY: CGFloat = 0
         
-        let floorBtnWidth = tapBtnOut.bounds.width/2
+        let floorBtnWidth = tapBtnOut.bounds.width/1.2
         let floorBtnHeight = tapBtnOut.bounds.height
         
-        var btnPositionX: CGFloat = 8
+        let btnPositionX: CGFloat = floorBtnWidth*CGFloat(tag) + 1
         
-        for (index,_) in guideMapName.enumerated(){
-            let floorBtn = UIButton()
-            floorBtn.setTitle("\(index+1)F", for: .normal)
-            floorBtn.frame = CGRect(x: btnPositionX, y: btnPositionY, width: floorBtnWidth, height: floorBtnHeight)
-            floorBtn.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
-            floorBtn.tag = index
-            floorBtn.addTarget(self, action: #selector(floorBtnPress(sender:)), for: .touchUpInside)
-            floorBtnBgView.addSubview(floorBtn)
-//            btnPositionY -= btnHeight - 1
-//            btnPositionY += btnHeight + 1
-            btnPositionX += floorBtnWidth + 1
-        }
+//        for (index,imgName) in guideMapName.enumerated(){
+            if let guideMapObj = guideMapModel.guideMapObjectList[imgName]{
+             
+                let floorBtn = UIButton()
+                floorBtn.setTitle("\(guideMapObj.title)", for: .normal)
+                floorBtn.frame = CGRect(x: btnPositionX, y: btnPositionY, width: floorBtnWidth, height: floorBtnHeight)
+                floorBtn.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
+                floorBtn.tag = tag
+                floorBtn.addTarget(self, action: #selector(floorBtnPress(sender:)), for: .touchUpInside)
+                floorBtnBgView.addSubview(floorBtn)
+                //            btnPositionY -= btnHeight - 1
+                //            btnPositionY += btnHeight + 1
+//                btnPositionX = floorBtnWidth*CGFloat(tag) + 1
+                
+            }
+//        }
        
+        
+    }
+    
+    //MARK: - Prepare the image scale for pano point use.
+    func prepareImgScaleForPano(finalImg: UIImage, imageName: String){
+        
+        //All prepare for point btn.
+        
+//        let imgViewWidth = self.guideMapImageView.frame.width
+//        let imgViewHeight = self.guideMapImageView.frame.height
+        
+        //                            self.guideMapImages.append(finalImg)
+        if let guideMapObject = guideMapModel.guideMapObjectList[imageName]{
+//            let oldImgWidth = finalImg.size.width
+//            let oldImgHeight = finalImg.size.height
+            
+            let newWidthScale: CGFloat = 0.9 //imgViewWidth/oldImgWidth
+            let newHeightScale: CGFloat = 0.95 //imgViewHeight/oldImgHeight
+//            print("SCALESCALESCALE:\(newWidthScale),,\(newHeightScale)")
+            
+            var newPositions: [(CGFloat,CGFloat)] = []
+            for (_, location) in guideMapObject.location.enumerated(){
+                //Init the point btn.
+                let newPosiX = CGFloat(location.x) * newWidthScale
+                let newPosiY = CGFloat(location.y) * newHeightScale
+//                print("LocationX:\(location.x) , Y: \(location.y) fixedX: \(newPosiX) and Y:\(newPosiY)")
+                let newPosi = (newPosiX, newPosiY)
+                
+                print("NewPosiX and Y : \(newPosi)")
+                newPositions.append(newPosi)
+                
+            }
+            
+            self.guideMapPosition = newPositions
+        }else{
+            print("NOT GET the guideMapObject...............7777777")
+        }
         
     }
     
@@ -146,6 +273,16 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
         imageNumber = sender.tag
         let selectGuideImgName = guideMapName[imageNumber]
         self.guideMapImageView.image = guideMapImagesTest[selectGuideImgName]
+        
+        prepareImgScaleForPano(finalImg: guideMapImagesTest[selectGuideImgName]!,
+                               imageName: selectGuideImgName)
+        
+        
+        
+    }
+    //MARK: - Button target func for guide points.
+    @objc func guidePointsBtnPress(sender: UIButton){
+        
         
     }
     

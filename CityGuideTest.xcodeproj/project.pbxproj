@@ -11,6 +11,7 @@
 		1104E76D1FAAC60F003E19CC /* CityListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1104E76C1FAAC60F003E19CC /* CityListModel.swift */; };
 		111F611B1FB2A9EF00B31ADF /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 111F611A1FB2A9EE00B31ADF /* placeholder.png */; };
 		111F611D1FB2CEEE00B31ADF /* IClickImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111F611C1FB2CEEE00B31ADF /* IClickImageModel.swift */; };
+		112AF6791FD14373003A80A6 /* GuideMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112AF6781FD14373003A80A6 /* GuideMapModel.swift */; };
 		112D129F1FA96444003B7905 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D129E1FA96444003B7905 /* Enum.swift */; };
 		112D12A11FA972D6003B7905 /* ImageDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112D12A01FA972D6003B7905 /* ImageDataModel.swift */; };
 		112EEA6C1FAC4D03009D7E40 /* SubSortTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EEA6B1FAC4D03009D7E40 /* SubSortTableViewController.swift */; };
@@ -74,6 +75,7 @@
 		1104E76C1FAAC60F003E19CC /* CityListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListModel.swift; sourceTree = "<group>"; };
 		111F611A1FB2A9EE00B31ADF /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		111F611C1FB2CEEE00B31ADF /* IClickImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IClickImageModel.swift; sourceTree = "<group>"; };
+		112AF6781FD14373003A80A6 /* GuideMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideMapModel.swift; sourceTree = "<group>"; };
 		112D129E1FA96444003B7905 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		112D12A01FA972D6003B7905 /* ImageDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataModel.swift; sourceTree = "<group>"; };
 		112EEA6B1FAC4D03009D7E40 /* SubSortTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSortTableViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				112D12A01FA972D6003B7905 /* ImageDataModel.swift */,
 				11AFAEAB1FB0157700960D2C /* SaveInfoStruct.swift */,
 				11D215E41FCBACAE00B9997D /* SearchResultModel.swift */,
+				112AF6781FD14373003A80A6 /* GuideMapModel.swift */,
 				11F602111FCFD97500E8C436 /* PanoramaModel.swift */,
 				112EEA721FAC5D48009D7E40 /* DetailList */,
 				112EEA711FAC5D28009D7E40 /* List */,
@@ -529,6 +532,7 @@
 				11D215E31FC80F6E00B9997D /* SearchResultTableViewCell.swift in Sources */,
 				112EEA741FAC620D009D7E40 /* CityDetailListModel.swift in Sources */,
 				112EEA6C1FAC4D03009D7E40 /* SubSortTableViewController.swift in Sources */,
+				112AF6791FD14373003A80A6 /* GuideMapModel.swift in Sources */,
 				11AFAEB01FB05A3300960D2C /* BrandDetailListModel.swift in Sources */,
 				1157A6961FAB0E5900D22039 /* TypeListModel.swift in Sources */,
 				11302C9B1FCFA31800F18141 /* VideoGuideViewController.swift in Sources */,
