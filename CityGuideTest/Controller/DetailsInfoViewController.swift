@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 import GoogleMaps
-import YouTubePlayer
+
 
 class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MKMapViewDelegate {
 
@@ -29,7 +29,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
     var itemId: String?{
         didSet{
             if let id = itemId {
-                print("Get the ID : \(id) ))))))))))))")
+//                print("Get the ID : \(id) ))))))))))))")
                 let urlStr = "\(ICLICK_URL)\(GET_PANORAMADATA_URL)\(id)"
                 let communicator = Communicator()
                 communicator.connectToServer(urlStr: urlStr, whichApiGet: .panoramaObject, completion: { (success) in
@@ -67,7 +67,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
     @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var detailsInfoTableView: UITableView!{
-        didSet{//從這裡修改解決header卡住的問題
+        didSet{//從這裡修改解決header卡住的問題 //No use now.
 //            detailsInfoTableView.contentInset = UIEdgeInsets(top: maxHeight, left: 0, bottom: 0, right: 0)
             
             
@@ -87,7 +87,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
 
         if let dataFrom = whichDataFrom, dataFrom == .fromTopPlace{
             
-            print("&&&&&Data from top place.&&&&")
+          
             
             if let newTitle = self.titleName{
              
@@ -203,11 +203,11 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
                 itemCoordinateStr = cityObject.map
                 itemAddress = cityObject.address
                 itemId = cityObject.id
-                print("Get the itemId: \(itemId)")
+//                print("Get the itemId: \(itemId)")
                 saveInfoStruct.mapPanoUrl = cityObject.panorama
                 saveInfoStruct.guideMapImageName = cityObject.guideMap
                 saveInfoStruct.youtubeID = cityObject.youtube.first
-                print("YUOTUBEID: \(cityObject.youtube)")
+//                print("YUOTUBEID: \(cityObject.youtube)")
                 
             case .types:
                 let typeObject = typeDetailListModel.typeDetailList[selectedIndexPath.row]
@@ -277,7 +277,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
             let coorArray = coorStr.split(separator: ",")
             for (_,coor) in coorArray.enumerated(){
 
-                print("This is ======coor:\(coor)")
+//                print("This is ======coor:\(coor)")
                 if let coorDouble = Float(coor){
                     coordin.append(coorDouble)
                 }else{
@@ -296,7 +296,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
                 print("[[][][][][titleName or itemAddress nil.")
                 return
         }
-        print("This MapDataForSave: \(titleName),\(coordin)")
+//        print("This MapDataForSave: \(titleName),\(coordin)")
         saveInfoStruct.saveInfoOfMap(title: titleName, address: itemAddress, coordinate: coordin)
         
         //        region.center = CLLocationCoordinate2D(latitude: coordin[0], longitude: coordin[1])

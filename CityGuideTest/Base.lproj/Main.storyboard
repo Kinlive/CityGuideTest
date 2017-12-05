@@ -68,10 +68,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHK-fp-wP2">
-                                <rect key="frame" x="0.0" y="68" width="375" height="222.5"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="222.5"/>
                             </scrollView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kLz-fS-Yq3">
-                                <rect key="frame" x="0.0" y="290.5" width="375" height="41"/>
+                                <rect key="frame" x="0.0" y="286.5" width="375" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Nez-z8-Alx"/>
                                 </constraints>
@@ -87,7 +87,7 @@
                                 <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.1368543837" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="250" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nwk-KR-Yr1">
-                                <rect key="frame" x="0.0" y="330.5" width="375" height="287.5"/>
+                                <rect key="frame" x="0.0" y="326.5" width="375" height="291.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="typeListCell" rowHeight="500" id="1xS-q0-f96" customClass="TypeListTableViewCell" customModule="CityGuideTest" customModuleProvider="target">
@@ -321,7 +321,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0rF-T6-IPb">
-                                <rect key="frame" x="0.0" y="68" width="375" height="550"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.94277737790000005" green="0.96662175559999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="GOi-TB-RTc" userLabel="headerView">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
@@ -556,7 +556,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OxF-Wt-xdu" customClass="YouTubePlayerView" customModule="YouTubePlayer">
-                                <rect key="frame" x="0.0" y="68" width="375" height="599"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -586,11 +586,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzl-0g-OMc" customClass="GMSPanoramaView">
-                                <rect key="frame" x="0.0" y="68" width="375" height="599"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ggg-PP-k6Q">
-                                <rect key="frame" x="10" y="347.5" width="355" height="299.5"/>
+                                <rect key="frame" x="10" y="345.5" width="355" height="301.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bg-pQ-enx">
                                         <rect key="frame" x="266.5" y="0.0" width="88.5" height="30"/>
@@ -600,46 +600,9 @@
                                             <action selector="tapButton:" destination="22h-4Y-OWL" eventType="touchUpInside" id="1uc-jR-zye"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PyD-CZ-3SW">
-                                        <rect key="frame" x="0.0" y="60" width="355" height="239.5"/>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PyD-CZ-3SW">
+                                        <rect key="frame" x="0.0" y="60.5" width="355" height="241"/>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="PIg-bA-by7">
-                                        <rect key="frame" x="20" y="135" width="315" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUk-Il-b0f">
-                                                <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
-                                                <color key="backgroundColor" red="1" green="0.2979461551" blue="0.39977732300000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Point0"/>
-                                                <connections>
-                                                    <action selector="point0:" destination="22h-4Y-OWL" eventType="touchUpInside" id="9Xp-iC-yvG"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xpt-q3-mWQ">
-                                                <rect key="frame" x="91.5" y="0.0" width="44" height="30"/>
-                                                <color key="backgroundColor" red="1" green="0.2979461551" blue="0.39977732300000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Point2"/>
-                                                <connections>
-                                                    <action selector="point2:" destination="22h-4Y-OWL" eventType="touchUpInside" id="ubQ-8x-tQk"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MV5-HN-3vo">
-                                                <rect key="frame" x="181.5" y="0.0" width="45" height="30"/>
-                                                <color key="backgroundColor" red="1" green="0.2979461551" blue="0.39977732300000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Point3"/>
-                                                <connections>
-                                                    <action selector="point3:" destination="22h-4Y-OWL" eventType="touchUpInside" id="Hzd-Iv-f8F"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coC-vb-hN8">
-                                                <rect key="frame" x="273" y="0.0" width="42" height="30"/>
-                                                <color key="backgroundColor" red="1" green="0.2979461551" blue="0.39977732300000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Point1"/>
-                                                <connections>
-                                                    <action selector="point1:" destination="22h-4Y-OWL" eventType="touchUpInside" id="JFY-8Q-sYc"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="愛點科技股份有限公司, iClick Inc." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqK-qq-JqZ">
                                         <rect key="frame" x="0.0" y="0.0" width="266.5" height="30"/>
                                         <color key="backgroundColor" red="0.42745098040000001" green="0.76470588240000004" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -648,13 +611,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAL-ee-yAg" userLabel="floorBtnBgView">
-                                        <rect key="frame" x="0.0" y="30" width="355" height="30"/>
+                                        <rect key="frame" x="0.0" y="30" width="355" height="30.5"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="PIg-bA-by7" firstAttribute="leading" secondItem="PyD-CZ-3SW" secondAttribute="leading" constant="20" id="6gW-h1-etO"/>
                                     <constraint firstAttribute="trailing" secondItem="4Bg-pQ-enx" secondAttribute="trailing" id="9Ri-7E-JaB"/>
                                     <constraint firstItem="oqK-qq-JqZ" firstAttribute="leading" secondItem="Ggg-PP-k6Q" secondAttribute="leading" id="BYP-M2-HhF"/>
                                     <constraint firstAttribute="bottom" secondItem="PyD-CZ-3SW" secondAttribute="bottom" id="CAY-2J-pAg"/>
@@ -669,9 +631,7 @@
                                     <constraint firstItem="PyD-CZ-3SW" firstAttribute="centerX" secondItem="Ggg-PP-k6Q" secondAttribute="centerX" id="j5V-pa-Ihh"/>
                                     <constraint firstAttribute="trailing" secondItem="PyD-CZ-3SW" secondAttribute="trailing" id="kDX-TK-Lqg"/>
                                     <constraint firstItem="PyD-CZ-3SW" firstAttribute="top" secondItem="rAL-ee-yAg" secondAttribute="bottom" id="mmC-pW-RKz"/>
-                                    <constraint firstItem="PIg-bA-by7" firstAttribute="trailing" secondItem="PyD-CZ-3SW" secondAttribute="trailing" constant="-20" id="pkO-WA-W6K"/>
                                     <constraint firstItem="4Bg-pQ-enx" firstAttribute="width" secondItem="Ggg-PP-k6Q" secondAttribute="width" multiplier="1/4" id="qOB-Rh-d14"/>
-                                    <constraint firstItem="PIg-bA-by7" firstAttribute="centerY" secondItem="Ggg-PP-k6Q" secondAttribute="centerY" id="tf0-Sn-c00"/>
                                     <constraint firstItem="rAL-ee-yAg" firstAttribute="height" secondItem="4Bg-pQ-enx" secondAttribute="height" id="u1z-Ql-UcF"/>
                                     <constraint firstAttribute="trailing" secondItem="rAL-ee-yAg" secondAttribute="trailing" id="uyK-rV-Ng7"/>
                                 </constraints>
@@ -771,7 +731,7 @@
                     <tabBarItem key="tabBarItem" title="地點" id="DKd-D4-1pA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6ge-Nd-Slq">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -790,7 +750,7 @@
                     <tabBarItem key="tabBarItem" title="活動" id="MSr-5U-YCu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Sc5-su-T0x">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

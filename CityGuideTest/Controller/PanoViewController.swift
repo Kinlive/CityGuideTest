@@ -16,7 +16,8 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
     let downloadImgQueue = OperationQueue()
     
     let firstGuidePoints = ["25.04396,121.52952200000004","25.044561,121.52974300000005","25.043762,121.52936899999997","25.044304,121.52897899999994"]
-    var guidePoints: [(Double,Double)] = []
+    ///Parameter is lat, lon, heading, pitch, zoom
+    var guidePoints: [(String,Double,Double,Double,Double,Float)] = []
     
     //For guideMapImage
     let guideMapName = saveInfoStruct.guideMapImageName
@@ -56,17 +57,8 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
             
             for (index,position) in guideMapPosition.enumerated(){
              
-                OperationQueue.main.addOperation {
-                    let btn = UIButton()
-                    btn.frame = CGRect(x: position.0, y: position.1, width: 30, height: 30)
-                    btn.setTitle("\(index + 1)", for: .normal)
-                    btn.tag = index
-                    btn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-                    btn.addTarget(self, action: #selector(self.guidePointsBtnPress(sender:)), for: .touchUpInside)
-                    self.btnArrays.append(btn)
-                    
-                    self.guideMapImageView.addSubview(btn)
-                }
+                createBtnWith(index: index, position: position)
+                
                 
             }
         }
@@ -124,11 +116,7 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
     }
   
     
-    func prepareForGuideMapDataDownload(){
-        
-        
-        
-    }
+
     
     //MARK: - Prepare for guideMap image download
     func prepareForGuideMapImageDownload(){
@@ -169,17 +157,10 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
                                                     self.prepareImgScaleForPano(finalImg: finalImg, imageName: imageName)
                                                     
                                                 }
-                                                
-                                                
                                             }
                                         }
                                     })
-                                    
-                                    
                                 }
-                                
-                                
-                                
                                 ////////
                             }
                         }
@@ -230,8 +211,30 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
         
     }
     
+    //MARK: - Create guidePoint btn.
+
+    func createBtnWith(index: Int, position: (CGFloat, CGFloat)){
+        
+        let btn = UIButton()
+        btn.setTitle("\(index + 1)", for: .normal)
+        btn.frame = CGRect(x: position.0, y: position.1, width: 20, height: 20)
+        btn.tag = index
+        btn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        btn.addTarget(self, action: #selector(guidePointsBtnPress(sender:)), for: .touchUpInside)
+        self.btnArrays.append(btn)
+        
+        self.guideMapImageView.addSubview(btn)
+        
+        
+        
+    }
+    
+    
     //MARK: - Prepare the image scale for pano point use.
     func prepareImgScaleForPano(finalImg: UIImage, imageName: String){
+        
+        //guidePoints reset.
+        guidePoints.removeAll()
         
         //All prepare for point btn.
         
@@ -244,7 +247,7 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
 //            let oldImgHeight = finalImg.size.height
             
             let newWidthScale: CGFloat = 0.9 //imgViewWidth/oldImgWidth
-            let newHeightScale: CGFloat = 0.95 //imgViewHeight/oldImgHeight
+            let newHeightScale: CGFloat = 0.6 //imgViewHeight/oldImgHeight
 //            print("SCALESCALESCALE:\(newWidthScale),,\(newHeightScale)")
             
             var newPositions: [(CGFloat,CGFloat)] = []
@@ -258,6 +261,15 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
                 print("NewPosiX and Y : \(newPosi)")
                 newPositions.append(newPosi)
                 
+                let lat = Double(location.latitude) ?? 0.0
+                let lon = Double(location.longitude) ?? 0.0
+                let heading = Double(location.heading) ?? 0.0
+                let pitch = Double(location.pitch) ?? 0.0
+                let zoom = location.zoom
+                let id = location.id
+                
+                
+                guidePoints.append((id,lat,lon,heading,pitch,zoom))
             }
             
             self.guideMapPosition = newPositions
@@ -283,6 +295,10 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
     //MARK: - Button target func for guide points.
     @objc func guidePointsBtnPress(sender: UIButton){
         
+        let number = sender.tag
+        letMoveThePano(index: number)
+        
+        print("是否有按到按鈕\(number)")
         
     }
     
@@ -303,7 +319,7 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
                     let lon = Double(splitPoint[1]){
                     let touple = (lat,lon)
 //                    print("Test For Touple : \(touple)")
-                    guidePoints.append(touple)
+//                    guidePoints.append(touple)
                 }else {
                     print("SplitPoint fail: \(splitPoint)")
 
@@ -314,38 +330,6 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
 //        print("Test for guidePoints: \(guidePoints)")
     }
     
-    func prepareForPanoramaView(){
-        
-        //Prepare the latLon and hori, verti.
-        if let mapUrlStr = saveInfoStruct.mapPanoUrl {
-            
-            let allNeeds = separatePanoramaURL(urlStr: mapUrlStr)
-            
-            //        print("URl: \(saveInfoStruct.mapPanoUrl),allNeeds 0:\(allNeeds.0),1:\(allNeeds.1),2:\(allNeeds.2),3:\(allNeeds.3)")
-            if let lat = Double(allNeeds.0),
-                let lon = Double(allNeeds.1),
-                let horizontal = Double(allNeeds.2),
-                let _ = Double(allNeeds.3){
-                
-                //                panoView.moveNearCoordinate(CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon)))
-                self.panoramaView.move(toPanoramaID: "6F0S3yjWeRgAAAQfCX0a9w")
-
-                
-                let camera = GMSPanoramaCamera(heading: CLLocationDirection(horizontal), pitch: 0, zoom: 1)
-                panoramaView.camera = camera
-                panoramaView.delegate = self
-                print("Lat:\(lat) Lon:\(lon)")
-                
-                //                prepareForGuideView()
-                
-            }else{
-                print("Not catch the allNeeds data.")
-            }
-        }
-        
-       
-
-    }
 
     
     func newprepareForPanoramaView(){
@@ -370,7 +354,7 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
             let zoom = Float(panoData.zoom) ?? 0.0
             
             
-            if panoId != "" {//If you look out here, you maybe think the boss had many things of himself. And run away right, because him will very very stick like a limpet with u. It's not kidding!! Trust me you will be fine on your work life.
+            if panoId != "" {//If you look out here, you maybe think the boss had many things of himself. And run away right, because him will very very stick like a limpet with u. It's not kidding!! Trust me you will be fine on your work life.Maybe you will distrust what I say, if u have some curious of this thing just go ask other colleague like ru-- or yi --- and ma-d-, you will find the answer! (Premise: They are not quit office yet. XD)
                 
                self.panoramaView.move(toPanoramaID: panoId)
                 
@@ -390,7 +374,7 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
             panoramaView.camera = camera
             panoramaView.delegate = self
             
-            print("Test for the panodata on panoView: \(panoId),\(heading),\(pitch),\(zoom)")
+//            print("Test for the panodata on panoView: \(panoId),\(heading),\(pitch),\(zoom)")
         }else{
             print("NO catch the need data-==-=-=-=-=-=-=-=-=-==-.")
             createAlertView()
@@ -432,66 +416,35 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
         
         
     }
-    //MARK: - FOr Test button .
-    
-    @IBAction func point0(_ sender: UIButton) {
-        letMoveThePano(index: 0)
-       
-//        imageNumber -= 1
-//        if imageNumber < 0 {
-////            imageNumber = guideMapImages.count - 1
-////            self.guideMapImageView.image = guideMapImages[imageNumber]
-//            imageNumber = guideMapImagesTest.count - 1
-//            let whichImageNameUse = guideMapName[imageNumber]
-//            self.guideMapImageView.image = guideMapImagesTest[whichImageNameUse]
-//        }else{
-////            self.guideMapImageView.image = guideMapImages[imageNumber]
-//            let whichImageNameUse = guideMapName[imageNumber]
-//            self.guideMapImageView.image = guideMapImagesTest[whichImageNameUse]
-//
-//        }
-//        print("ImageNumber: \(imageNumber)")
-    }
-    
-    @IBAction func point1(_ sender: UIButton) {
-        letMoveThePano(index: 1)
-        
-//        imageNumber += 1
-//        if imageNumber <= guideMapImagesTest.count - 1 {
-////            <= guideMapImages.count - 1{
-//
-////            self.guideMapImageView.image = guideMapImages[imageNumber]
-//            let whichImageNameUse = guideMapName[imageNumber]
-//            self.guideMapImageView.image = guideMapImagesTest[whichImageNameUse]
-//
-//
-//        }else{
-//
-//            imageNumber = 0
-////            self.guideMapImageView.image = guideMapImages[imageNumber]
-//
-//            let whichImageNameUse = guideMapName[imageNumber]
-//            self.guideMapImageView.image = guideMapImagesTest[whichImageNameUse]
-//        }
-//        print("ImageNumber: \(imageNumber)")
-    }
-    @IBAction func point2(_ sender: UIButton) {
-        letMoveThePano(index: 2)
-    }
-    @IBAction func point3(_ sender: UIButton) {
-        letMoveThePano(index: 3)
-        
-      
-    }
-    
+ 
     func letMoveThePano(index: Int){
-        let lat = guidePoints[index].0
-        let lon = guidePoints[index].1
-        self.panoramaView.moveNearCoordinate(CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon)))
         
-//        let camera = GMSPanoramaCamera(heading: CLLocationDirection(horizontal), pitch: 0, zoom: 1)
-//        panoramaView.camera = camera
+        let id = guidePoints[index].0
+        let lat = guidePoints[index].1
+        let lon = guidePoints[index].2
+        let heading = guidePoints[index].3
+        let pitch = guidePoints[index].4
+        let zoom = guidePoints[index].5
         
+        if id != "" {
+            
+            self.panoramaView.move(toPanoramaID: id)
+            
+        }else if lat != 0.0, lon != 0.0{
+            
+            self.panoramaView.moveNearCoordinate(CLLocationCoordinate2D(latitude: lat, longitude: lon))
+            
+        }else{
+            createAlertView()
+        }
+        
+//
+//        self.panoramaView.moveNearCoordinate(CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(lon)))
+        
+        let camera = GMSPanoramaCamera(heading: heading , pitch: pitch, zoom: zoom)
+        panoramaView.camera = camera
+        
+        print("Test for move pano :\(lat),\(lon),\(heading),\(pitch),\(zoom)")
     }
     
     typealias HandleCompletion = (Bool, UIImage?) -> Void
