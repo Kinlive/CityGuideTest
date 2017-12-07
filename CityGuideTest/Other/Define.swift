@@ -36,6 +36,8 @@ let GET_BRANDIMG_URL = "upload/brand/"
 
 ///API: Request for search keyword.
 let GET_SEARCH_URL = "vtapp/getplace.php?name="
+///API: Share place.
+let SHARE_PLACE_URL = "https://www.viewtaiwan.com/embed.php?v="
 
 ///API: Request for hot place.
 let GET_HOTPLACE_URL = "vtapp/getdata.php?dbname=place&order=votes&desc=true&limit=5"

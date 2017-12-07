@@ -393,9 +393,9 @@ class Communicator: NSObject{
         
         for topPlace in topPlaceResultModel.topPlaceResultList{
             
-//            let imgName = topPlace.img.first ?? "noImg"
-            let imgId = topPlace.id
-            let urlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_IMG)"
+            let imgName = topPlace.img.first ?? "noImg"
+//            let imgId = topPlace.id
+            let urlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgName)"
 //            topOperationQueue.addOperation {
             guard let url = URL(string: urlStr.urlEncoded()) else {
                 print("NO url")

@@ -19,13 +19,15 @@ class VideoGuideViewController: UIViewController,YouTubePlayerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      
+      self.youtubePlayerView.delegate = self
+        
 //        addIndicatorView(activityIndicator: activityIndicator, superView: self.view)
         
         // Initialization code
-        if let youtubeID = saveInfoStruct.youtubeID {
-            print("youtubeID: \(youtubeID)")
-            youtubePlayerView.loadVideoID(youtubeID)
+        let youtubeIDs = saveInfoStruct.youtubeID
+        if youtubeIDs.count != 0 {
+            print("youtubeID: \(youtubeIDs)")
+            youtubePlayerView.loadVideoID(youtubeIDs[0])
         }else {
             print("It's no youtubeID .")
             youtubePlayerView.removeFromSuperview()
@@ -66,6 +68,8 @@ class VideoGuideViewController: UIViewController,YouTubePlayerDelegate {
 
     func playerStateChanged(_ videoPlayer: YouTubePlayerView, playerState: YouTubePlayerState) {
   
+      
+        
     }
     
     func playerReady(_ videoPlayer: YouTubePlayerView) {

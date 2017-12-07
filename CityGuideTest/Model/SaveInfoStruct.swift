@@ -48,7 +48,7 @@ struct SaveInfoStruct{
     var guideMapImageName: [String] = []
     var saveGuideMapNameForObject: String?
     
-    var youtubeID: String?
+    var youtubeID: [String] = []
     
     ///It's for check now is search request or not.
     var isSearchNow: CheckIsSearch = .noSearch

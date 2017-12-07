@@ -304,7 +304,7 @@ class SubSortTableViewController: UITableViewController {
                 
                 let imgName = searchResultObject.img.first ?? "noImg"
                 let imgId = searchResultObject.id
-                let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_IMG)"
+                let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgName)"
                 let cacheKey = "\(WhichAPIGet.searchKeyword)\(imgName)"
                 
                 if (cache.object(forKey: cacheKey as AnyObject) != nil){
@@ -333,7 +333,7 @@ class SubSortTableViewController: UITableViewController {
                             }
                         }else{
                             print("Not found img on jpg. ")
-                             let newImageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_PNG)"
+                             let newImageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgName)"
                             self.downloadImgQueueMethod(imageUrlStr: newImageUrlStr, completion: { (success, img) in
                                 if
                                     success,
@@ -391,7 +391,7 @@ class SubSortTableViewController: UITableViewController {
                         
                     }else{
                         //Prepare api for download image
-                        let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_IMG)"
+                        let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imageName)"
                         
                         downloadImgQueueMethod(imageUrlStr: imageUrlStr, completion: { (success, img) in
                             if success{
@@ -412,7 +412,7 @@ class SubSortTableViewController: UITableViewController {
                                 }
                             
                             }else{
-                                let newImageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_PNG)"
+                                let newImageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imageName)"
                                 self.downloadImgQueueMethod(imageUrlStr: newImageUrlStr, completion: { (success, img) in
                                     if
                                         success,
@@ -464,7 +464,7 @@ class SubSortTableViewController: UITableViewController {
                         
                     }else{
                         
-                        let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_IMG)"
+                        let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imageName)"
                         
                         downloadImgQueueMethod(imageUrlStr: imageUrlStr, completion: { (success, img) in
                             
@@ -486,7 +486,7 @@ class SubSortTableViewController: UITableViewController {
                                 }
                                 
                             }else{
-                                let newImageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_PNG)"
+                                let newImageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imageName)"
                                 self.downloadImgQueueMethod(imageUrlStr: newImageUrlStr, completion: { (success, img) in
                                     if
                                         success,
@@ -538,7 +538,7 @@ class SubSortTableViewController: UITableViewController {
                         
                     }else{
                         
-                        let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_IMG)"
+                        let imageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imageName)"
                         
                         downloadImgQueueMethod(imageUrlStr: imageUrlStr, completion: { (success, img) in
                             
@@ -560,7 +560,7 @@ class SubSortTableViewController: UITableViewController {
                                 }
                                 
                             }else{
-                                let newImageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_PNG)"
+                                let newImageUrlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imageName)"
                                 self.downloadImgQueueMethod(imageUrlStr: newImageUrlStr, completion: { (success, img) in
                                     if
                                         success,

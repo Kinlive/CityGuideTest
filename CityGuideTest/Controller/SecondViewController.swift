@@ -161,7 +161,7 @@ class SecondViewController: UIViewController {
             nextVc.itemId = topObject.id
             saveInfoStruct.mapPanoUrl = topObject.panorama
             saveInfoStruct.guideMapImageName = topObject.guideMap
-            saveInfoStruct.youtubeID = topObject.youtube.first
+            saveInfoStruct.youtubeID = topObject.youtube
             let imgName = topObject.img.first ?? "noImg"
             let imgCacheKey = "\(CheckWhichDataFrom.fromTopPlace)\(imgName)"
             print("Cache the img key : \(imgCacheKey)")
@@ -465,7 +465,7 @@ class SecondViewController: UIViewController {
             //Prepare the img url for second request.
             let imgName = topPlaceObject.img.first ?? "noImg"
             let imgId = topPlaceObject.id
-            let urlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgId)\(GET_COMPRESS_IMG)"
+            let urlStr = "\(ICLICK_URL)\(GET_PLACEIMG_URL)\(imgName)"
             let imgCacheKey = "\(CheckWhichDataFrom.fromTopPlace)\(imgName)"
             //Second request for download img.
             topOperator.addOperation {

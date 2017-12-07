@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import GoogleMaps
+import Social
 
 
 class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MKMapViewDelegate {
@@ -141,6 +142,28 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
     
     @IBAction func shareUrlBtn(_ sender: UIButton) {
         
+//        let shareMenu = UIAlertController(title: nil, message: "Share using", preferredStyle: .actionSheet)
+//        let twitterAction = UIAlertAction(title: "Twitter", style: .default) { (action) in
+        var shareItems: [AnyObject] = []
+        
+//        if let title = self.titleName{
+//            shareItems.append(title as AnyObject)
+//        }
+        
+//        if let img = self.titleImg.image{
+//            shareItems.append(img)
+//        }
+        if let id = self.itemId{
+            let showUrl = "\(SHARE_PLACE_URL)\(id)"
+            shareItems.append(showUrl as AnyObject)
+        }
+        
+        
+        let activityController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+            
+        activityController.excludedActivityTypes = [.message,.airDrop,.assignToContact,.addToReadingList,.mail,]
+        self.present(activityController, animated: true, completion: nil)
+        
     }
     
     
@@ -170,7 +193,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
             itemId = searchObject.id
             saveInfoStruct.mapPanoUrl = searchObject.panorama
             saveInfoStruct.guideMapImageName = searchObject.guideMap
-            saveInfoStruct.youtubeID = searchObject.youtube.first
+            saveInfoStruct.youtubeID = searchObject.youtube
             
             guard
                 let imgName = imageName,
@@ -206,7 +229,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
 //                print("Get the itemId: \(itemId)")
                 saveInfoStruct.mapPanoUrl = cityObject.panorama
                 saveInfoStruct.guideMapImageName = cityObject.guideMap
-                saveInfoStruct.youtubeID = cityObject.youtube.first
+                saveInfoStruct.youtubeID = cityObject.youtube
 //                print("YUOTUBEID: \(cityObject.youtube)")
                 
             case .types:
@@ -219,7 +242,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
                 itemId = typeObject.id
                 saveInfoStruct.mapPanoUrl = typeObject.panorama
                 saveInfoStruct.guideMapImageName = typeObject.guideMap
-                saveInfoStruct.youtubeID = typeObject.youtube.first
+                saveInfoStruct.youtubeID = typeObject.youtube
                 
             case .brands:
                 
@@ -232,7 +255,7 @@ class DetailsInfoViewController: UIViewController,UITableViewDelegate,UITableVie
                 itemId = brandObject.id
                 saveInfoStruct.mapPanoUrl = brandObject.panorama
                 saveInfoStruct.guideMapImageName = brandObject.guideMap
-                saveInfoStruct.youtubeID = brandObject.youtube.first
+                saveInfoStruct.youtubeID = brandObject.youtube
             }
             
             guard

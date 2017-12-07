@@ -15,9 +15,11 @@ class VideoGuideTableViewCell: UITableViewCell,YouTubePlayerDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        if let youtubeID = saveInfoStruct.youtubeID {
-            print("youtubeID: \(youtubeID)")
-            youtubeView.loadVideoID(youtubeID)
+        
+        let youtubeIDs = saveInfoStruct.youtubeID
+        if youtubeIDs.count != 0 {
+            print("youtubeID: \(youtubeIDs)")
+            youtubeView.loadVideoID(youtubeIDs[0])
         }else {
             print("It's no youtubeID .")
         }

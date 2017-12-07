@@ -133,7 +133,7 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
                 let imgName = tagListObject.img.first ?? "noImg"
                 let imgId = tagListObject.id
                 
-                let imgUrl = "\(ICLICK_URL)\(GET_TAGIMG_URL)\(imgId)\(GET_COMPRESS_IMG)"
+                let imgUrl = "\(ICLICK_URL)\(GET_TAGIMG_URL)\(imgName)"
                 let cacheKey = "\(CheckWhichDataFrom.fromList)\(imgName)"
                 let fileURL = componentURL(documentPath: getDocumentsDirectory(),
                                            with: cacheKey)
@@ -170,7 +170,7 @@ class TypeListTableViewCoordinator: NSObject ,UITableViewDelegate,UITableViewDat
                             }
                         }else{// If jpg now found img then try png again.
                             print("Not found the img")
-                            let newImgUrl = "\(ICLICK_URL)\(GET_TAGIMG_URL)\(imgId)\(GET_COMPRESS_PNG)"
+                            let newImgUrl = "\(ICLICK_URL)\(GET_TAGIMG_URL)\(imgName)"
                             self.downloadImgQueueMethod(imageUrlStr: newImgUrl, completion: { (success, img) in
                                 if success{
                                     OperationQueue.main.addOperation {

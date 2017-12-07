@@ -106,12 +106,12 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
     }
     
     override func viewWillAppear(_ animated: Bool) {
-         self.tabBarController?.hideTabBarAnimated(hide: true)
+//         self.tabBarController?.hideTabBarAnimated(hide: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
     
-        self.tabBarController?.hideTabBarAnimated(hide: false)
+//        self.tabBarController?.hideTabBarAnimated(hide: false)
 //        panoramaView.removeFromSuperview()
     }
   
@@ -130,12 +130,18 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
                 //Request for get guideMap object.
                 let guideMapUrl = "\(ICLICK_URL)\(GET_GUIDEMAPOBJECT_URL)\(imageName)"
                 print("GUIDEMAP========URL\(index)\(index)\(index):\(guideMapUrl)")
-                downloadImgQueue.addOperation {
+                let backgroundQueue = DispatchQueue(label: "downloadImg")
+                backgroundQueue.sync {
+                
+                
+//                downloadImgQueue.addOperation {
                     self.communicator.connectToServer(urlStr: guideMapUrl, whichApiGet: WhichAPIGet.guideMapObject, completion: { (success) in
                         //Get the guideMapObject.index pass to init btn
                         //and pass imgName to btn.
                         if success {
-                            OperationQueue.main.addOperation {
+//                            OperationQueue.main.addOperation {
+                            DispatchQueue.main.async {
+                                
                                 self.prepareForGuideMapFloor(tag: index, imgName: imageName)
                                 
                                 /////////
@@ -147,7 +153,8 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
                                         if success,
                                             let finalImg = img{
                                             OperationQueue.main.addOperation {
-                                                
+//                                            DispatchQueue.main.async {
+                                            
                                                 //Add the img to dictionary.
                                                 self.guideMapImagesTest[imageName] = finalImg
                                                 //Prepare the scale for panorama's point.
@@ -181,15 +188,27 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
     }
     
     
+    var currentPositionX: CGFloat = 1
+//    var currentWidht: CGFloat = 0
+    var btnCount = 0
+    
     //MARK: - Prepare for guide map floor change btn
     func prepareForGuideMapFloor(tag: Int, imgName: String){
         
         let btnPositionY: CGFloat = 0
         
-        let floorBtnWidth = tapBtnOut.bounds.width/1.2
+        let floorBtnWidth = tapBtnOut.bounds.width/2
         let floorBtnHeight = tapBtnOut.bounds.height
+        var btnPositionX: CGFloat = 0
         
-        let btnPositionX: CGFloat = floorBtnWidth*CGFloat(tag) + 1
+        print("Tag::::::::::::\(tag)")
+        
+        if btnCount == 0{
+            btnPositionX = 1
+        }else{
+            btnPositionX =  currentPositionX//前一個btn的寬度+上x
+        }
+//        let btnPositionX: CGFloat = floorBtnWidth*CGFloat(tag) + 1
         
 //        for (index,imgName) in guideMapName.enumerated(){
             if let guideMapObj = guideMapModel.guideMapObjectList[imgName]{
@@ -197,13 +216,23 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
                 let floorBtn = UIButton()
                 floorBtn.setTitle("\(guideMapObj.title)", for: .normal)
                 floorBtn.frame = CGRect(x: btnPositionX, y: btnPositionY, width: floorBtnWidth, height: floorBtnHeight)
+                print("First Widht: \(floorBtnWidth)")
                 floorBtn.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
                 floorBtn.tag = tag
                 floorBtn.addTarget(self, action: #selector(floorBtnPress(sender:)), for: .touchUpInside)
+                floorBtn.sizeToFit()
+                
+                currentPositionX += floorBtn.frame.width + 1
+                print("CurrentPositionX : \(currentPositionX) , ")
+//                currentWidht += floorBtn.frame.size.width
+//                print("Get floor btn's width:\(floorBtn.frame.size.width)")
+                
                 floorBtnBgView.addSubview(floorBtn)
+                btnCount += 1
                 //            btnPositionY -= btnHeight - 1
                 //            btnPositionY += btnHeight + 1
 //                btnPositionX = floorBtnWidth*CGFloat(tag) + 1
+                
                 
             }
 //        }
@@ -216,10 +245,12 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
     func createBtnWith(index: Int, position: (CGFloat, CGFloat)){
         
         let btn = UIButton()
-        btn.setTitle("\(index + 1)", for: .normal)
+        btn.setTitle("", for: .normal)
         btn.frame = CGRect(x: position.0, y: position.1, width: 20, height: 20)
         btn.tag = index
         btn.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        btn.layer.cornerRadius = btn.bounds.width/2
+        btn.layer.masksToBounds = true
         btn.addTarget(self, action: #selector(guidePointsBtnPress(sender:)), for: .touchUpInside)
         self.btnArrays.append(btn)
         
@@ -238,27 +269,28 @@ class PanoViewController: UIViewController,GMSMapViewDelegate,GMSPanoramaViewDel
         
         //All prepare for point btn.
         
-//        let imgViewWidth = self.guideMapImageView.frame.width
-//        let imgViewHeight = self.guideMapImageView.frame.height
+        let imgViewWidth = self.guideMapImageView.bounds.width
+        let imgViewHeight = self.guideMapImageView.bounds.height
         
+        print("GuideMapImageView Width:\(imgViewWidth), Height:\(imgViewHeight)")
         //                            self.guideMapImages.append(finalImg)
         if let guideMapObject = guideMapModel.guideMapObjectList[imageName]{
-//            let oldImgWidth = finalImg.size.width
-//            let oldImgHeight = finalImg.size.height
-            
-            let newWidthScale: CGFloat = 0.9 //imgViewWidth/oldImgWidth
-            let newHeightScale: CGFloat = 0.6 //imgViewHeight/oldImgHeight
-//            print("SCALESCALESCALE:\(newWidthScale),,\(newHeightScale)")
+            let oldImgWidth = finalImg.size.width
+            let oldImgHeight = finalImg.size.height
+            print("Title:\(guideMapObject.title)OldImage Width: \(oldImgWidth), Height: \(oldImgHeight)")
+            let newWidthScale: CGFloat = imgViewWidth/oldImgWidth //0.9
+            let newHeightScale: CGFloat = imgViewHeight/oldImgHeight //0.6
+            print("SCALESCALESCALE:\(newWidthScale),,\(newHeightScale)")
             
             var newPositions: [(CGFloat,CGFloat)] = []
             for (_, location) in guideMapObject.location.enumerated(){
                 //Init the point btn.
                 let newPosiX = CGFloat(location.x) * newWidthScale
                 let newPosiY = CGFloat(location.y) * newHeightScale
-//                print("LocationX:\(location.x) , Y: \(location.y) fixedX: \(newPosiX) and Y:\(newPosiY)")
+                print("LocationX:\(location.x) , Y: \(location.y) fixedX: \(newPosiX) and Y:\(newPosiY)")
                 let newPosi = (newPosiX, newPosiY)
                 
-                print("NewPosiX and Y : \(newPosi)")
+//                print("NewPosiX and Y : \(newPosi)")
                 newPositions.append(newPosi)
                 
                 let lat = Double(location.latitude) ?? 0.0
